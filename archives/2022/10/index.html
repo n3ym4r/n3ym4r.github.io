@@ -1,62 +1,57 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post-collapse.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+<link rel="stylesheet" href="/styles/base.css">
 
-{% block title %}{{ __('title.archive') }} | {{ config.title }}{% endblock %}
+    
+<link rel="stylesheet" href="/styles/theme.css">
 
-{% block page_class %}page-archive{% endblock %}
-
-{% block content %}
-
-  {#####################}
-  {### ARCHIVE BLOCK ###}
-  {#####################}
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
-
-      <span class="archive-page-counter">
-        {% set cheers %}
-        {% set posts_length = site.posts.length %}
-        {% if posts_length > 210 %} {% set cheers = 'excellent' %}
-          {% elif posts_length > 130 %} {% set cheers = 'great' %}
-          {% elif posts_length > 80 %} {% set cheers = 'good' %}
-          {% elif posts_length > 50 %} {% set cheers = 'nice' %}
-          {% elif posts_length > 30 %} {% set cheers = 'ok' %}
-        {% else %}
-          {% set cheers = 'um' %}
-        {% endif %}
-        {{ __('cheers.' + cheers) }}! {{ _p("counter.archive_posts", site.posts.length) }} {{ __('keep_on') }}
-      </span>
-
-      {% for post in page.posts %}
-
-        {# Show year #}
-        {% set year %}
-        {% set post.year = date(post.date, 'YYYY') %}
-
-        {% if post.year !== year %}
-          {% set year = post.year %}
-          <div class="collection-title">
-            <{% if theme.seo %}h2{% else %}h1{% endif %} class="archive-year" id="archive-year-{{ year }}">{{ year }}</{% if theme.seo %}h2{% else %}h1{% endif %}>
-          </div>
-        {% endif %}
-        {# endshow #}
-
-        {{ post_template.render(post) }}
-
-      {% endfor %}
-
+    <link rel="shortcut icon" href="/">
+    
+    <title>Home - Hexo</title>
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+    <div class="header-title">
+        <span class="header-light"></span>
+        <span class="header-light"></span>
+        <span class="header-light"></span>
+        <span>Hexo example.com<span>
     </div>
-  </div>
-  {#########################}
-  {### END ARCHIVE BLOCK ###}
-  {#########################}
+    <div class="container">
+        <ul class="nav">
+        
+            <li><a href="/">Home</a></li>
+        
+        </ul>
+        <div class="content">
+            
+<div class="post-item">
+    <div class="post-header">
+        <span class="ui-tips post-index">1.</span>
+        <h2><a href="/2022/10/15/hello-world/">Hello World</a></h2>
+        <span class="post-date">2022-10-15</span>
+    </div>
+    <div class="post-content">
+        Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ...
+    </div>
+</div>
 
-  {% include '_partials/pagination.swig' %}
 
-{% endblock %}
 
-{% block sidebar %}
-  {{ sidebar_template.render(false) }}
-{% endblock %}
+
+        </div>
+        <div class="footer">
+            
+            <p class="footer-copyright">
+                <span>Powered by <a target="_blank" href="https://hexo.io">Hexo</a></span>
+                <span>Theme <a target="_blank" href="https://github.com/tinkink-co/hexo-theme-terminal">Terminal</a></span>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
