@@ -1,113 +1,70 @@
-/**
- * Sets up Justified Gallery.
- */
-if (!!$.prototype.justifiedGallery) {
-  var options = {
-    rowHeight: 140,
-    margins: 4,
-    lastRow: "justify"
-  };
-  $(".article-gallery").justifiedGallery(options);
-}
+/* global KEEP */
 
-$(document).ready(function() {
+window.addEventListener('DOMContentLoaded', () => {
+  const { version, local_search, code_block_tools, code_copy, lazyload } = KEEP.theme_config
 
-  /**
-   * Shows the responsive navigation menu on mobile.
-   */
-  $("#header > #nav > ul > .icon").click(function() {
-    $("#header > #nav > ul").toggleClass("responsive");
-  });
+  KEEP.themeInfo = {
+    theme: `Keep v${version}`,
+    author: 'XPoet',
+    repository: 'https://github.com/XPoet/hexo-theme-keep'
+  }
 
+  KEEP.localStorageKey = 'KEEP-THEME-STATUS'
 
-  /**
-   * Controls the different versions of  the menu in blog post articles 
-   * for Desktop, tablet and mobile.
-   */
-  if ($(".post").length) {
-    var menu = $("#menu");
-    var nav = $("#menu > #nav");
-    var menuIcon = $("#menu-icon, #menu-icon-tablet");
+  KEEP.styleStatus = {
+    isExpandPageWidth: false,
+    isDark: false,
+    fontSizeLevel: 0,
+    isOpenPageAside: true
+  }
 
-    /**
-     * Display the menu on hi-res laptops and desktops.
-     */
-    if ($(document).width() >= 1440) {
-      menu.show();
-      menuIcon.addClass("active");
-    }
+  // print theme base info
+  KEEP.printThemeInfo = () => {
+    console.log(
+      `\n %c ${KEEP.themeInfo.theme} %c ${KEEP.themeInfo.repository} \n`,
+      `color: #fadfa3; background: #333; padding: 6px 0;`,
+      `padding: 6px 0;`
+    )
+  }
 
-    /**
-     * Display the menu if the menu icon is clicked.
-     */
-    menuIcon.click(function() {
-      if (menu.is(":hidden")) {
-        menu.show();
-        menuIcon.addClass("active");
-      } else {
-        menu.hide();
-        menuIcon.removeClass("active");
+  // set styleStatus to localStorage
+  KEEP.setStyleStatus = () => {
+    localStorage.setItem(KEEP.localStorageKey, JSON.stringify(KEEP.styleStatus))
+  }
+
+  // get styleStatus from localStorage
+  KEEP.getStyleStatus = () => {
+    let temp = localStorage.getItem(KEEP.localStorageKey)
+    if (temp) {
+      temp = JSON.parse(temp)
+      for (let key in KEEP.styleStatus) {
+        KEEP.styleStatus[key] = temp[key]
       }
-      return false;
-    });
-
-    /**
-     * Add a scroll listener to the menu to hide/show the navigation links.
-     */
-    if (menu.length) {
-      $(window).on("scroll", function() {
-        var topDistance = menu.offset().top;
-
-        // hide only the navigation links on desktop
-        if (!nav.is(":visible") && topDistance < 50) {
-          nav.show();
-        } else if (nav.is(":visible") && topDistance > 100) {
-          nav.hide();
-        }
-
-        // on tablet, hide the navigation icon as well and show a "scroll to top
-        // icon" instead
-        if ( ! $( "#menu-icon" ).is(":visible") && topDistance < 50 ) {
-          $("#menu-icon-tablet").show();
-          $("#top-icon-tablet").hide();
-        } else if (! $( "#menu-icon" ).is(":visible") && topDistance > 100) {
-          $("#menu-icon-tablet").hide();
-          $("#top-icon-tablet").show();
-        }
-      });
-    }
-
-    /**
-     * Show mobile navigation menu after scrolling upwards,
-     * hide it again after scrolling downwards.
-     */
-    if ($( "#footer-post").length) {
-      var lastScrollTop = 0;
-      $(window).on("scroll", function() {
-        var topDistance = $(window).scrollTop();
-
-        if (topDistance > lastScrollTop){
-          // downscroll -> show menu
-          $("#footer-post").hide();
-        } else {
-          // upscroll -> hide menu
-          $("#footer-post").show();
-        }
-        lastScrollTop = topDistance;
-
-        // close all submenu"s on scroll
-        $("#nav-footer").hide();
-        $("#toc-footer").hide();
-        $("#share-footer").hide();
-
-        // show a "navigation" icon when close to the top of the page, 
-        // otherwise show a "scroll to the top" icon
-        if (topDistance < 50) {
-          $("#actions-footer > #top").hide();
-        } else if (topDistance > 100) {
-          $("#actions-footer > #top").show();
-        }
-      });
+      return temp
+    } else {
+      return null
     }
   }
-});
+
+  KEEP.refresh = () => {
+    KEEP.initUtils()
+    KEEP.initHeaderShrink()
+    KEEP.initModeToggle()
+    KEEP.initBack2Top()
+
+    if (local_search?.enable === true) {
+      KEEP.initLocalSearch()
+    }
+
+    if (code_block_tools?.enable === true || code_copy?.enable === true) {
+      KEEP.initCodeBlockTools()
+    }
+
+    if (lazyload?.enable === true) {
+      KEEP.initLazyLoad()
+    }
+  }
+
+  KEEP.printThemeInfo()
+  KEEP.refresh()
+})
