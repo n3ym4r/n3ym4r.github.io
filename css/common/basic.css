@@ -1,14 +1,14 @@
 :root {
   --background-color: #fff;
   --second-background-color: #f7f7f7;
-  --primary-color: #06c;
+  --primary-color: #5ed5cc;
   --first-text-color: #484853;
   --second-text-color: #4c4c57;
   --third-text-color: #808091;
   --fourth-text-color: #ededef;
   --default-text-color: #50505c;
   --border-color: #b3b3b3;
-  --selection-color: #0075eb;
+  --selection-color: #6ed9d1;
   --shadow-color: rgba(0,0,0,0.2);
   --shadow-hover-color: rgba(0,0,0,0.28);
   --scrollbar-color: #595967;
@@ -24,14 +24,14 @@
   :root {
     --background-color: #fff;
     --second-background-color: #f7f7f7;
-    --primary-color: #06c;
+    --primary-color: #5ed5cc;
     --first-text-color: #484853;
     --second-text-color: #4c4c57;
     --third-text-color: #808091;
     --fourth-text-color: #ededef;
     --default-text-color: #50505c;
     --border-color: #b3b3b3;
-    --selection-color: #0075eb;
+    --selection-color: #6ed9d1;
     --shadow-color: rgba(0,0,0,0.2);
     --shadow-hover-color: rgba(0,0,0,0.28);
     --scrollbar-color: #595967;
@@ -48,14 +48,14 @@
   :root {
     --background-color: #383940;
     --second-background-color: #32333a;
-    --primary-color: #06c;
+    --primary-color: #5ed5cc;
     --first-text-color: #d2d2d7;
     --second-text-color: #cbcbd1;
     --third-text-color: #9595a2;
     --fourth-text-color: #2d2d34;
     --default-text-color: #bebec6;
     --border-color: #5c5e6a;
-    --selection-color: #0075eb;
+    --selection-color: #6ed9d1;
     --shadow-color: rgba(128,128,128,0.2);
     --shadow-hover-color: rgba(128,128,128,0.28);
     --scrollbar-color: #32333a;
@@ -71,14 +71,14 @@
 .light-mode {
   --background-color: #fff;
   --second-background-color: #f7f7f7;
-  --primary-color: #06c;
+  --primary-color: #5ed5cc;
   --first-text-color: #484853;
   --second-text-color: #4c4c57;
   --third-text-color: #808091;
   --fourth-text-color: #ededef;
   --default-text-color: #50505c;
   --border-color: #b3b3b3;
-  --selection-color: #0075eb;
+  --selection-color: #6ed9d1;
   --shadow-color: rgba(0,0,0,0.2);
   --shadow-hover-color: rgba(0,0,0,0.28);
   --scrollbar-color: #595967;
@@ -93,14 +93,14 @@
 .dark-mode {
   --background-color: #383940;
   --second-background-color: #32333a;
-  --primary-color: #06c;
+  --primary-color: #5ed5cc;
   --first-text-color: #d2d2d7;
   --second-text-color: #cbcbd1;
   --third-text-color: #9595a2;
   --fourth-text-color: #2d2d34;
   --default-text-color: #bebec6;
   --border-color: #5c5e6a;
-  --selection-color: #0075eb;
+  --selection-color: #6ed9d1;
   --shadow-color: rgba(128,128,128,0.2);
   --shadow-hover-color: rgba(128,128,128,0.28);
   --scrollbar-color: #32333a;
@@ -407,6 +407,10 @@ button {
   transition-timing-function: ease, ease, ease, ease, linear;
   transition-duration: 0.2s, 0.2s, 0.2s, 0.2s, 0.2s;
   transition-property: color, background, box-shadow, border-color, transform;
+}
+.btn:hover {
+  transform: scaleX(1.06) scaleY(1.06);
+  box-shadow: 2px 2px 8px var(--shadow-hover-color);
 }
 .btn:hover {
   color: var(--background-color);
