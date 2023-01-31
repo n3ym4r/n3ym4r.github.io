@@ -9,7 +9,7 @@
     
     <title>
         
-            Hello World |
+            Ambassador靶机 |
         
         n3ym4r&#39;s blog
     </title>
@@ -173,7 +173,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">Hello World</span>
+            <span class="title-hover-animation">Ambassador靶机</span>
         </div>
 
         
@@ -193,27 +193,42 @@
         
             <i class="fa-regular fa-calendar-plus"></i>&nbsp;
         
-        <span class="pc">2022-10-15 22:14:09</span>
-        <span class="mobile">2022-10-15 22:14</span>
+        <span class="pc">2023-01-31 18:51:14</span>
+        <span class="mobile">2023-01-31 18:51</span>
     </span>
     
         <span class="article-update-date article-meta-item">
         <i class="fas fa-file-pen"></i>&nbsp;
-        <span class="pc">2022-10-15 22:14:09</span>
+        <span class="pc">2023-01-31 19:18:52</span>
     </span>
     
     
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E6%89%93%E9%9D%B6/">打靶</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/">渗透测试</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
     
 
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>75 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>669 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>1 分钟</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>2 分钟</span>
         </span>
     
     
@@ -225,19 +240,77 @@
         
 
         <div class="article-content markdown-body">
-            <p>Welcome to <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/" >Hexo<i class="fas fa-external-link-alt"></i></a>! This is your very first post. Check <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/" >documentation<i class="fas fa-external-link-alt"></i></a> for more info. If you get any problems when using Hexo, you can find the answer in <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html" >troubleshooting<i class="fas fa-external-link-alt"></i></a> or you can ask me on <a class="link"   target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues" >GitHub<i class="fas fa-external-link-alt"></i></a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;
-</code></pre>
-<p>More info: <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html" >Writing<i class="fas fa-external-link-alt"></i></a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server
-</code></pre>
-<p>More info: <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/server.html" >Server<i class="fas fa-external-link-alt"></i></a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate
-</code></pre>
-<p>More info: <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html" >Generating<i class="fas fa-external-link-alt"></i></a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy
-</code></pre>
-<p>More info: <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html" >Deployment<i class="fas fa-external-link-alt"></i></a></p>
+            <h1 id="Ambassador靶机"><a href="#Ambassador靶机" class="headerlink" title="Ambassador靶机"></a>Ambassador靶机</h1><p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.1env5ctmw80w.webp" alt="image"></p>
+<h4 id="信息收集"><a href="#信息收集" class="headerlink" title="信息收集"></a>信息收集</h4><p>打开靶机环境，拿到靶机ip</p>
+<p>nmap扫描端口</p>
+<img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.3ap5nx90uko0.webp" alt="image" style="zoom:150%;" />
+
+<p>扫出22 80 3000 3306端口</p>
+<p>访问80以及3000端口</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.66qtr6ott1w0.webp" alt="image"></p>
+<p>文章提示，有一个developer账户可以去访问ssh</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.1k7ncq589bog.webp" alt="image"></p>
+<p>访问3000端口发现是Grafana系统</p>
+<h4 id="3000端口漏洞发现"><a href="#3000端口漏洞发现" class="headerlink" title="3000端口漏洞发现"></a>3000端口漏洞发现</h4><p>Google一下，发现有任意文件读取漏洞</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.3g85if2uks40.webp" alt="image"></p>
+<h4 id="任意文件读取漏洞利用"><a href="#任意文件读取漏洞利用" class="headerlink" title="任意文件读取漏洞利用"></a>任意文件读取漏洞利用</h4><p>同时，searchsploit也能搜到这个漏洞，可以直接利用exp</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.ejnbwaa124w.webp" alt="image"></p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.2enr005j4074.webp" alt="image"></p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.70r9sks6ixc0.webp" alt="image"></p>
+<p>可以看到读取 &#x2F;etc&#x2F;passwd 成功，也就意味着可以读取到任意文件，那么我们可以读一下这个Grafana系统的配置文件来获取信息</p>
+<p>google一下，得到配置文件路径 &#x2F;etc&#x2F;grafana&#x2F;grafana.ini</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.6ov8yqgwtgk0.webp" alt="image"></p>
+<p>读取配置文件，翻看找到数据库配置以及网站用户名密码</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.4qwmz6ov55k0.webp" alt="image"></p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.3dqugqlojec0.webp" alt="image"></p>
+<p>登入网站后台，没发现什么有用的信息</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.48irh500e4g0.webp" alt="image"></p>
+<h4 id="grafana-db数据库查找"><a href="#grafana-db数据库查找" class="headerlink" title="grafana.db数据库查找"></a>grafana.db数据库查找</h4><p>这时候可以将数据库脱出来，查找3306端口的用户名密码</p>
+<p>先将grafana.db下载下来，这样就可以用命令来操作</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.1uhyzhmg5jxc.webp" alt="image"></p>
+<p>这里用到–path-as-is 不会压缩url，如果不用就会把..&#x2F;..&#x2F;..&#x2F;给忽略就会访问不到数据库文件</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.6y8vr704dao0.webp" alt="image"></p>
+<h4 id="3306端口连接"><a href="#3306端口连接" class="headerlink" title="3306端口连接"></a>3306端口连接</h4><p>在data_source下找到mysql用户名和密码，账号：grafana 密码：dontStandSoCloseToMe63221!，拿去登录3306端口</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.4b0rc319hzc0.webp" alt="image"></p>
+<p>连接成功，一通操作，在whackywidget数据库里找到了developer用户的密码，根据80端口的网站提示，这个用户可以登录ssh，base64解密后登录ssh。</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.4mh83nd9u3c0.webp" alt="image"></p>
+<p>解码得到明文密码</p>
+<h4 id="22端口连接"><a href="#22端口连接" class="headerlink" title="22端口连接"></a>22端口连接</h4><p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.6moyxaw1cmc0.webp" alt="image"></p>
+<p>成功连接</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.1seudk0hvpr4.webp" alt="image"></p>
+<p>拿到了user权限，同时得到了user的flag</p>
+<h4 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h4><p>这时候我们需要提权到root用户权限获取flag</p>
+<h5 id="1-内核提权"><a href="#1-内核提权" class="headerlink" title="1.内核提权"></a>1.内核提权</h5><p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.488tglenali0.webp" alt="image"></p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.4ty1568d7si0.webp" alt="image"></p>
+<p>可以看到，没有可用的exp</p>
+<h5 id="2-sudo提权"><a href="#2-sudo提权" class="headerlink" title="2.sudo提权"></a>2.sudo提权</h5><p><a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/god_zzZ/article/details/113628793" >https://blog.csdn.net/god_zzZ/article/details/113628793<i class="fas fa-external-link-alt"></i></a></p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.55qszwmzjng0.webp" alt="image"></p>
+<p>可以看到不存在该漏洞，无法提权</p>
+<h5 id="3-SUID提权"><a href="#3-SUID提权" class="headerlink" title="3.SUID提权"></a>3.SUID提权</h5><p><a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/Fly_hps/article/details/80428173" >https://blog.csdn.net/Fly_hps/article/details/80428173<i class="fas fa-external-link-alt"></i></a></p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.58gdsrsf2j40.webp" alt="image"></p>
+<p>没有能够用来提权的目标</p>
+<h5 id="4-计划任务提权"><a href="#4-计划任务提权" class="headerlink" title="4.计划任务提权"></a>4.计划任务提权</h5><p><a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/q20010619/article/details/121422797" >https://blog.csdn.net/q20010619/article/details/121422797<i class="fas fa-external-link-alt"></i></a></p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.1wma4qh2qbpc.webp" alt="image"></p>
+<p>没有可利用的点</p>
+<h5 id="5-x2F-git-consul-API提权"><a href="#5-x2F-git-consul-API提权" class="headerlink" title="5.&#x2F;git consul API提权"></a>5.&#x2F;git consul API提权</h5><p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.vvwr67eax1s.webp" alt="image"></p>
+<p>可以看到，开了一个consul服务</p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://www.infosecmatter.com/metasploit-module-library/?mm=exploit/multi/misc/consul_service_exec" >https://www.infosecmatter.com/metasploit-module-library/?mm=exploit/multi/misc/consul_service_exec<i class="fas fa-external-link-alt"></i></a></p>
+<p>这个服务的目标端口为80、443、3000、8000、8008、8080、8443， 8500、8880、8888</p>
+<p>查看开了哪些端口</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.7jrp15yak280.webp" alt="image"></p>
+<p>确定服务器是用8500端口开的这个consul服务</p>
+<p>访问失败</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.3kh9iygpm5m0.webp" alt="image"></p>
+<p>直接跑msf里的exp也失败</p>
+<h6 id="端口转发"><a href="#端口转发" class="headerlink" title="端口转发"></a>端口转发</h6><p>已知之前nmap扫端口也没扫到8500，容易得打，8500端口只对内网开放，这时候就需要将端口转发到本地</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.4n9kz53s5yu0.webp" alt="image"></p>
+<h6 id="反弹shell"><a href="#反弹shell" class="headerlink" title="反弹shell"></a>反弹shell</h6><p>利用msf中的exp</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.1i72wmw01n8g.webp" alt="image"></p>
+<p>查看需要配置的参数进行配置</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.5bqfwdr01ts0.webp" alt="image"></p>
+<p>反弹成功</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.46m8d157t7e0.webp" alt="image"></p>
+<p>得到flag</p>
 
         </div>
 
@@ -245,11 +318,11 @@
             <div class="post-copyright-info">
                 <div class="article-copyright-info-container">
     <ul class="copyright-info-content">
-        <li>本文标题：Hello World</li>
+        <li>本文标题：Ambassador靶机</li>
         <li>本文作者：n3ym4r</li>
-        <li>创建时间：2022-10-15 22:14:09</li>
+        <li>创建时间：2023-01-31 18:51:14</li>
         <li>
-            本文链接：https://n3ym4r.github.io/2022/10/15/hello-world/
+            本文链接：https://n3ym4r.github.io/2023/01/31/Ambassador靶机/
         </li>
         <li>
             版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -261,33 +334,30 @@
         
 
         
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/%E6%89%93%E9%9D%B6/">#打靶</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item">
+                        <a href="/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/">#渗透测试</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
 
         
             <div class="article-nav">
-                
-                    <div class="article-prev">
-                        <a class="prev"
-                           rel="prev"
-                           href="/2023/01/31/Ambassador%E9%9D%B6%E6%9C%BA/"
-                        >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item">Ambassador靶机</span>
-                                <span class="post-nav-item">上一篇</span>
-                            </span>
-                        </a>
-                    </div>
                 
                 
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2020/04/07/sql%E6%B3%A8%E5%85%A5/"
+                           href="/2022/10/15/hello-world/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">SQL注入学习笔记</span>
+                                <span class="post-nav-title-item">Hello World</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -405,7 +475,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Ambassador%E9%9D%B6%E6%9C%BA"><span class="nav-text">Ambassador靶机</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86"><span class="nav-text">信息收集</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3000%E7%AB%AF%E5%8F%A3%E6%BC%8F%E6%B4%9E%E5%8F%91%E7%8E%B0"><span class="nav-text">3000端口漏洞发现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8"><span class="nav-text">任意文件读取漏洞利用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#grafana-db%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9F%A5%E6%89%BE"><span class="nav-text">grafana.db数据库查找</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3306%E7%AB%AF%E5%8F%A3%E8%BF%9E%E6%8E%A5"><span class="nav-text">3306端口连接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#22%E7%AB%AF%E5%8F%A3%E8%BF%9E%E6%8E%A5"><span class="nav-text">22端口连接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8F%90%E6%9D%83"><span class="nav-text">提权</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E5%86%85%E6%A0%B8%E6%8F%90%E6%9D%83"><span class="nav-text">1.内核提权</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-sudo%E6%8F%90%E6%9D%83"><span class="nav-text">2.sudo提权</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-SUID%E6%8F%90%E6%9D%83"><span class="nav-text">3.SUID提权</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1%E6%8F%90%E6%9D%83"><span class="nav-text">4.计划任务提权</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-x2F-git-consul-API%E6%8F%90%E6%9D%83"><span class="nav-text">5.&#x2F;git consul API提权</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91"><span class="nav-text">端口转发</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%8F%8D%E5%BC%B9shell"><span class="nav-text">反弹shell</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li></ol>
     </div>
 </div>
         </aside>
