@@ -9,7 +9,7 @@
     
     <title>
         
-            Ambassador靶机 |
+            Hack the box-Starting point TIER0通关 |
         
         n3ym4r&#39;s blog
     </title>
@@ -173,7 +173,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">Ambassador靶机</span>
+            <span class="title-hover-animation">Hack the box-Starting point TIER0通关</span>
         </div>
 
         
@@ -193,13 +193,13 @@
         
             <i class="fa-regular fa-calendar-plus"></i>&nbsp;
         
-        <span class="pc">2023-01-31 18:51:14</span>
-        <span class="mobile">2023-01-31 18:51</span>
+        <span class="pc">2023-02-01 14:06:14</span>
+        <span class="mobile">2023-02-01 14:06</span>
     </span>
     
         <span class="article-update-date article-meta-item">
         <i class="fas fa-file-pen"></i>&nbsp;
-        <span class="pc">2023-02-01 14:06:32</span>
+        <span class="pc">2023-02-01 14:06:52</span>
     </span>
     
     
@@ -227,12 +227,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>669 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>2.2k 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>2 分钟</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>9 分钟</span>
         </span>
     
     
@@ -244,77 +244,202 @@
         
 
         <div class="article-content markdown-body">
-            <h1 id="Ambassador靶机"><a href="#Ambassador靶机" class="headerlink" title="Ambassador靶机"></a>Ambassador靶机</h1><p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.1env5ctmw80w.webp" alt="image"></p>
-<h4 id="信息收集"><a href="#信息收集" class="headerlink" title="信息收集"></a>信息收集</h4><p>打开靶机环境，拿到靶机ip</p>
-<p>nmap扫描端口</p>
-<img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.3ap5nx90uko0.webp" alt="image" style="zoom:150%;" />
+            <h2 id="TIER0"><a href="#TIER0" class="headerlink" title="TIER0"></a>TIER0</h2><h3 id="Meow靶机"><a href="#Meow靶机" class="headerlink" title="Meow靶机"></a>Meow靶机</h3><p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.bm6ya8lii8g.webp" alt="image"></p>
+<p>1）下载openvpn的配置，进行连接</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.vt5i40bj96o.webp" alt="image"></p>
+<p>查看是否连接成功</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.6dgnjqylec00.webp" alt="image"></p>
+<p>2）创建一个新的实例：新实例内网ip为10.129.98.33</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.29kere9sfzpc.webp" alt="image"></p>
+<p>3）接下来就是一些问答题</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/%E5%9B%BE%E7%89%87.2rw0qff61oao.webp" alt="图片"></p>
+<p>1.What does the acronym VM stand for?（VM是什么的缩写）<br><strong>virtual machine</strong><br>2.What tool do we use to interact with the operating system in order to start our vpn connection?(我们用什么工具与操作系统进行交互进而开启我们的vpn连接？)<br><strong>terminal</strong><br>3.What service do we use to form our vpn connection?（我们用什么服务形成我们vpn连接？）<br><strong>openvpn</strong><br>4.What is the abreviated name for a tunnel interface in the output of your vpn boot-up sequence output?（vpn启动后隧道接口的缩写名称是什么）<br><strong>tun</strong><br>5.What tool do we use to test our connection to the target?（我们用什么工具来测试与目标靶机的连接？）<br><strong>ping</strong><br>6.What is the name of the tool we use to scan the target’s ports?（我们用什么工具来扫描目标靶机的端口？）<br><strong>nmap</strong><br>7.What service do we identify on port 23&#x2F;tcp during our scans?（在我们的扫描结果中tcp23端口被我们认定为是什么服务）<br><strong>telnet</strong><br>8.What username ultimately works with the remote management login prompt for the target?（哪个用户名最终可以成功远程登录到目标靶机？）<br><strong>root</strong></p>
+<p>9.获取flag</p>
+<p>nmap探测开放端口</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/%E5%9B%BE%E7%89%87.3293m94h4c8w.webp" alt="图片"></p>
+<p>扫出23端口telnet服务</p>
+<p>尝试连接</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/%E5%9B%BE%E7%89%87.264u5nv61uow.webp" alt="图片"></p>
+<p>root用户，空密码连接成功，拿到shell，找flag</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/%E5%9B%BE%E7%89%87.3yb3jtub3zwg.webp" alt="图片"></p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/%E5%9B%BE%E7%89%87.768779z2ylj4.webp" alt="图片"></p>
+<h3 id="Fawn靶机"><a href="#Fawn靶机" class="headerlink" title="Fawn靶机"></a>Fawn靶机</h3><p>1）vpn连接，不做展示了</p>
+<p>2）创建实例拿到ip</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/%E5%9B%BE%E7%89%87.6aiicvbx5kw0.webp" alt="图片"></p>
+<p>3）接下来几个问答题 </p>
+<p>1.What does the 3-letter acronym FTP stand for?（FTP是什么的简称？）</p>
+<p><strong>File Transfer Protocol</strong></p>
+<p>2.Which port is the FTP service active on usually?（通常情况下，FTP活跃在哪个端口？）</p>
+<p><strong>21 tcp</strong></p>
+<p>3.What acronym is used for the secure version of FTP?（安全版本的FTP的简称是什么？）</p>
+<p><strong>sftp</strong></p>
+<p>4.What is the command we can use to send an ICMP echo request to test our connection to the target?</p>
+<p><strong>ping</strong></p>
+<p>5.From your scans, what version is FTP running on the target?（根据你的扫描，目标上运行的FTP是什么版本?）</p>
+<p><strong>-sV 探测服务&#x2F;版本信息 我们可以看到 开放21端口的ftp协议 版本是 vsftpd 3.0.3</strong></p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/%E5%9B%BE%E7%89%87.3nwjhv3e2c00.webp" alt="图片"></p>
+<p>6.From your scans, what OS type is running on the target? </p>
+<p><strong>Unix</strong></p>
+<p>7.What is the command we need to run in order to display the ‘ftp’ client help menu?（为了显示“ftp”客户端帮助菜单，我们需要运行什么命令?）</p>
+<p><strong>ftp -h</strong></p>
+<p>8.What is username that is used over FTP when you want to log in without having an account? </p>
+<p><strong>FTP没有账户时候我们可以用username: anonymous 采用匿名访问;</strong></p>
+<p>9.What is the response code we get for the FTP message ‘Login successful’? </p>
+<p><strong>230</strong></p>
+<ul>
+<li><pre><code>FTP状态码
 
-<p>扫出22 80 3000 3306端口</p>
-<p>访问80以及3000端口</p>
-<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.66qtr6ott1w0.webp" alt="image"></p>
-<p>文章提示，有一个developer账户可以去访问ssh</p>
-<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.1k7ncq589bog.webp" alt="image"></p>
-<p>访问3000端口发现是Grafana系统</p>
-<h4 id="3000端口漏洞发现"><a href="#3000端口漏洞发现" class="headerlink" title="3000端口漏洞发现"></a>3000端口漏洞发现</h4><p>Google一下，发现有任意文件读取漏洞</p>
-<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.3g85if2uks40.webp" alt="image"></p>
-<h4 id="任意文件读取漏洞利用"><a href="#任意文件读取漏洞利用" class="headerlink" title="任意文件读取漏洞利用"></a>任意文件读取漏洞利用</h4><p>同时，searchsploit也能搜到这个漏洞，可以直接利用exp</p>
-<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.ejnbwaa124w.webp" alt="image"></p>
-<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.2enr005j4074.webp" alt="image"></p>
-<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.70r9sks6ixc0.webp" alt="image"></p>
-<p>可以看到读取 &#x2F;etc&#x2F;passwd 成功，也就意味着可以读取到任意文件，那么我们可以读一下这个Grafana系统的配置文件来获取信息</p>
-<p>google一下，得到配置文件路径 &#x2F;etc&#x2F;grafana&#x2F;grafana.ini</p>
-<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.6ov8yqgwtgk0.webp" alt="image"></p>
-<p>读取配置文件，翻看找到数据库配置以及网站用户名密码</p>
-<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.4qwmz6ov55k0.webp" alt="image"></p>
-<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.3dqugqlojec0.webp" alt="image"></p>
-<p>登入网站后台，没发现什么有用的信息</p>
-<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.48irh500e4g0.webp" alt="image"></p>
-<h4 id="grafana-db数据库查找"><a href="#grafana-db数据库查找" class="headerlink" title="grafana.db数据库查找"></a>grafana.db数据库查找</h4><p>这时候可以将数据库脱出来，查找3306端口的用户名密码</p>
-<p>先将grafana.db下载下来，这样就可以用命令来操作</p>
-<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.1uhyzhmg5jxc.webp" alt="image"></p>
-<p>这里用到–path-as-is 不会压缩url，如果不用就会把..&#x2F;..&#x2F;..&#x2F;给忽略就会访问不到数据库文件</p>
-<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.6y8vr704dao0.webp" alt="image"></p>
-<h4 id="3306端口连接"><a href="#3306端口连接" class="headerlink" title="3306端口连接"></a>3306端口连接</h4><p>在data_source下找到mysql用户名和密码，账号：grafana 密码：dontStandSoCloseToMe63221!，拿去登录3306端口</p>
-<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.4b0rc319hzc0.webp" alt="image"></p>
-<p>连接成功，一通操作，在whackywidget数据库里找到了developer用户的密码，根据80端口的网站提示，这个用户可以登录ssh，base64解密后登录ssh。</p>
-<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.4mh83nd9u3c0.webp" alt="image"></p>
-<p>解码得到明文密码</p>
-<h4 id="22端口连接"><a href="#22端口连接" class="headerlink" title="22端口连接"></a>22端口连接</h4><p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.6moyxaw1cmc0.webp" alt="image"></p>
-<p>成功连接</p>
-<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.1seudk0hvpr4.webp" alt="image"></p>
-<p>拿到了user权限，同时得到了user的flag</p>
-<h4 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h4><p>这时候我们需要提权到root用户权限获取flag</p>
-<h5 id="1-内核提权"><a href="#1-内核提权" class="headerlink" title="1.内核提权"></a>1.内核提权</h5><p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.488tglenali0.webp" alt="image"></p>
-<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.4ty1568d7si0.webp" alt="image"></p>
-<p>可以看到，没有可用的exp</p>
-<h5 id="2-sudo提权"><a href="#2-sudo提权" class="headerlink" title="2.sudo提权"></a>2.sudo提权</h5><p><a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/god_zzZ/article/details/113628793" >https://blog.csdn.net/god_zzZ/article/details/113628793<i class="fas fa-external-link-alt"></i></a></p>
-<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.55qszwmzjng0.webp" alt="image"></p>
-<p>可以看到不存在该漏洞，无法提权</p>
-<h5 id="3-SUID提权"><a href="#3-SUID提权" class="headerlink" title="3.SUID提权"></a>3.SUID提权</h5><p><a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/Fly_hps/article/details/80428173" >https://blog.csdn.net/Fly_hps/article/details/80428173<i class="fas fa-external-link-alt"></i></a></p>
-<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.58gdsrsf2j40.webp" alt="image"></p>
-<p>没有能够用来提权的目标</p>
-<h5 id="4-计划任务提权"><a href="#4-计划任务提权" class="headerlink" title="4.计划任务提权"></a>4.计划任务提权</h5><p><a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/q20010619/article/details/121422797" >https://blog.csdn.net/q20010619/article/details/121422797<i class="fas fa-external-link-alt"></i></a></p>
-<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.1wma4qh2qbpc.webp" alt="image"></p>
-<p>没有可利用的点</p>
-<h5 id="5-x2F-git-consul-API提权"><a href="#5-x2F-git-consul-API提权" class="headerlink" title="5.&#x2F;git consul API提权"></a>5.&#x2F;git consul API提权</h5><p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.vvwr67eax1s.webp" alt="image"></p>
-<p>可以看到，开了一个consul服务</p>
-<p><a class="link"   target="_blank" rel="noopener" href="https://www.infosecmatter.com/metasploit-module-library/?mm=exploit/multi/misc/consul_service_exec" >https://www.infosecmatter.com/metasploit-module-library/?mm=exploit/multi/misc/consul_service_exec<i class="fas fa-external-link-alt"></i></a></p>
-<p>这个服务的目标端口为80、443、3000、8000、8008、8080、8443， 8500、8880、8888</p>
-<p>查看开了哪些端口</p>
-<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.7jrp15yak280.webp" alt="image"></p>
-<p>确定服务器是用8500端口开的这个consul服务</p>
-<p>访问失败</p>
-<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.3kh9iygpm5m0.webp" alt="image"></p>
-<p>直接跑msf里的exp也失败</p>
-<h6 id="端口转发"><a href="#端口转发" class="headerlink" title="端口转发"></a>端口转发</h6><p>已知之前nmap扫端口也没扫到8500，容易得打，8500端口只对内网开放，这时候就需要将端口转发到本地</p>
-<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.4n9kz53s5yu0.webp" alt="image"></p>
-<h6 id="反弹shell"><a href="#反弹shell" class="headerlink" title="反弹shell"></a>反弹shell</h6><p>利用msf中的exp</p>
-<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.1i72wmw01n8g.webp" alt="image"></p>
-<p>查看需要配置的参数进行配置</p>
-<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.5bqfwdr01ts0.webp" alt="image"></p>
-<p>反弹成功</p>
-<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/20221016/image.46m8d157t7e0.webp" alt="image"></p>
+### 1xx
+
+*肯定的初步答复，这些状态代码指示一项操作已经成功开始，但客户端希望在继续操作新命令前得到另一个答复。*
+
+- 110 重新启动标记答复。
+- 120 服务已就绪，在 nnn 分钟后开始。
+- 125 数据连接已打开，正在开始传输。
+- 150 文件状态正常，准备打开数据连接。
+
+### 2xx
+
+*肯定的完成答复，一项操作已经成功完成。客户端可以执行新命令。*
+
+- 200 命令确定。
+- 202 未执行命令，站点上的命令过多。
+- 211 系统状态，或系统帮助答复。
+- 212 目录状态。
+- 213 文件状态。
+- 214 帮助消息。
+- 215 NAME 系统类型，其中，NAME 是 Assigned Numbers 文档中所列的正式系统名称。
+- 220 服务就绪，可以执行新用户的请求。
+- 221 服务关闭控制连接。如果适当，请注销。
+- 225 数据连接打开，没有进行中的传输。
+- 226 关闭数据连接。请求的文件操作已成功（例如，传输文件或放弃文件）。
+- 227 进入被动模式 (h1,h2,h3,h4,p1,p2)。
+- 230 用户已登录，继续进行。
+- 250 请求的文件操作正确，已完成。
+- 257 已创建“PATHNAME”。
+
+### 3xx
+
+*肯定的中间答复，该命令已成功，但服务器需要更多来自客户端的信息以完成对请求的处理。*
+
+- 331 用户名正确，需要密码。
+- 332 需要登录帐户。
+- 350 请求的文件操作正在等待进一步的信息。
+
+### 4xx
+
+*瞬态否定的完成答复，该命令不成功，但错误是暂时的。如果客户端重试命令，可能会执行成功。*
+
+- 421 服务不可用，正在关闭控制连接。如果服务确定它必须关闭，将向任何命令发送这一应答。
+- 425 无法打开数据连接。
+- 426 Connection closed; transfer aborted.
+- 450 未执行请求的文件操作。文件不可用（例如，文件繁忙）。
+- 451 请求的操作异常终止：正在处理本地错误。
+- 452 未执行请求的操作。系统存储空间不够。
+
+## 5xx
+
+*永久性否定的完成答复，该命令不成功，错误是永久性的。如果客户端重试命令，将再次出现同样的错误。*
+
+- 500 语法错误，命令无法识别。这可能包括诸如命令行太长之类的错误。
+- 501 在参数中有语法错误。
+- 502 未执行命令。
+- 503 错误的命令序列。
+- 504 未执行该参数的命令。
+- 530 未登录。
+- 532 存储文件需要帐户。
+- 550 未执行请求的操作。文件不可用（例如，未找到文件，没有访问权限）。
+- 551 请求的操作异常终止：未知的页面类型。
+- 552 请求的文件操作异常终止：超出存储分配（对于当前目录或数据集）。
+- 553 未执行请求的操作。不允许的文件名。
+
+## 6xx
+
+- 600 Series，Replies regarding confidentiality and integrity
+- 631 Integrity protected reply.
+- 632 Confidentiality and integrity protected reply.
+- 633 Confidentiality protected reply.
+</code></pre>
+</li>
+</ul>
+<p>10.There are a couple of commands we can use to list the files and directories available on the FTP server. One is dir. What is the other that is a common way to list files on a Linux system. </p>
+<p><strong>ls</strong></p>
+<p>11.What is the command used to download the file we found on the FTP server? </p>
+<p><strong>get</strong></p>
+<pre><code>下载文件通常用get和mget这两条命令。
+ a) get 
+ 格式：get [remote-file] [local-file]
+ 将文件从远端主机中传送至本地主机中。
+ 如要获取远程服务器上/usr/your/1.htm，则
+
+ftp&gt; get /usr/your/1.htm 1.htm (回车)
+
+ b) mget　　　　　　
+ 格式：mget [remote-files]
+ 从远端主机接收一批文件至本地主机。
+ 如要获取服务器上/usr/your/下的所有文件，则
+
+ftp&gt; cd /usr/your/
+ ftp&gt; mget *.* (回车)
+
+ 此时每下载一个文件，都会有提示。如果要除掉提示，则在mget *.* 命令前先执行:prompt off
+</code></pre>
+<p>12.获取flag,ftp连接</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/%E5%9B%BE%E7%89%87.jj1s4rp9kqg.webp" alt="图片"></p>
+<p>拿到flag</p>
+<h3 id="Dancing靶机"><a href="#Dancing靶机" class="headerlink" title="Dancing靶机"></a>Dancing靶机</h3><p>连接vpn,创建实例</p>
+<p>1.What does the 3-letter acronym SMB stand for?（SMB是什么的简称？）</p>
+<p><strong>Server Message Block</strong></p>
+<p>2.What port does SMB use to operate at?（用什么端口去操作SMB?）</p>
+<p><strong>445</strong></p>
+<p>3.What is the service name for port 445 that came up in our nmap scan?（从扫描结果来看，445端口的服务名称是什么？）</p>
+<p><strong>microsoft-ds</strong></p>
+<p>4.What is the flag or switch we can use with the SMB tool to list the contents of the share?（我们可以用SMB工具哪个“标识”或者“开关”来列举出分享的文件？）</p>
+<p><strong>-L</strong></p>
+<p>5.How many shares are there on Dancing? </p>
+<p>6.What is the name of the share we are able to access in the end with a blank password?</p>
+<p><strong>WorkShares</strong></p>
+<p>7.What is the command we can use within the SMB shell to download the files we find? </p>
+<p><strong>get</strong></p>
+<p>nmap端口扫描</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/%E5%9B%BE%E7%89%87.3bpzdtkfmytc.webp" alt="图片"></p>
+<p>开放了3个服务<br>135: msrpc （MicroSoft Remote Procedure Call，微软远程过程调用） 这是windos系统特有的服务<br>139:netbios-ssn 用于提供文件共享服务,主要用于企业内部网之间互相访问 也是微软的服务<br>445:就是我们说的SMB</p>
+<p>smb连接</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/%E5%9B%BE%E7%89%87.79buwa254zr4.webp" alt="图片"></p>
+<p>访问WorkShares，找到flag.txt，get到本地查看</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/%E5%9B%BE%E7%89%87.5glph0w7blkw.webp" alt="图片"></p>
+<h3 id="Redeemer靶机"><a href="#Redeemer靶机" class="headerlink" title="Redeemer靶机"></a>Redeemer靶机</h3><p>常规连接vpn,创建实例</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/%E5%9B%BE%E7%89%87.67tpffoeygc.webp" alt="图片"></p>
+<p>nmap扫描</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/%E5%9B%BE%E7%89%87.4h1krvf2is8w.webp" alt="图片"></p>
+<p>得到redis 版本号5.0.7</p>
+<p>用redis-cli连接</p>
+<p>info看到有四个键</p>
+<p><img src="C:\Users\18754\AppData\Roaming\Typora\typora-user-images\image-20230201133007019.png" alt="image-20230201133007019"></p>
+<p>keys * </p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/%E5%9B%BE%E7%89%87.6g9a8i5gvlhc.webp" alt="图片"></p>
 <p>得到flag</p>
+<p>1.Which TCP port is open on the machine?</p>
+<p><strong>6379</strong></p>
+<p>2.Which service is running on the port that is open on the machine?</p>
+<p><strong>redis</strong></p>
+<p>3.What type of database is Redis? Choose from the following options: (i) In-memory Database, (ii) Traditional Database</p>
+<p><strong>In-memory Database</strong></p>
+<p>4.Which command-line utility is used to interact with the Redis server? Enter the program name you would enter into the terminal without any arguments.</p>
+<p><strong>redis-cli</strong></p>
+<p>5.Which flag is used with the Redis command-line utility to specify the hostname?</p>
+<p><strong>-h</strong></p>
+<p>6.Once connected to a Redis server, which command is used to obtain the information and statistics about the Redis server?</p>
+<p><strong>info</strong></p>
+<p>7.What is the version of the Redis server being used on the target machine?</p>
+<p><strong>5.0.7</strong></p>
+<p>8.Which command is used to select the desired database in Redis?（在Redis中使用哪个命令来选择所需的数据库?）</p>
+<p><strong>select</strong></p>
+<p>9.How many keys are present inside the database with index 0?</p>
+<p><strong>4</strong></p>
+<p>10.Which command is used to obtain all the keys in a database?（获取数据库中所有密钥的命令是什么?）</p>
+<p>**keys ***</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>这个TIER0,主要就是让我们了解Telnet、ftp、SMB、Redis这些服务，后面还有四个靶机分别为RDP：用xfreerdp 来连接、目录爆破：用gobuster来爆破、 MongoDB、Rsync，后面四个靶机需要vip，不过也很简单，没必要打。</p>
 
         </div>
 
@@ -322,11 +447,11 @@
             <div class="post-copyright-info">
                 <div class="article-copyright-info-container">
     <ul class="copyright-info-content">
-        <li>本文标题：Ambassador靶机</li>
+        <li>本文标题：Hack the box-Starting point TIER0通关</li>
         <li>本文作者：n3ym4r</li>
-        <li>创建时间：2023-01-31 18:51:14</li>
+        <li>创建时间：2023-02-01 14:06:14</li>
         <li>
-            本文链接：https://n3ym4r.github.io/2023/01/31/Ambassador靶机/
+            本文链接：https://n3ym4r.github.io/2023/02/01/Hack the box-Starting point TIER0通关/
         </li>
         <li>
             版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -358,29 +483,14 @@
         
             <div class="article-nav">
                 
-                    <div class="article-prev">
-                        <a class="prev"
-                           rel="prev"
-                           href="/2023/02/01/Hack%20the%20box-Starting%20point%20TIER0%E9%80%9A%E5%85%B3/"
-                        >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item">Hack the box-Starting point TIER0通关</span>
-                                <span class="post-nav-item">上一篇</span>
-                            </span>
-                        </a>
-                    </div>
-                
                 
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2022/10/15/hello-world/"
+                           href="/2023/01/31/Ambassador%E9%9D%B6%E6%9C%BA/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">Hello World</span>
+                                <span class="post-nav-title-item">Ambassador靶机</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -498,7 +608,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Ambassador%E9%9D%B6%E6%9C%BA"><span class="nav-text">Ambassador靶机</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86"><span class="nav-text">信息收集</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3000%E7%AB%AF%E5%8F%A3%E6%BC%8F%E6%B4%9E%E5%8F%91%E7%8E%B0"><span class="nav-text">3000端口漏洞发现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8"><span class="nav-text">任意文件读取漏洞利用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#grafana-db%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9F%A5%E6%89%BE"><span class="nav-text">grafana.db数据库查找</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3306%E7%AB%AF%E5%8F%A3%E8%BF%9E%E6%8E%A5"><span class="nav-text">3306端口连接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#22%E7%AB%AF%E5%8F%A3%E8%BF%9E%E6%8E%A5"><span class="nav-text">22端口连接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8F%90%E6%9D%83"><span class="nav-text">提权</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E5%86%85%E6%A0%B8%E6%8F%90%E6%9D%83"><span class="nav-text">1.内核提权</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-sudo%E6%8F%90%E6%9D%83"><span class="nav-text">2.sudo提权</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-SUID%E6%8F%90%E6%9D%83"><span class="nav-text">3.SUID提权</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1%E6%8F%90%E6%9D%83"><span class="nav-text">4.计划任务提权</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-x2F-git-consul-API%E6%8F%90%E6%9D%83"><span class="nav-text">5.&#x2F;git consul API提权</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91"><span class="nav-text">端口转发</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%8F%8D%E5%BC%B9shell"><span class="nav-text">反弹shell</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#TIER0"><span class="nav-text">TIER0</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Meow%E9%9D%B6%E6%9C%BA"><span class="nav-text">Meow靶机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Fawn%E9%9D%B6%E6%9C%BA"><span class="nav-text">Fawn靶机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dancing%E9%9D%B6%E6%9C%BA"><span class="nav-text">Dancing靶机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redeemer%E9%9D%B6%E6%9C%BA"><span class="nav-text">Redeemer靶机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-text">总结</span></a></li></ol></li></ol>
     </div>
 </div>
         </aside>
