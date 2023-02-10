@@ -9,7 +9,7 @@
     
     <title>
         
-            标签: HTB |
+            Vaccine靶机 |
         
         n3ym4r&#39;s blog
     </title>
@@ -85,7 +85,7 @@
                         </li>
                     
                         <li class="menu-item">
-                            <a class="active"
+                            <a class=""
                                href="/tags"
                             >
                                 标签
@@ -140,7 +140,7 @@
                 </li>
             
                 <li class="drawer-menu-item flex-center">
-                    <a class="active"
+                    <a class=""
                        href="/tags">标签</a>
                 </li>
             
@@ -170,91 +170,180 @@
 
                 
                     <div class="fade-in-down-animation">
-    <div class="tag-container">
-        <div class="tag-name"><i class="fas fa-tag"></i>&nbsp;HTB
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">Vaccine靶机</span>
         </div>
-        <div class="tag-post-list">
-            
-<div class="archive-list-container">
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/logo.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">n3ym4r</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        
+<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        
+            <i class="fa-regular fa-calendar-plus"></i>&nbsp;
+        
+        <span class="pc">2023-02-10 11:57:14</span>
+        <span class="mobile">2023-02-10 11:57</span>
+    </span>
     
-        <section class="archive-item">
-            <div class="archive-item-header">
-                <span class="archive-year">2023</span>
-                <span class="archive-year-post-count">[8]</span>
-            </div>
-            <ul class="article-list">
+        <span class="article-update-date article-meta-item">
+        <i class="fas fa-file-pen"></i>&nbsp;
+        <span class="pc">2023-02-10 13:25:25</span>
+    </span>
+    
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
                 
-                    <li class="article-item">
-                        <a class="article-title"
-                           href="/2023/02/10/Vaccine%E9%9D%B6%E6%9C%BA/"
-                        >Vaccine靶机</a>
-                        <span class="article-date">02-10</span>
+                    <li>
+                        <a href="/tags/%E6%89%93%E9%9D%B6/">打靶</a>&nbsp;
                     </li>
                 
-                    <li class="article-item">
-                        <a class="article-title"
-                           href="/2023/02/06/Oopsie%E9%9D%B6%E6%9C%BA/"
-                        >Oopsie靶机</a>
-                        <span class="article-date">02-06</span>
-                    </li>
-                
-                    <li class="article-item">
-                        <a class="article-title"
-                           href="/2023/02/05/Photobomb%E9%9D%B6%E6%9C%BA/"
-                        >Photobomb靶机</a>
-                        <span class="article-date">02-05</span>
-                    </li>
-                
-                    <li class="article-item">
-                        <a class="article-title"
-                           href="/2023/02/04/HTB%20Challenges%E2%80%94Web/"
-                        >HTB Challenges—Web</a>
-                        <span class="article-date">02-04</span>
-                    </li>
-                
-                    <li class="article-item">
-                        <a class="article-title"
-                           href="/2023/02/03/Archetype%E9%9D%B6%E6%9C%BA/"
-                        >Archetype靶机</a>
-                        <span class="article-date">02-03</span>
-                    </li>
-                
-                    <li class="article-item">
-                        <a class="article-title"
-                           href="/2023/02/02/Hack%20the%20box-Starting%20point%20TIER1%E9%80%9A%E5%85%B3/"
-                        >Hack the box-Starting point TIER1通关</a>
-                        <span class="article-date">02-02</span>
-                    </li>
-                
-                    <li class="article-item">
-                        <a class="article-title"
-                           href="/2023/02/01/Hack%20the%20box-Starting%20point%20TIER0%E9%80%9A%E5%85%B3/"
-                        >Hack the box-Starting point TIER0通关</a>
-                        <span class="article-date">02-01</span>
-                    </li>
-                
-                    <li class="article-item">
-                        <a class="article-title"
-                           href="/2023/01/31/Ambassador%E9%9D%B6%E6%9C%BA/"
-                        >Ambassador靶机</a>
-                        <span class="article-date">01-31</span>
+                    <li>
+                        | <a href="/tags/HTB/">HTB</a>&nbsp;
                     </li>
                 
             </ul>
-        </section>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>511 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>1 分钟</span>
+        </span>
+    
     
 </div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <p>流程概述： FTP匿名攻击 —&gt; zip2john破解hash值得到密码 —&gt;web源码信息泄露—&gt;登录web后台 —&gt;sql注入攻击—&gt;反弹shell拿到权限—&gt; vi提权root</p>
+<span id="more"></span>
+
+<p>nmap扫端口</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/24/image.29espo64q45c.webp" alt="image"></p>
+<p>利用anonymous用户，ftp连接主机</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/24/image.yfz1x7zswu8.webp" alt="image"></p>
+<p>get下来backup.zip文件</p>
+<p>解压时发现需要密码，利用john得到hash进行破解</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/24/image.5sgnb66pykk0.webp" alt="image"></p>
+<p>拿到解压密码，解压查看index.php文件</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/24/image.4514fm8nk1g0.webp" alt="image"></p>
+<p>找到admin用户MD5密码</p>
+<p>MD5碰撞拿到明文密码</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/24/image.28gc2edcdfok.webp" alt="image"></p>
+<p>登录网页</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/202323/%E5%9B%BE%E7%89%87.33eukml8ai80.webp" alt="图片"></p>
+<p>有个搜索框，想到sql注入，输入1‘，果然报错，确定为sql注入，抓包sqlmap一把梭</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/24/image.3kuy8o17gte0.webp" alt="image"></p>
+<p>将数据包放入一个文件</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/24/image.1oqsxfg1z674.webp" alt="image"></p>
+<p>扫出为postgresql数据库，直接–os-shell拿shell，这里出现问题，谷歌搜了一下，很多人在这出错，应该是靶机的问题</p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://forum.hackthebox.com/t/machine-name-vaccine-stuck-on-getting-sql-code-execution-shell/2513" >https://forum.hackthebox.com/t/machine-name-vaccine-stuck-on-getting-sql-code-execution-shell/2513<i class="fas fa-external-link-alt"></i></a></p>
+<p>在GitHub上找到个师傅写的EXP：<a class="link"   target="_blank" rel="noopener" href="https://github.com/florianges/-HTB-Vaccine_sql_injection" >https://github.com/florianges/-HTB-Vaccine_sql_injection<i class="fas fa-external-link-alt"></i></a></p>
+<p>脚本描述很清楚，将信息修改</p>
+<p>在本地跑个80端口提供nc的下载，在这之前要将nc放入你跑服务的目录下(<code>cp /bin/nc.traditional ~/Desktop/nc</code>)</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/24/image.1xs86bufmsao.webp" alt="image"></p>
+<p>本地开启nc监听</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/24/image.6um7xljtrfc0.webp" alt="image"></p>
+<p>跑脚本</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/24/image.3bdyxhnra460.webp" alt="image"></p>
+<p>这个脚本实际就是通过注入创建相应的表、字段，从程序中复制数据到这个字段表里，然后后面下载<code>nc</code>，赋予<code>nc</code>执行权限，并且执行反弹<code>shell</code>命令。</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/24/image.40cqzmrfl120.webp" alt="image"></p>
+<p>拿到user flag</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/24/image.6l366mi81go0.webp" alt="image"></p>
+<p>在dashboard.php文件发现用户名postgres密码P@s5w0rd!</p>
+<p>ssh连接主机</p>
+<p>sudo -l 查看用户能执行的高权限命令</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/24/image.5scifkx9ih00.webp" alt="image"></p>
+<p>发现postgres账号可以以root权限运行vi，在vi中是可以调用shell的。</p>
+<p>执行命令以root权限打开vi <code>sudo /bin/vi /etc/postgresql/11/main/pg_hba.conf</code></p>
+<p>按: 进入命令模式，输入!&#x2F;bin&#x2F;bash,命令含义为以shell命令的方式执行 <code>/bin/bash</code>，也就是打开一个交互式终端。感叹号为强制执行。</p>
+<p>在我们执行vi时，会调用shell,由于vi是以root权限执行的，那么调用的shell也是root权限下的</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/24/image.3fukcc804n20.webp" alt="image"></p>
+<p>得到root flag</p>
 
         </div>
-    </div>
 
-    <div class="tag-paginator">
-        <div class="paginator">
-    
-
-    
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul class="copyright-info-content">
+        <li>本文标题：Vaccine靶机</li>
+        <li>本文作者：n3ym4r</li>
+        <li>创建时间：2023-02-10 11:57:14</li>
+        <li>
+            本文链接：https://n3ym4r.github.io/2023/02/10/Vaccine靶机/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
 </div>
 
+            </div>
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/%E6%89%93%E9%9D%B6/">#打靶</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item">
+                        <a href="/tags/HTB/">#HTB</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2023/02/06/Oopsie%E9%9D%B6%E6%9C%BA/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">Oopsie靶机</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
     </div>
 </div>
 
@@ -293,6 +382,23 @@
         </div>
     </div>
 
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
     
 
     <div class="right-bottom-side-tools">
@@ -339,6 +445,14 @@
 
     </div>
 
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        
+    </div>
+</div>
+        </aside>
     
 
     <div class="zoom-in-image-mask">
@@ -396,6 +510,8 @@
 
 
 <div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/js/left-side-toggle.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/js/libs/anime.min.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/js/toc.js"></script>
     
 </div>
 
