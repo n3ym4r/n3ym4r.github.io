@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="n3ym4r">
+    
+    <title>
+        
+            算法刷题之数组系列 |
+        
+        n3ym4r&#39;s blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/fontawesome/css/fontawesome.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/fontawesome/css/regular.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/fontawesome/css/solid.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/fontawesome/css/brands.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":false,"init_open":true},"style":{"primary_color":"#5ed5cc","logo":"/images/logo.svg","favicon":"/images/logo.svg","avatar":"/images/logo.svg","font_size":null,"font_family":null,"left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"header_transparent":false,"background_img":"/images/bg.svg","description":"Pay attention to safety!","font_color":null,"hitokoto":{"enable":true}},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block_tools":{"enable":true,"style":"mac"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":false},"version":"3.4.9"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"};
+  </script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/images/logo.svg">
+                </a>
+            
+            <a class="logo-title" href="/">
+               n3ym4r&#39;s blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/links"
+                            >
+                                友链
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/links">友链</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">算法刷题之数组系列</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/logo.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">n3ym4r</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        
+<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        
+            <i class="fa-regular fa-calendar-plus"></i>&nbsp;
+        
+        <span class="pc">2023-08-14 21:32:00</span>
+        <span class="mobile">2023-08-14 21:32</span>
+    </span>
+    
+        <span class="article-update-date article-meta-item">
+        <i class="fas fa-file-pen"></i>&nbsp;
+        <span class="pc">2023-08-14 21:35:31</span>
+    </span>
+    
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/golang/">golang</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E7%AE%97%E6%B3%95/">算法</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E6%95%B0%E7%BB%84/">数组</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>3.4k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>14 分钟</span>
+        </span>
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><h2 id="两个数组的交集"><a href="#两个数组的交集" class="headerlink" title="两个数组的交集"></a>两个数组的交集</h2><h3 id="349"><a href="#349" class="headerlink" title="349"></a><a class="link"   target="_blank" rel="noopener" href="https://leetcode.cn/problems/intersection-of-two-arrays/" >349<i class="fas fa-external-link-alt"></i></a></h3><p>题目大意：题目要求找到两个数组的交集，如果交集元素同一个数字出现多次，只输出一次。</p>
+<p>思路：把num1写进一个map，此map的键为num1的数字值，然后遍历num2，判断数字是否在map中存在，如果存在，在map中删除，将数字加入res中。</p>
+<pre><code>func intersection(nums1 []int, nums2 []int) []int &#123;
+    m := map[int]bool&#123;&#125;
+    var res []int
+    for _, v := range nums1 &#123;
+        m[v] = true
+    &#125;
+    for _, v := range nums2 &#123;
+        if m[v]&#123;
+            delete(m,v)
+            res = append(res,v)
+        &#125;
+    &#125;
+    return res
+&#125;
+</code></pre>
+<h3 id="350"><a href="#350" class="headerlink" title="350"></a><a class="link"   target="_blank" rel="noopener" href="https://leetcode.com/problems/intersection-of-two-arrays-ii/" >350<i class="fas fa-external-link-alt"></i></a></h3><p>题目大意：题目要求找两个数组的交集，并且保留相同元素。</p>
+<p>思路：将num1写进一个map，键为num1数组的值，值为出现次数，之后遍历num2，检查其中的元素是否在map中出现，如果出现，则将该元素加入结果res中，并将map中该元素出现次数减一。</p>
+<pre><code>func intersect(nums1 []int, nums2 []int) []int &#123;
+    m := map[int]int&#123;&#125;
+    var res []int
+    for _, v := range nums1 &#123;
+        m[v]++
+    &#125;
+    for _, v := range nums2 &#123;
+        if m[v]&gt;0&#123;
+            res =append(res,v)
+            m[v]--
+        &#125;
+    &#125;
+    return res
+&#125;
+</code></pre>
+<h4 id="进阶："><a href="#进阶：" class="headerlink" title="进阶："></a><strong>进阶：</strong></h4><p>如果给定的数组已经排好序呢？你将如何优化你的算法？</p>
+<p>思路：利用双指针，设定两个为0的指针，比较两个指针的元素是否相等，如果相等，将两个指针一起向后移动，将相等元素放入一个空白数组。如果不相等，将元素值小的一个指针向后移动，继续进行判断，直到任意一个数组终止。</p>
+<pre><code>func intersect(nums1 []int, nums2 []int) []int &#123;
+    i, j, k := 0, 0, 0
+    var nums []int
+    sort.Ints(nums1)
+    sort.Ints(nums2)
+    for i &lt; len(nums1) &amp;&amp; j &lt; len(nums2) &#123;
+        if nums1[i] &gt; nums2[j] &#123;
+            j++
+        &#125; else if nums1[i] &lt; nums2[j] &#123;
+            i++
+        &#125; else &#123;
+            nums[k] = nums1[i]
+            i++
+            j++
+            k++
+        &#125;
+    &#125;
+    return nums[:k]
+&#125;
+</code></pre>
+<h2 id="最长的公共前缀"><a href="#最长的公共前缀" class="headerlink" title="最长的公共前缀"></a>最长的公共前缀</h2><h3 id="14"><a href="#14" class="headerlink" title="14"></a><a class="link"   target="_blank" rel="noopener" href="https://leetcode.cn/problems/longest-common-prefix/" >14<i class="fas fa-external-link-alt"></i></a></h3><p>题目大意：编写一个函数来查找字符串数组中的最长公共前缀。如果不存在公共前缀，则返回””</p>
+<p>思路：选定一个基准元素，将基准元素与后面的元素进行比较， 不断更新基准元素，直到和所有元素都满足最长公共前缀的条件。</p>
+<p>这里选定数组中第一个元素为基准元素，当pre在v中出现的位置为0时，可以认定pre就是v的最长前缀（如flower和flow比较）。当pre在v中出现的位置不为0时，可以认定此时的pre不为最长公共前缀，这时就可以将pre的最后一个字母截掉，再次与v进行比较，直到满足<code>string.Index(v,pre) == 0</code></p>
+<p>最后处理一下临界条件。给定数组为空，说明没用公共前缀。</p>
+<pre><code>用到strings包下index方法
+func Index(s, sep string) int
+子串sep在字符串s中第一次出现的位置，不存在则返回-1。
+</code></pre>
+<pre><code>func longestCommonPrefix(strs []string) string &#123;
+    if len(strs)&lt;1&#123;
+        return &quot;&quot;
+    &#125;
+    pre := strs[0]
+    for _, v := range strs &#123;
+        for strings.Index(v,pre)!=0 &#123;
+            if len(pre)==0&#123;
+                return &quot;&quot;
+            &#125;
+            pre = pre[:len(pre)-1]
+        &#125;
+    &#125;
+    return pre
+&#125;
+</code></pre>
+<h2 id="买卖股票的最佳时机"><a href="#买卖股票的最佳时机" class="headerlink" title="买卖股票的最佳时机"></a>买卖股票的最佳时机</h2><h3 id="121"><a href="#121" class="headerlink" title="121"></a><a class="link"   target="_blank" rel="noopener" href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock/" >121<i class="fas fa-external-link-alt"></i></a></h3><p>题目大意：给定一个数组，它的第 i 个元素是一支给定股票第 i 天的价格。如果你最多只允许完成一笔交易（即买入和卖出一支股票），设计一个算法来计算你所能获取的最大利润。注意你不能在买入股票前卖出股票。</p>
+<p>思路：找出最低价和最高价，差价即为最大收益。初始化第一天的价格为买入价，遍历数组，更新最低价和最大利润。</p>
+<pre><code>func maxProfit(prices []int) int &#123;
+    buyPrice := prices[0]
+    maxProfit :=0
+    for i := 1; i &lt;len(prices); i++ &#123;
+        if prices[i]&lt;buyPrice &#123;
+            buyPrice = prices[i]
+        &#125;else &#123;
+            profit := prices[i]-buyPrice
+            if profit&gt;maxProfit &#123;
+                maxProfit = profit
+            &#125;
+        &#125;
+    &#125;
+    return maxProfit
+&#125;
+</code></pre>
+<h3 id="122"><a href="#122" class="headerlink" title="122"></a><a class="link"   target="_blank" rel="noopener" href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/" >122<i class="fas fa-external-link-alt"></i></a></h3><p>题目大意：给定一个数组，它的第 i 个元素是一支给定股票第 i 天的价格。设计一个算法来计算你所能获取的最大利润。你可以尽可能地完成更多的交易（多次买卖一支股票）。注意：你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。</p>
+<p>思路：获取最大收益即为跌了就买入，涨到顶峰就卖出。</p>
+<p>当后一天的价格大于前一天时，两者价格差即为收益。</p>
+<pre><code>func maxProfit(prices []int) int &#123;
+    profit := 0
+    for i := 0; i &lt; len(prices)-1; i++ &#123;
+        if prices[i+1]&gt;prices[i] &#123;
+            profit += prices[i+1]-prices[i]
+        &#125;
+    &#125;
+    return profit
+&#125;
+</code></pre>
+<h3 id="123"><a href="#123" class="headerlink" title="123"></a><a class="link"   target="_blank" rel="noopener" href="https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iii/description/" >123<i class="fas fa-external-link-alt"></i></a></h3><p>题目大意：给定一个数组，它的第 <code>i</code> 个元素是一支给定的股票在第 <code>i</code> 天的价格。设计一个算法来计算你所能获取的最大利润。你最多可以完成 <strong>两笔</strong> 交易。注意：你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）</p>
+<p>思路：动态规划，在同一天会有四种状态：</p>
+<ul>
+<li><p>进行过一次买操作；</p>
+</li>
+<li><p>进行了一次买操作和一次卖操作，即完成了一笔交易；</p>
+</li>
+<li><p>在完成了一笔交易的前提下，进行了第二次买操作；</p>
+</li>
+<li><p>完成了全部两笔交易。</p>
+<p>buy1为第一次买入的价格（取当前价格和之前第一次买入价格的较小值），sell1为第一次卖出时的利润（取当前价格减去第一次买入价格和之前第一次卖出利润的较大值），buy2为第二次买入的价格（取当前价格减去之前第一次卖出利润和之前第二次买入价格的较小值），sell2为第二次卖出时的利润（取当前价格减去之前第二次买入价格和之前第二次卖出利润的较大值）。</p>
+</li>
+</ul>
+<pre><code>func maxProfit(prices []int) int &#123;
+    if len(prices)==0 &#123;
+        return 0
+    &#125;
+    buy1 := prices[0]
+    sell1 := 0
+    buy2 := prices[0]
+    sell2 := 0
+    for i := 1; i &lt; len(prices); i++ &#123;
+        buy1 = min(buy1, prices[i])
+        sell1 = max(sell1,prices[i]-buy1)
+        buy2 = min(buy2,prices[i]-sell1)
+        sell2 = max(sell2,prices[i]-buy2)
+    &#125;
+    return sell2
+&#125;
+
+func max(a,b int)int  &#123;
+    if a&gt;b&#123;
+        return a
+    &#125;
+    return b
+&#125;
+func min(a,b int)int  &#123;
+    if a&lt;b &#123;
+        return a
+    &#125;
+    return b
+&#125;
+</code></pre>
+<h2 id="旋转数组"><a href="#旋转数组" class="headerlink" title="旋转数组"></a>旋转数组</h2><h3 id="189"><a href="#189" class="headerlink" title="189"></a><a class="link"   target="_blank" rel="noopener" href="https://leetcode.cn/problems/rotate-array/" >189<i class="fas fa-external-link-alt"></i></a></h3><p>题目大意：给定一个整数数组 <code>nums</code>，将数组中的元素向右轮转 <code>k</code> 个位置，其中 <code>k</code> 是非负数。</p>
+<p>思路：翻转后，末尾 <code>k mod n</code> 个元素移动至了数组头部，剩下的元素右移 <code>k mod n</code> 个位置至最尾部。</p>
+<p>解法一：将下标为i的元素移动到<code>(i+k) mod n</code> 的位置，再将剩下的元素拷贝回来即可。</p>
+<pre><code class="golang">func rotate(nums []int, k int) &#123;
+    ints := make([]int, len(nums))
+    for i, v := range nums &#123;
+        ints[(i+k)%len(nums)] = v
+    &#125;
+    copy(nums,ints)
+&#125;
+</code></pre>
+<p>解法二：将数组元素直接翻转，然后以k mod n为分界点，前后分别翻转</p>
+<pre><code>func rotate(nums []int, k int) &#123;
+    re(nums)
+    re(nums[:k%len(nums)])
+    re(nums[k%len(nums):])
+&#125;
+
+func re(arr []int)  &#123;
+    for i := 0; i &lt; len(arr)/2; i++ &#123;
+        arr[i],arr[len(arr)-i-1] = arr[len(arr)-i-1],arr[i]
+    &#125;
+&#125;
+</code></pre>
+<h2 id="原地删除"><a href="#原地删除" class="headerlink" title="原地删除"></a>原地删除</h2><h3 id="27"><a href="#27" class="headerlink" title="27"></a><a class="link"   target="_blank" rel="noopener" href="https://leetcode.cn/problems/remove-element/" >27<i class="fas fa-external-link-alt"></i></a></h3><p>题目大意：给你一个数组 <code>nums</code> 和一个值 <code>val</code>，你需要 <strong><a class="link"   target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%8E%9F%E5%9C%B0%E7%AE%97%E6%B3%95" >原地<i class="fas fa-external-link-alt"></i></a></strong> 移除所有数值等于 <code>val</code> 的元素，并返回移除后数组的新长度。</p>
+<p>思路：</p>
+<p>解法一：遍历整个数组，当前值等于目标值时，移除当前值，不等于时，i++。注意：这里将索引为i的元素删除，是在原数组上操作的，原来索引为i+1的元素会变为i，所以在删除时，不能执行i++操作。</p>
+<pre><code>func removeElement(nums []int, val int) int &#123;
+    for i := 0; i &lt; len(nums); &#123;
+        if nums[i] ==val &#123;
+            nums = append(nums[:i],nums[i+1:]...)
+        &#125;else &#123;
+            i++
+        &#125;
+    &#125;
+    return len(nums)
+&#125;
+</code></pre>
+<p>解法二：利用双指针，将不等于目标值的元素移动到数组前端，更新指针i,最后返回i的值即为新数组的长度。这里删除的元素实际上是没被删除的，是被移动到了数组后侧，被截取掉了。</p>
+<pre><code>func removeElement(nums []int, val int) int &#123;
+    i := 0
+    for j := 0; j &lt; len(nums); j++ &#123;
+        if nums[j] != val&#123;
+            nums[i] = nums[j]
+            i++
+        &#125;
+    &#125;
+    return i
+&#125;
+</code></pre>
+<h3 id="26"><a href="#26" class="headerlink" title="26"></a><a class="link"   target="_blank" rel="noopener" href="https://leetcode.cn/problems/remove-duplicates-from-sorted-array/" >26<i class="fas fa-external-link-alt"></i></a></h3><p>题目大意：给定一个有序数组 nums，对数组中的元素进行去重，使得原数组中的每个元素只有一个。最后返回去重以后数组的长度值。</p>
+<p>思路：</p>
+<p>解法一：遍历数组，当i+1值等于i对应的值时，删除第i+1元素。</p>
+<pre><code>func removeDuplicates(nums []int) int &#123;
+    for i := 0; i &lt;len(nums)-1; &#123;
+        if nums[i] == nums[i+1]&#123;
+            nums = append(nums[:i+1],nums[i+2:]...)
+        &#125;else &#123;
+            i++
+        &#125;
+    &#125;
+    return len(nums)
+&#125;
+</code></pre>
+<p>解法二：双指针，遍历数组，当前元素不等于后一个元素时，将后一元素移动到前面。这里也是实际并未删除</p>
+<pre><code>func removeDuplicates(nums []int) int &#123;
+    i := 1
+    for j := 0; j &lt; len(nums)-1; j++ &#123;
+        if nums[j] != nums[j+1]&#123;
+            nums[i] = nums[j+1]
+            i++
+        &#125;
+    &#125;
+    return i
+&#125;
+</code></pre>
+<h3 id="283"><a href="#283" class="headerlink" title="283"></a><a class="link"   target="_blank" rel="noopener" href="https://leetcode.cn/problems/move-zeroes/" >283<i class="fas fa-external-link-alt"></i></a></h3><p>题目大意：给定一个数组 <code>nums</code>，编写一个函数将所有 <code>0</code> 移动到数组的末尾，同时保持非零元素的相对顺序。</p>
+<p>思路：</p>
+<p>解法一：遍历数组，将为零元素删除，j记录删除的个数，最后将删除的零添加到数组后端。</p>
+<pre><code>func moveZeroes(nums []int) &#123;
+    j :=0
+    for i := 0; i &lt; len(nums)-1; &#123;
+        if nums[i] == 0&#123;
+            nums = append(nums[:i],nums[i+1:]...)
+            j++
+        &#125;else &#123;
+            i++
+        &#125;
+    &#125;
+    zeros := make([]int,j)
+    nums = append(nums, zeros...)
+&#125;
+</code></pre>
+<p>解法二：双指针，i遍历数组，j记录非零元素要放置的位置，遍历数组时，当前元素不为零，则将其与指针j指向的位置进行交换，并更新j指针。</p>
+<pre><code>func moveZeroes(nums []int) &#123;
+    j := 0
+    for i := 0; i &lt; len(nums); i++ &#123;
+        if nums[i] != 0&#123;
+            if  i != j &#123;
+                nums[i], nums[j] = nums[j], nums[i]
+            &#125;
+            j++
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<h3 id="80"><a href="#80" class="headerlink" title="80"></a><a class="link"   target="_blank" rel="noopener" href="https://leetcode.cn/problems/remove-duplicates-from-sorted-array-ii/" >80<i class="fas fa-external-link-alt"></i></a></h3><p>题目大意：给你一个有序数组 <code>nums</code> ，请你**<a class="link"   target="_blank" rel="noopener" href="http://baike.baidu.com/item/%E5%8E%9F%E5%9C%B0%E7%AE%97%E6%B3%95" > 原地<i class="fas fa-external-link-alt"></i></a>** 删除重复出现的元素，使得出现次数超过两次的元素<strong>只出现两次</strong> ，返回删除后数组的新长度。</p>
+<p>思路：双指针，将出现次数超过两次的元素移动到数组的前面，并更新指针 <code>i</code>。最后，函数返回指针 <code>i</code> 的值，即为删除重复元素后的新数组的长度。</p>
+<pre><code>func removeDuplicates(nums []int) int &#123;
+    if len(nums) &lt;= 2 &#123;
+        return len(nums)
+    &#125;
+    i := 2
+    for j := 2; j &lt; len(nums); j++ &#123;
+        if nums[j] != nums[i-2] &#123;
+            nums[i] = nums[j]
+            i++
+        &#125;
+    &#125;
+    return i
+&#125;
+</code></pre>
+<h2 id="加一"><a href="#加一" class="headerlink" title="加一"></a>加一</h2><h3 id="66"><a href="#66" class="headerlink" title="66"></a><a class="link"   target="_blank" rel="noopener" href="https://leetcode.cn/problems/plus-one/" >66<i class="fas fa-external-link-alt"></i></a></h3><p>题目大意：给定一个由整数组成的非空数组所表示的非负整数，在该数的基础上加一。最高位数字存放在数组的首位， 数组中每个元素只存储单个数字。你可以假设除了整数 0 之外，这个整数不会以零开头。</p>
+<p>思路：从数组最后一位开始遍历，如果当前位小于9，直接加一返回结果，如果当前位为9，将该位设置为0，并进位。如果所有位都进位了，就在数组开头插入一个1。</p>
+<pre><code>func plusOne(digits []int) []int &#123;
+    for i := len(digits)-1; i &gt;=0 ; i-- &#123;
+        if digits[i] &lt; 9 &#123;
+            digits[i]++
+            return digits
+        &#125;
+        digits[i] = 0
+    &#125;
+    return append([]int&#123;1&#125;,digits...)
+&#125;
+</code></pre>
+<h2 id="两数之和"><a href="#两数之和" class="headerlink" title="两数之和"></a>两数之和</h2><h3 id="1"><a href="#1" class="headerlink" title="1"></a><a class="link"   target="_blank" rel="noopener" href="https://leetcode.cn/problems/two-sum/" >1<i class="fas fa-external-link-alt"></i></a></h3><p>题目大意：给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。</p>
+<p>思路：暴力题解，遍历每个元素 i，并查找是否存在一个值与 target - i 相等的目标元素。</p>
+<pre><code>func twoSum(nums []int, target int) []int &#123;
+    for i, v:= range nums &#123;
+        for k:=i+1;k&lt;len(nums);k++&#123;
+            if target-v==nums[k] &#123;
+                return []int&#123;i,k&#125;
+            &#125;
+        &#125;
+    &#125;
+    return nil
+&#125;
+</code></pre>
+<p>使用哈希表</p>
+<pre><code>func twoSum(nums []int, target int) []int &#123;
+    m:= make(map[int]int)
+    for i, num := range nums &#123;
+        if index,found := m[target-num] ;found&#123;
+            return []int&#123;index,i&#125;
+        &#125;
+        m[num]=i
+    &#125;
+    return nil
+&#125;
+</code></pre>
+<h2 id="三数之和"><a href="#三数之和" class="headerlink" title="三数之和"></a>三数之和</h2><h3 id="15"><a href="#15" class="headerlink" title="15"></a><a class="link"   target="_blank" rel="noopener" href="https://leetcode.cn/problems/3sum/" >15<i class="fas fa-external-link-alt"></i></a></h3><p>题目大意：给定一个数组，要求在这个数组中找出 3 个数之和为 0 的所有组合。</p>
+<p>思路：使用排序以及双指针解决，首先对数组进行排序，固定一个数 ，使用双指针来查找另外两个数。排序后，如果固定数本身大于0，那么三数之和必定不为0。移动左右指针，如果和大于0，说明右指针太大，需要左移，如果和小于0，说明左指针太小，需要右移。接下来就是处理重复值的情况，对于固定值以及左右指针都需要做重复值处理。</p>
+<pre><code>func threeSum(nums []int) [][]int &#123;
+    var result [][]int
+    sort.Ints(nums)
+    for i := 0; i &lt; len(nums); i++ &#123;
+        if i &gt; 0 &amp;&amp; nums[i] == nums[i-1] &#123;
+            continue  //避免重复固定值
+        &#125;
+        left, right := i+1, len(nums)-1
+        for left &lt; right &#123;
+            sum := nums[i] + nums[left] + nums[right]
+            if sum == 0 &#123;
+                result = append(result, []int&#123;nums[i], nums[left], nums[right]&#125;)
+                left++
+                right--
+                for left &lt; right &amp;&amp; nums[left] == nums[left-1] &#123;
+                    left++  //避免重复左指针
+                &#125;
+                for left &lt; right &amp;&amp; nums[right] == nums[right+1] &#123;
+                    right--  //避免重复右指针
+                &#125;
+            &#125; else if sum &lt; 0 &#123;
+                left++
+            &#125; else &#123;
+                right--
+            &#125;
+        &#125;
+    &#125;
+    return result
+&#125;
+</code></pre>
+<p>那么四数之和也就差不大多，固定两个数，同样使用双指针。</p>
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul class="copyright-info-content">
+        <li>本文标题：算法刷题之数组系列</li>
+        <li>本文作者：n3ym4r</li>
+        <li>创建时间：2023-08-14 21:32:00</li>
+        <li>
+            本文链接：https://n3ym4r.github.io/2023/08/14/算法刷题之数组系列/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/golang/">#golang</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item">
+                        <a href="/tags/%E7%AE%97%E6%B3%95/">#算法</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item">
+                        <a href="/tags/%E6%95%B0%E7%BB%84/">#数组</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2023/04/15/Busqueda/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">Busqueda靶机</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            
+<footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+                <span>2020</span> -
+            
+            2023
+            
+                &nbsp;<i class="fas fa-heart icon-animate"></i>
+                &nbsp;<a href="/">n3ym4r</a>
+            
+        </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题
+            &nbsp;
+            <a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.9</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-up-right-and-down-left-from-center"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E7%BB%84"><span class="nav-text">数组</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E4%BA%A4%E9%9B%86"><span class="nav-text">两个数组的交集</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#349"><span class="nav-text">349</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#350"><span class="nav-text">350</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%9B%E9%98%B6%EF%BC%9A"><span class="nav-text">进阶：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E9%95%BF%E7%9A%84%E5%85%AC%E5%85%B1%E5%89%8D%E7%BC%80"><span class="nav-text">最长的公共前缀</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#14"><span class="nav-text">14</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA"><span class="nav-text">买卖股票的最佳时机</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#121"><span class="nav-text">121</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#122"><span class="nav-text">122</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#123"><span class="nav-text">123</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84"><span class="nav-text">旋转数组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#189"><span class="nav-text">189</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%9F%E5%9C%B0%E5%88%A0%E9%99%A4"><span class="nav-text">原地删除</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#27"><span class="nav-text">27</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#26"><span class="nav-text">26</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#283"><span class="nav-text">283</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#80"><span class="nav-text">80</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A0%E4%B8%80"><span class="nav-text">加一</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#66"><span class="nav-text">66</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C"><span class="nav-text">两数之和</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1"><span class="nav-text">1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C"><span class="nav-text">三数之和</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#15"><span class="nav-text">15</span></a></li></ol></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/js/dark-light-toggle.js"></script>
+
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/js/code-block-tools.js"></script>
+
+
+
+
+<div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/js/left-side-toggle.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/js/libs/anime.min.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/js/toc.js"></script>
+    
+</div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.9/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>
